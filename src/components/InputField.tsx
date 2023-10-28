@@ -37,7 +37,7 @@ class InputField extends Component<
           onChange={(e) => this.handleChange(e.target.value)}
         />
         <button type="submit" className="input__submit">
-          Go
+        Search
         </button>
       </form>
     );
