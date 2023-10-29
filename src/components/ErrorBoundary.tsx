@@ -2,7 +2,6 @@ import { Component, ErrorInfo, ReactNode } from 'react';
 
 import Button from './UI/button/Button';
 
-import errorSvg from '../assets/error.svg';
 import './styles.css';
 
 interface IErrorBoundaryProps {
@@ -35,7 +34,6 @@ class ErrorBoundary extends Component<
     if (this.state.hasError) {
       return (
         <div className="error__wrapper">
-          <img className="icon" src={errorSvg} alt="Oops" />
           <h1>Oops! Something went wrong!</h1>
           <Button type="button" onClick={this.reloadPage}>
             Repeat
