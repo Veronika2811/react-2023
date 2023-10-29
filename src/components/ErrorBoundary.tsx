@@ -1,14 +1,22 @@
 import { Component, ErrorInfo, ReactNode } from 'react';
 
-interface Props {
+import Button from './UI/button/Button';
+
+import errorSvg from '../assets/error.svg';
+import './styles.css';
+
+interface IErrorBoundaryProps {
   children?: ReactNode;
 }
 
-interface State {
+interface IErrorBoundaryState {
   hasError: boolean;
 }
 
-class ErrorBoundary extends Component<Props, State> {
+class ErrorBoundary extends Component<
+  IErrorBoundaryProps,
+  IErrorBoundaryState
+> {
   state = {
     hasError: false,
   };
@@ -26,11 +34,12 @@ class ErrorBoundary extends Component<Props, State> {
   render() {
     if (this.state.hasError) {
       return (
-        <div>
-          <h1>Something went wrong.</h1>
-          <button type="button" onClick={this.reloadPage}>
-            Click
-          </button>
+        <div className="error__wrapper">
+          <img className="icon" src={errorSvg} alt="Oops" />
+          <h1>Oops! Something went wrong!</h1>
+          <Button type="button" onClick={this.reloadPage}>
+            Repeat
+          </Button>
         </div>
       );
     }

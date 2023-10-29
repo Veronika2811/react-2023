@@ -18,3 +18,15 @@
 .input__box:focus {
   outline: 1px solid #4ac7bc;
 }
+
+.error__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.icon {
+  width: 4em;
+  height: 4em;
+}

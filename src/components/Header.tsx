@@ -22,7 +22,7 @@ class Header extends Component<IHeaderProps, IHeaderState> {
 
   render() {
     if (this.state.hasError) {
-      throw new Error('Something went wrong!');
+      throw new Error('Oops! Something went wrong!');
     }
 
     return (

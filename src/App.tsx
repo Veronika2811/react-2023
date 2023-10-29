@@ -38,7 +38,7 @@ class App extends Component<Record<string, unknown>, IAppState> {
           });
         }
       );
-    }, 1000)
+    }, 1000);
   };
 
   componentDidMount = () => this.getDate();
