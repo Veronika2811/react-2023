@@ -1,6 +1,7 @@
 .header {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 2em;
 }
 
 .input {
@@ -29,4 +30,43 @@
 .icon {
   width: 4em;
   height: 4em;
+}
+
+.characters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  height: calc(100vh - (4rem + 70px));
+}
+
+.card {
+  position: relative;
+  width: 250px;
+  text-align: center;
+  list-style: none;
+  border: 1px solid #4d4b4b;
+  border-radius: 10px;
+}
+
+.card__image {
+  height: 250px;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card__label {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: white;
+  font-weight: 700;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.card__content {
+  padding: 10px;
 }

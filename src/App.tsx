@@ -2,21 +2,23 @@ import { Component } from 'react';
 
 import Header from './components/Header';
 import Preloader from './components/UI/preloader/Preloader';
+import CharactersWrapper from './components/CharactersWrapper';
 import fetchData from './services/fetchData';
 import { ICharacter } from './types/types';
 
 import './App.css';
 
 interface IAppState {
-  items: ICharacter[];
+  characters: ICharacter[];
   isLoaded: boolean;
+  // hasError: boolean;
 }
 
 class App extends Component<Record<string, unknown>, IAppState> {
   constructor(props: Record<string, unknown>) {
     super(props);
     this.state = {
-      items: [],
+      characters: [],
       isLoaded: false,
     };
   }
@@ -26,19 +28,17 @@ class App extends Component<Record<string, unknown>, IAppState> {
 
     const currentQuery = query || localStorage.getItem('searchRequest') || '';
 
-    setTimeout(() => {
-      fetchData(currentQuery).then(
-        (result) => {
-          this.setState({ items: result.results, isLoaded: false });
-        },
-        (error) => {
-          console.error(error);
-          this.setState({
-            isLoaded: true,
-          });
-        }
-      );
-    }, 1000);
+    fetchData(currentQuery).then(
+      (result) => {
+        this.setState({ characters: result.results, isLoaded: false });
+      },
+      (error) => {
+        console.error(error);
+        this.setState({
+          isLoaded: true,
+        });
+      }
+    );
   };
 
   componentDidMount = () => this.getDate();
@@ -48,7 +48,9 @@ class App extends Component<Record<string, unknown>, IAppState> {
       <>
         <Header getDate={this.getDate} />
         {this.state.isLoaded && <Preloader />}
-        {/* {!this.state.isLoaded && <CardList items={this.state.items} />} */}
+        {!this.state.isLoaded && (
+          <CharactersWrapper characters={this.state.characters} />
+        )}
       </>
     );
   }
