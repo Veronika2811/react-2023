@@ -3,25 +3,21 @@ import { Component } from 'react';
 import CharacterCard from './CharacterCard';
 import { ICharacter } from '../types/types';
 
-interface ICardList {
+interface ICardListProps {
   characters: ICharacter[];
 }
 
-class CharactersWrapper extends Component<ICardList> {
-  constructor(props: ICardList) {
+class CharactersWrapper extends Component<ICardListProps> {
+  constructor(props: ICardListProps) {
     super(props);
   }
 
   render() {
     return (
       <ul className="characters">
-        {this.props.characters ? (
-          this.props.characters.map((card) => (
-            <CharacterCard card={card} key={card.id} />
-          ))
-        ) : (
-          <h2>Ничего не найдено</h2>
-        )}
+        {this.props.characters.map((card) => (
+          <CharacterCard card={card} key={card.id} />
+        ))}
       </ul>
     );
   }

@@ -20,15 +20,13 @@ class CharacterCard extends Component<ICharacterCardProps> {
     return (
       <li className="card" key={id}>
         <p
-          className="card__label"
-          style={{
-            backgroundColor:
-              status === 'Dead'
-                ? '#EC2D01'
-                : status === 'Alive'
-                ? '#76c076'
-                : '#808080',
-          }}
+          className={`card__label ${
+            status === 'Dead'
+              ? 'card__label_red'
+              : status === 'Alive'
+              ? 'card__label_green'
+              : 'card__label_grey'
+          }`}
         >
           {status}
         </p>

@@ -3,6 +3,7 @@ import { Component } from 'react';
 import Header from './components/Header';
 import Preloader from './components/UI/preloader/Preloader';
 import CharactersWrapper from './components/CharactersWrapper';
+import NothingFound from './components/NothingFound';
 import fetchData from './services/fetchData';
 import { ICharacter } from './types/types';
 
@@ -11,7 +12,6 @@ import './App.css';
 interface IAppState {
   characters: ICharacter[];
   isLoaded: boolean;
-  // hasError: boolean;
 }
 
 class App extends Component<Record<string, unknown>, IAppState> {
@@ -48,8 +48,10 @@ class App extends Component<Record<string, unknown>, IAppState> {
       <>
         <Header getDate={this.getDate} />
         {this.state.isLoaded && <Preloader />}
-        {!this.state.isLoaded && (
+        {!this.state.isLoaded && this.state.characters ? (
           <CharactersWrapper characters={this.state.characters} />
+        ) : (
+          <NothingFound />
         )}
       </>
     );

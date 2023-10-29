@@ -37,7 +37,6 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  height: calc(100vh - (4rem + 70px));
 }
 
 .card {
@@ -65,6 +64,18 @@
   padding: 5px;
   border-radius: 5px;
   font-size: 15px;
+}
+
+.card__label_red {
+  background-color: #ec2d01;
+}
+
+.card__label_green {
+  background-color: #76c076;
+}
+
+.card__label_grey {
+  background-color: #808080;
 }
 
 .card__content {
