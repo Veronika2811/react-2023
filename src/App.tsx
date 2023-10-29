@@ -1,76 +1,51 @@
 import { Component } from 'react';
 
-import InputField from './components/InputField';
+import Header from './components/Header';
+import fetchData from './services/fetchData';
+import { ICharacter } from './types/types';
 
 import './App.css';
-import CardList from './components/CardList';
 
-interface ICharacter {
-  created: string;
-  episode: string[];
-  gender: string;
-  id: number;
-  image: string;
-  location: {
-    name: string;
-    url: string;
-  };
-  name: string;
-  origin: {
-    name: string;
-    url: string;
-  };
-  species: string;
-  status: string;
-  type: string;
-  url: string;
+interface IAppState {
+  items: ICharacter[];
+  isLoaded: boolean;
 }
 
-class App extends Component<{}, {items: ICharacter[]}> {
-  constructor(props: {}) {
-    super(props)
+class App extends Component<Record<string, unknown>, IAppState> {
+  constructor(props: Record<string, unknown>) {
+    super(props);
     this.state = {
-      // error: null,
-      // isLoaded: false,
       items: [],
+      isLoaded: false,
     };
-    this.getDate = this.getDate.bind(this);
   }
 
-  getDate(query?: string) {
-    const currentQuery = query || localStorage.getItem("searchRequest");
+  getDate = (query?: string) => {
+    this.setState({ isLoaded: true });
 
-    fetch(
-      `https://rickandmortyapi.com/api/character/${currentQuery ? `?name=${currentQuery}` : ''}`
-    )
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          console.log(result.results);
-          this.setState({ items: result.results });
-          // this.setState({
-          //   // isLoaded: true,
-          //   items: result.results,
-          // });
-        },
-        (error) => {
-          // this.setState({
-          //   isLoaded: true,
-          //   error,
-          // });
-        }
-      );
+    const currentQuery = query || localStorage.getItem('searchRequest') || '';
+
+    fetchData(currentQuery).then(
+      (result) => {
+        this.setState({ items: result.results, isLoaded: false });
+      },
+      (error) => {
+        console.error(error);
+        this.setState({
+          isLoaded: true,
+        });
+      }
+    );
   };
 
-  componentDidMount() {
-    this.getDate();
-  }
+  componentDidMount = () => this.getDate();
 
   render() {
     return (
       <>
-        <InputField getDate={this.getDate} />
-        <CardList items={this.state.items} />
+        <Header getDate={this.getDate} />
+        {/* {!this.state.isLoaded && <CardList items={this.state.items} />} */}
+        {/* {this.state.isLoaded && <Preloader />} */}
       </>
     );
   }

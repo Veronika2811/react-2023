@@ -1,30 +1,31 @@
 import { Component, FormEvent } from 'react';
+import Button from './UI/button/Button';
 
-interface InputFieldProps {
+interface IInputFieldProps {
+  getDate: (query: string) => void;
+}
+
+interface IInputFieldState {
   value: string;
 }
 
-class InputField extends Component<
-  { getDate: (request: string) => void },
-  InputFieldProps
-> {
-  constructor(props: { getDate: (request: string) => void }) {
+class InputField extends Component<IInputFieldProps, IInputFieldState> {
+  constructor(props: IInputFieldProps) {
     super(props);
     this.state = {
-      value: '',
+      value: localStorage.getItem('searchRequest') || '',
     };
-    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleSubmit(e: FormEvent) {
+  handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     localStorage.setItem('searchRequest', this.state.value);
     this.props.getDate(this.state.value);
-  }
+  };
 
-  handleChange(searchRequest: string) {
+  handleChange = (searchRequest: string) => {
     this.setState({ value: searchRequest.trim() });
-  }
+  };
 
   render() {
     return (
@@ -32,13 +33,12 @@ class InputField extends Component<
         <input
           type="text"
           placeholder="Enter request"
+          autoFocus
           className="input__box"
           value={this.state.value}
           onChange={(e) => this.handleChange(e.target.value)}
         />
-        <button type="submit" className="input__submit">
-        Search
-        </button>
+        <Button type="submit">Search</Button>
       </form>
     );
   }

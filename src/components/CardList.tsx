@@ -1,25 +1,6 @@
 import { Component } from 'react';
 
-interface ICharacter {
-  created: string;
-  episode: string[];
-  gender: string;
-  id: number;
-  image: string;
-  location: {
-    name: string;
-    url: string;
-  };
-  name: string;
-  origin: {
-    name: string;
-    url: string;
-  };
-  species: string;
-  status: string;
-  type: string;
-  url: string;
-}
+import { ICharacter } from '../types/types';
 
 class CardList extends Component<{ items: ICharacter[] }> {
   constructor(props: { items: ICharacter[] }) {
@@ -27,7 +8,6 @@ class CardList extends Component<{ items: ICharacter[] }> {
   }
 
   render() {
-    console.log(this.props.items)
     return (
       <div>
         {this.props.items.map((card) => (
@@ -45,7 +25,6 @@ class CardList extends Component<{ items: ICharacter[] }> {
               <p>
                 Location: <span>{card.location.name}</span>
               </p>
-              {/* <p>Year created: <span>{created}</span></p> */}
             </div>
           </li>
         ))}
