@@ -1,6 +1,7 @@
 import { Component } from 'react';
 
 import Header from './components/Header';
+import Preloader from './components/UI/preloader/Preloader';
 import fetchData from './services/fetchData';
 import { ICharacter } from './types/types';
 
@@ -25,17 +26,19 @@ class App extends Component<Record<string, unknown>, IAppState> {
 
     const currentQuery = query || localStorage.getItem('searchRequest') || '';
 
-    fetchData(currentQuery).then(
-      (result) => {
-        this.setState({ items: result.results, isLoaded: false });
-      },
-      (error) => {
-        console.error(error);
-        this.setState({
-          isLoaded: true,
-        });
-      }
-    );
+    setTimeout(() => {
+      fetchData(currentQuery).then(
+        (result) => {
+          this.setState({ items: result.results, isLoaded: false });
+        },
+        (error) => {
+          console.error(error);
+          this.setState({
+            isLoaded: true,
+          });
+        }
+      );
+    }, 1000)
   };
 
   componentDidMount = () => this.getDate();
@@ -44,8 +47,8 @@ class App extends Component<Record<string, unknown>, IAppState> {
     return (
       <>
         <Header getDate={this.getDate} />
+        {this.state.isLoaded && <Preloader />}
         {/* {!this.state.isLoaded && <CardList items={this.state.items} />} */}
-        {/* {this.state.isLoaded && <Preloader />} */}
       </>
     );
   }
