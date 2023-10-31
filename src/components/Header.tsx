@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { useState } from 'react';
 
 import InputField from './InputField';
 import Button from './UI/button/Button';
@@ -6,34 +6,26 @@ import Button from './UI/button/Button';
 import './styles.css';
 
 interface IHeaderProps {
-  getDate: (query: string) => void;
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
 }
 
-interface IHeaderState {
-  hasError: boolean;
-}
+const Header = ({ setSearchQuery }: IHeaderProps) => {
+  const [hasError, setHasError] = useState<boolean>(false);
 
-class Header extends Component<IHeaderProps, IHeaderState> {
-  state = {
-    hasError: false,
-  };
+  const getErrorOnPage = () => setHasError(true);
 
-  getErrorOnPage = () => this.setState({ hasError: true });
-
-  render() {
-    if (this.state.hasError) {
-      throw new Error('Oops! Something went wrong!');
-    }
-
-    return (
-      <header className="header">
-        <InputField getDate={this.props.getDate} />
-        <Button type="button" onClick={this.getErrorOnPage}>
-          Error
-        </Button>
-      </header>
-    );
+  if (hasError) {
+    throw new Error('Oops! Something went wrong!');
   }
-}
+
+  return (
+    <header className="header">
+      <InputField setSearchQuery={setSearchQuery} />
+      <Button type="button" onClick={getErrorOnPage}>
+        Error
+      </Button>
+    </header>
+  );
+};
 
 export default Header;

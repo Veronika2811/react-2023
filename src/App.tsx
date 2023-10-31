@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { useState, useEffect } from 'react';
 
 import Header from './components/Header';
 import Preloader from './components/UI/preloader/Preloader';
@@ -9,22 +9,13 @@ import { ICharacter } from './types/types';
 
 import './App.css';
 
-interface IAppState {
-  characters: ICharacter[];
-  isLoaded: boolean;
-}
+const App = () => {
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [characters, setCharacters] = useState<ICharacter[]>([]);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
-class App extends Component<Record<string, unknown>, IAppState> {
-  constructor(props: Record<string, unknown>) {
-    super(props);
-    this.state = {
-      characters: [],
-      isLoaded: false,
-    };
-  }
-
-  getDate = (query?: string) => {
-    this.setState({ isLoaded: true });
+  const getDate = (query?: string) => {
+    setIsLoaded(true);
 
     const currentQuery =
       query ||
@@ -33,32 +24,33 @@ class App extends Component<Record<string, unknown>, IAppState> {
 
     fetchData(currentQuery).then(
       (result) => {
-        this.setState({ characters: result.results, isLoaded: false });
+        setCharacters(result.results || []);
+        setIsLoaded(false);
       },
       (error) => {
         console.error(error);
-        this.setState({
-          isLoaded: true,
-        });
+        setIsLoaded(true);
       }
     );
   };
 
-  componentDidMount = () => this.getDate();
+  useEffect(() => {
+    getDate();
+  }, [searchQuery]);
 
-  render() {
-    return (
-      <>
-        <Header getDate={this.getDate} />
-        {this.state.isLoaded && <Preloader />}
-        {!this.state.isLoaded && this.state.characters ? (
-          <CharactersWrapper characters={this.state.characters} />
-        ) : (
-          <NothingFound />
-        )}
-      </>
-    );
-  }
-}
+  console.log(characters);
+
+  return (
+    <>
+      <Header setSearchQuery={setSearchQuery} />
+      {isLoaded && <Preloader />}
+      {!isLoaded && characters.length ? (
+        <CharactersWrapper characters={characters} />
+      ) : (
+        <NothingFound />
+      )}
+    </>
+  );
+};
 
 export default App;
