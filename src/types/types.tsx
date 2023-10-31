@@ -1,4 +1,11 @@
-export interface ICharacter {
+export interface IDataInfo {
+  count: number;
+  next: string | null;
+  pages: number;
+  prev: string | null;
+}
+
+export interface IDataResult {
   created: string;
   episode: string[];
   gender: string;
@@ -17,4 +24,9 @@ export interface ICharacter {
   status: string;
   type: string;
   url: string;
+}
+
+export interface IData {
+  info: IDataInfo;
+  results: IDataResult[];
 }

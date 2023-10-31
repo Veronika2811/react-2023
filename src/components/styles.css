@@ -81,3 +81,45 @@
 .card__content {
   padding: 10px;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 30px;
+}
+
+.pagination__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  color: #4ac7bc;
+  background: transparent;
+  border: 1px solid #b7e6e1;
+  border-radius: 100%;
+  transition: all 0.3s ease-out;
+}
+
+.pagination__controls:hover:not([disabled]) {
+  color: #292929;
+  background-color: #b7e6e1;
+  border: 1px solid #b7e6e1;
+  cursor: pointer;
+}
+
+.pagination__controls:disabled {
+  color: #cdcdcd;
+  border: 1px solid #cdcdcd;
+}
+
+.pagination__page {
+  padding: 10px;
+  color: #292929;
+  background-color: #b7e6e1;
+  border-radius: 20px;
+  pointer-events: none;
+}

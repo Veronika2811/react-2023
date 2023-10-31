@@ -1,30 +1,31 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import Header from './components/Header';
 import Preloader from './components/UI/preloader/Preloader';
 import CharactersWrapper from './components/CharactersWrapper';
 import NothingFound from './components/NothingFound';
 import fetchData from './services/fetchData';
-import { ICharacter } from './types/types';
+import { IData } from './types/types';
 
 import './App.css';
 
 const App = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [characters, setCharacters] = useState<ICharacter[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [data, setData] = useState<IData | null>(null);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
-  const getDate = (query?: string) => {
+  const getDate = useCallback(() => {
     setIsLoaded(true);
 
     const currentQuery =
-      query ||
+      searchQuery ||
       localStorage.getItem('Veronika2811-react-2023__searchRequest') ||
       '';
 
-    fetchData(currentQuery).then(
+    fetchData(currentQuery, currentPage).then(
       (result) => {
-        setCharacters(result.results || []);
+        setData(result);
         setIsLoaded(false);
       },
       (error) => {
@@ -32,20 +33,22 @@ const App = () => {
         setIsLoaded(true);
       }
     );
-  };
+  }, [searchQuery, currentPage]);
 
   useEffect(() => {
     getDate();
-  }, [searchQuery]);
-
-  console.log(characters);
+  }, [searchQuery, currentPage, getDate]);
 
   return (
     <>
       <Header setSearchQuery={setSearchQuery} />
       {isLoaded && <Preloader />}
-      {!isLoaded && characters.length ? (
-        <CharactersWrapper characters={characters} />
+      {!isLoaded && data?.results ? (
+        <CharactersWrapper
+          data={data}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       ) : (
         <NothingFound />
       )}
