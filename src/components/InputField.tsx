@@ -23,13 +23,13 @@ class InputField extends Component<IInputFieldProps, IInputFieldState> {
     e.preventDefault();
     localStorage.setItem(
       'Veronika2811-react-2023__searchRequest',
-      this.state.value
+      this.state.value.trim()
     );
     this.props.getDate(this.state.value);
   };
 
   handleChange = (searchRequest: string) => {
-    this.setState({ value: searchRequest.trim() });
+    this.setState({ value: searchRequest });
   };
 
   render() {
