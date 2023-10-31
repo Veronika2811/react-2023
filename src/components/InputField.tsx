@@ -14,13 +14,17 @@ class InputField extends Component<IInputFieldProps, IInputFieldState> {
   constructor(props: IInputFieldProps) {
     super(props);
     this.state = {
-      value: localStorage.getItem('searchRequest') || '',
+      value:
+        localStorage.getItem('Veronika2811-react-2023__searchRequest') || '',
     };
   }
 
   handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    localStorage.setItem('searchRequest', this.state.value);
+    localStorage.setItem(
+      'Veronika2811-react-2023__searchRequest',
+      this.state.value
+    );
     this.props.getDate(this.state.value);
   };
 

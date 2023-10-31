@@ -26,7 +26,10 @@ class App extends Component<Record<string, unknown>, IAppState> {
   getDate = (query?: string) => {
     this.setState({ isLoaded: true });
 
-    const currentQuery = query || localStorage.getItem('searchRequest') || '';
+    const currentQuery =
+      query ||
+      localStorage.getItem('Veronika2811-react-2023__searchRequest') ||
+      '';
 
     fetchData(currentQuery).then(
       (result) => {
