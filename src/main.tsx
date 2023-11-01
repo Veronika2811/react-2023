@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
 
-import App from './App';
 import ErrorBoundary from './components/ErrorBoundary';
+import CONSTANTS_ROUTER from './constants/constantsRouter';
 
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ErrorBoundary>
-      <App />
+      <RouterProvider router={CONSTANTS_ROUTER} />
     </ErrorBoundary>
   </React.StrictMode>
 );

@@ -1,9 +1,9 @@
-import { ICharacter } from '../types/types';
+import { IDataResult } from '../types/types';
 
 import './styles.css';
 
 interface ICharacterCardProps {
-  card: ICharacter;
+  card: IDataResult;
 }
 
 const CharacterCard = ({ card }: ICharacterCardProps) => {

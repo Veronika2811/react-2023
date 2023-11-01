@@ -1,4 +1,5 @@
 import { useState, FormEvent } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import Button from './UI/button/Button';
 
@@ -10,6 +11,7 @@ const InputField = ({ setSearchQuery }: IInputFieldProps) => {
   const [value, setValue] = useState<string>(
     localStorage.getItem('Veronika2811-react-2023__searchRequest') || ''
   );
+  const [, setSearchParams] = useSearchParams();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -18,6 +20,11 @@ const InputField = ({ setSearchQuery }: IInputFieldProps) => {
       value.trim()
     );
     setSearchQuery(value);
+
+    setSearchParams((searchParams) => {
+      searchParams.set('page', '1');
+      return searchParams;
+    });
   };
 
   const handleChange = (searchRequest: string) => setValue(searchRequest);
@@ -26,6 +33,7 @@ const InputField = ({ setSearchQuery }: IInputFieldProps) => {
     <form className="input" onSubmit={handleSubmit}>
       <input
         type="text"
+        name="search"
         placeholder="Enter request"
         autoFocus
         className="input__box"
