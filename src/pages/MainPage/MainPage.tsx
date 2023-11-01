@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import fetchData from '../services/fetchData';
-import Preloader from './UI/preloader/Preloader';
-import CharactersWrapper from './CharactersWrapper';
-import NothingFound from './NothingFound';
-import Pagination from './Pagination';
-import { IData } from '../types/types';
+import fetchData from '../../services/fetchData';
+import Preloader from '../../components/UI/preloader/Preloader';
+import CharactersWrapper from '../../components/CharactersWrapper';
+import NothingFound from '../../components/NothingFound';
+import Pagination from '../../components/Pagination';
+import { IData } from '../../types/types';
 
-import './styles.css';
+import classes from './MainPage.module.css';
 
 interface IMainProps {
   searchQuery: string;
@@ -54,7 +54,7 @@ const Main = ({ searchQuery }: IMainProps) => {
   }, [searchQuery, pageParams, setSearchParams, getDate]);
 
   return (
-    <main className="main">
+    <main className={classes.main}>
       {isLoaded && <Preloader />}
       {!isLoaded && data?.results ? (
         <CharactersWrapper data={data.results} />

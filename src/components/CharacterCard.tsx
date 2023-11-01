@@ -1,3 +1,4 @@
+import getStatusCharacterColor from '../utils/getStatusCharacterColor';
 import { IDataResult } from '../types/types';
 
 import './styles.css';
@@ -10,30 +11,16 @@ const CharacterCard = ({ card }: ICharacterCardProps) => {
   const { id, status, image, name, gender, species, location } = card;
 
   return (
-    <li className="card" key={id}>
-      <p
-        className={`card__label ${
-          status === 'Dead'
-            ? 'card__label_red'
-            : status === 'Alive'
-            ? 'card__label_green'
-            : 'card__label_grey'
-        }`}
-      >
+    <li className="characters__card card" key={id}>
+      <p className={`card__label ${getStatusCharacterColor(status)}`}>
         {status}
       </p>
       <img className="card__image" src={image} alt={name} />
       <div className="card__content">
-        <h3>{name}</h3>
-        <p>
-          Gender: <span>{gender}</span>
-        </p>
-        <p>
-          Species: <span>{species}</span>
-        </p>
-        <p>
-          Location: <span>{location.name}</span>
-        </p>
+        <h2>{name}</h2>
+        <p>{`Gender: ${gender}`}</p>
+        <p>{`Species: ${species}`}</p>
+        <p>{`Location: ${location.name}`}</p>
       </div>
     </li>
   );

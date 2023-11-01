@@ -1,11 +1,18 @@
 .header {
+  position: fixed;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 2em;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  padding: 20px;
+  background-color: #242424;
 }
 
 .input {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -23,19 +30,20 @@
 .error__wrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 30px;
+  height: 100vh;
 }
 
-.icon {
-  width: 4em;
-  height: 4em;
+.main__characters {
+  padding: 100px 20px;
 }
 
 .characters {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   gap: 20px;
 }
 
@@ -50,20 +58,16 @@
 
 .card__image {
   height: 250px;
-  width: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
 .card__label {
   position: absolute;
-  right: 10px;
   top: 10px;
-  color: white;
-  font-weight: 700;
-  padding: 5px;
+  right: 10px;
+  padding: 0px 10px;
   border-radius: 5px;
-  font-size: 15px;
 }
 
 .card__label_red {
@@ -83,11 +87,15 @@
 }
 
 .pagination {
+  position: fixed;
+  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  padding: 30px;
+  width: 100%;
+  padding: 20px;
+  background-color: #242424;
 }
 
 .pagination__controls {
