@@ -45,14 +45,16 @@ const Main = ({ searchQuery }: IMainProps) => {
 
   useEffect(() => {
     getDate();
+  }, [getDate]);
 
+  useEffect(() => {
     if (!pageParams) {
       setSearchParams((searchParams) => {
         searchParams.set('page', '1');
         return searchParams;
       });
     }
-  }, [searchQuery, pageParams, setSearchParams, getDate]);
+  }, [pageParams, setSearchParams]);
 
   return (
     <main className={details ? classes.main : ''}>
