@@ -1,3 +1,5 @@
+import { useSearchParams } from 'react-router-dom';
+
 import getStatusCharacterColor from '../utils/getStatusCharacterColor';
 import { IDataResult } from '../types/types';
 
@@ -10,8 +12,19 @@ interface ICharacterCardProps {
 const CharacterCard = ({ card }: ICharacterCardProps) => {
   const { id, status, image, name, gender, species, location } = card;
 
+  const [, setSearchParams] = useSearchParams();
+
   return (
-    <li className="characters__card card" key={id}>
+    <li
+      className="characters__card card"
+      key={id}
+      onClick={() => {
+        setSearchParams((searchParams) => {
+          searchParams.set('details', id.toString());
+          return searchParams;
+        });
+      }}
+    >
       <p className={`card__label ${getStatusCharacterColor(status)}`}>
         {status}
       </p>

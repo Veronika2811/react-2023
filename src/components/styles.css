@@ -36,7 +36,8 @@
   height: 100vh;
 }
 
-.main__characters {
+.main__characters,
+.main__details {
   padding: 100px 20px;
 }
 
@@ -54,6 +55,12 @@
   list-style: none;
   border: 1px solid #4d4b4b;
   border-radius: 10px;
+  transition: border-color 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  border-color: #918e8e;
 }
 
 .card__image {
@@ -130,4 +137,14 @@
   background-color: #b7e6e1;
   border-radius: 20px;
   pointer-events: none;
+}
+
+.main__details {
+  position: fixed;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  height: 100%;
 }

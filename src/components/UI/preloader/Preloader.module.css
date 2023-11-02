@@ -1,11 +1,13 @@
 .preloader__wrapper {
   display: flex;
   justify-content: center;
+  height: 100vh;
 }
 
 .preloader__inner {
   height: 50px;
   width: 50px;
+  margin: auto;
   animation: preloader-rotate 1.2s infinite;
 }
 

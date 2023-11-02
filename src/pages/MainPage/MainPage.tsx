@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Outlet, useSearchParams } from 'react-router-dom';
 
 import fetchData from '../../services/fetchData';
 import Preloader from '../../components/UI/preloader/Preloader';
@@ -21,6 +21,7 @@ const Main = ({ searchQuery }: IMainProps) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const pageParams = searchParams.get('page');
   const currentPage = pageParams ? +pageParams : 1;
+  const details = searchParams.get('details');
 
   const getDate = useCallback(() => {
     setIsLoaded(true);
@@ -54,13 +55,19 @@ const Main = ({ searchQuery }: IMainProps) => {
   }, [searchQuery, pageParams, setSearchParams, getDate]);
 
   return (
-    <main className={classes.main}>
+    <main className={details ? classes.main : ''}>
       {isLoaded && <Preloader />}
+
       {!isLoaded && data?.results ? (
-        <CharactersWrapper data={data.results} />
+        <CharactersWrapper
+          data={data.results}
+          setSearchParams={setSearchParams}
+        />
       ) : (
         <NothingFound />
       )}
+
+      {details ? <Outlet /> : ''}
 
       {data?.info && (
         <Pagination

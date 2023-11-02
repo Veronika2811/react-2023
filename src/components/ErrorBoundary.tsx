@@ -21,7 +21,6 @@ class ErrorBoundary extends Component<
   };
 
   static getDerivedStateFromError() {
-    console.log('dsds');
     return { hasError: true };
   }
 
