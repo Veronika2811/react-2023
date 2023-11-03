@@ -2,8 +2,6 @@ import { Component, ErrorInfo, ReactNode } from 'react';
 
 import Button from './UI/button/Button';
 
-import './styles.css';
-
 interface IErrorBoundaryProps {
   children?: ReactNode;
 }

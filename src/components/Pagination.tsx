@@ -3,8 +3,6 @@ import { SetURLSearchParams } from 'react-router-dom';
 
 import { IDataInfo } from '../types/types';
 
-import './styles.css';
-
 interface IPaginationProps {
   currentPage: number;
   info: IDataInfo;

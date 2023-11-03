@@ -8,8 +8,6 @@ import Button from './UI/button/Button';
 import fetchItemData from '../services/fetchItemData';
 import { IDataResult } from '../types/types';
 
-import './styles.css';
-
 const CharacterDetailsWrapper = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const details = searchParams.get('details');

@@ -3,8 +3,6 @@ import { useState } from 'react';
 import InputField from './InputField';
 import Button from './UI/button/Button';
 
-import './styles.css';
-
 interface IHeaderProps {
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
 }

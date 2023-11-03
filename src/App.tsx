@@ -4,6 +4,8 @@ import Header from './components/Header';
 import Main from './pages/MainPage/MainPage';
 import ErrorBoundary from './components/ErrorBoundary';
 
+import './App.css';
+
 const App = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
 

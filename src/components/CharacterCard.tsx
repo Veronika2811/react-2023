@@ -3,8 +3,6 @@ import { useSearchParams } from 'react-router-dom';
 import getStatusCharacterColor from '../utils/getStatusCharacterColor';
 import { IDataResult } from '../types/types';
 
-import './styles.css';
-
 interface ICharacterCardProps {
   card: IDataResult;
 }
