@@ -1,10 +1,10 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 
 import App from '../App';
 import ErrorPage from '../pages/ErrorPage';
 import CharacterDetailsWrapper from '../components/CharacterDetailsWrapper';
 
-const CONSTANTS_ROUTER = createBrowserRouter([
+const CONSTANTS_ROUTER = createHashRouter([
   {
     path: '/',
     element: <App />,
