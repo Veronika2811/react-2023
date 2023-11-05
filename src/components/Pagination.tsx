@@ -7,12 +7,14 @@ interface IPaginationProps {
   currentPage: number;
   info: IDataInfo;
   setSearchParams: SetURLSearchParams;
+  perPage: number;
 }
 
 const Pagination = ({
   currentPage,
   info,
   setSearchParams,
+  perPage,
 }: IPaginationProps) => {
   const onChangePage = (page: number) => {
     setSearchParams((searchParams) => {
@@ -43,11 +45,11 @@ const Pagination = ({
         &lt;
       </button>
       <span className="pagination__page">
-        {currentPage} / {info.pages}
+        {currentPage} / {Math.ceil(info.count / perPage)}
       </span>
       <button
         type="button"
-        disabled={currentPage === info.pages}
+        disabled={currentPage >= info.count / perPage}
         className="pagination__controls slider__navigation next__page"
         onClick={() => onChangePage(++currentPage)}
       >

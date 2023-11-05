@@ -3,6 +3,7 @@
   z-index: 1;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
   gap: 20px;
   width: 100%;
@@ -152,4 +153,10 @@
   height: 100%;
   max-width: 300px;
   box-shadow: 0px 4px 20px rgba(250, 250, 250, 0.05);
+}
+
+.select {
+  padding: 0.6em 1.2em;
+  border: none;
+  border-radius: 5px;
 }

@@ -8,11 +8,12 @@ import './App.css';
 
 const App = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [perPage, setPerPage] = useState<number>(20);
 
   return (
     <ErrorBoundary>
-      <Header setSearchQuery={setSearchQuery} />
-      <Main searchQuery={searchQuery} />
+      <Header setSearchQuery={setSearchQuery} setPerPage={setPerPage} />
+      <Main searchQuery={searchQuery} perPage={perPage} />
     </ErrorBoundary>
   );
 };

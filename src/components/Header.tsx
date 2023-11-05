@@ -3,12 +3,14 @@ import { useSearchParams } from 'react-router-dom';
 
 import InputField from './InputField';
 import Button from './UI/button/Button';
+import Select from './Select';
 
 interface IHeaderProps {
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
+  setPerPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Header = ({ setSearchQuery }: IHeaderProps) => {
+const Header = ({ setSearchQuery, setPerPage }: IHeaderProps) => {
   const [, setSearchParams] = useSearchParams();
 
   const [hasError, setHasError] = useState<boolean>(false);
@@ -30,6 +32,7 @@ const Header = ({ setSearchQuery }: IHeaderProps) => {
       }}
     >
       <InputField setSearchQuery={setSearchQuery} />
+      <Select setPerPage={setPerPage} setSearchParams={setSearchParams} />
       <Button type="button" onClick={getErrorOnPage}>
         Error
       </Button>
