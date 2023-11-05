@@ -17,12 +17,23 @@ const Pagination = ({
   const onChangePage = (page: number) => {
     setSearchParams((searchParams) => {
       searchParams.set('page', page.toString());
+      searchParams.delete('details');
       return searchParams;
     });
   };
 
   return (
-    <div className="main__pagination pagination">
+    <div
+      className="main__pagination pagination"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          setSearchParams((searchParams) => {
+            searchParams.delete('details');
+            return searchParams;
+          });
+        }
+      }}
+    >
       <button
         type="button"
         disabled={currentPage === 1}

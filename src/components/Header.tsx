@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import InputField from './InputField';
 import Button from './UI/button/Button';
@@ -8,6 +9,8 @@ interface IHeaderProps {
 }
 
 const Header = ({ setSearchQuery }: IHeaderProps) => {
+  const [, setSearchParams] = useSearchParams();
+
   const [hasError, setHasError] = useState<boolean>(false);
 
   const getErrorOnPage = () => setHasError(true);
@@ -17,7 +20,15 @@ const Header = ({ setSearchQuery }: IHeaderProps) => {
   }
 
   return (
-    <header className="header">
+    <header
+      className="header"
+      onClick={() => {
+        setSearchParams((searchParams) => {
+          searchParams.delete('details');
+          return searchParams;
+        });
+      }}
+    >
       <InputField setSearchQuery={setSearchQuery} />
       <Button type="button" onClick={getErrorOnPage}>
         Error
