@@ -1,11 +1,15 @@
+import { useContext } from 'react';
 import { SetURLSearchParams } from 'react-router-dom';
 
+import { CharactersContext } from '../context/context';
+
 interface ISelectProps {
-  setPerPage: React.Dispatch<React.SetStateAction<number>>;
   setSearchParams: SetURLSearchParams;
 }
 
-const Select = ({ setPerPage, setSearchParams }: ISelectProps) => {
+const Select = ({ setSearchParams }: ISelectProps) => {
+  const { setPerPage } = useContext(CharactersContext);
+
   return (
     <select
       className="select"

@@ -25,7 +25,6 @@ const CharacterDetailsWrapper = () => {
           setIsLoaded(false);
         },
         (error) => {
-          console.log('error');
           console.error(error);
           setIsLoaded(true);
         }

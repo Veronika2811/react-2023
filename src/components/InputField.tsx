@@ -1,17 +1,15 @@
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useContext } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import Button from './UI/button/Button';
+import { CharactersContext } from '../context/context';
 
-interface IInputFieldProps {
-  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
-}
-
-const InputField = ({ setSearchQuery }: IInputFieldProps) => {
+const InputField = () => {
   const [value, setValue] = useState<string>(
     localStorage.getItem('Veronika2811-react-2023__searchRequest') || ''
   );
   const [, setSearchParams] = useSearchParams();
+  const { setSearchQuery } = useContext(CharactersContext);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();

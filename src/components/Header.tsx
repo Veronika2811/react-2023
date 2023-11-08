@@ -5,12 +5,7 @@ import InputField from './InputField';
 import Button from './UI/button/Button';
 import Select from './Select';
 
-interface IHeaderProps {
-  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
-  setPerPage: React.Dispatch<React.SetStateAction<number>>;
-}
-
-const Header = ({ setSearchQuery, setPerPage }: IHeaderProps) => {
+const Header = () => {
   const [, setSearchParams] = useSearchParams();
 
   const [hasError, setHasError] = useState<boolean>(false);
@@ -31,8 +26,8 @@ const Header = ({ setSearchQuery, setPerPage }: IHeaderProps) => {
         });
       }}
     >
-      <InputField setSearchQuery={setSearchQuery} />
-      <Select setPerPage={setPerPage} setSearchParams={setSearchParams} />
+      <InputField />
+      <Select setSearchParams={setSearchParams} />
       <Button type="button" onClick={getErrorOnPage}>
         Error
       </Button>

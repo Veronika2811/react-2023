@@ -1,20 +1,15 @@
-import { useState } from 'react';
-
 import Header from './components/Header';
 import Main from './pages/MainPage/MainPage';
-import ErrorBoundary from './components/ErrorBoundary';
+import { CharactersProvider } from './context/CharactersProvider';
 
 import './App.css';
 
 const App = () => {
-  const [searchQuery, setSearchQuery] = useState<string>('');
-  const [perPage, setPerPage] = useState<number>(20);
-
   return (
-    <ErrorBoundary>
-      <Header setSearchQuery={setSearchQuery} setPerPage={setPerPage} />
-      <Main searchQuery={searchQuery} perPage={perPage} />
-    </ErrorBoundary>
+    <CharactersProvider>
+      <Header />
+      <Main />
+    </CharactersProvider>
   );
 };
 

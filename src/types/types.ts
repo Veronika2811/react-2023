@@ -5,7 +5,11 @@ export interface IDataInfo {
   prev: string | null;
 }
 
-export interface IDataResult {
+export interface IDataError {
+  error: string;
+}
+
+export interface IDataResult extends IDataError {
   created: string;
   episode: string[];
   gender: string;
