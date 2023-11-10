@@ -1,33 +1,35 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import InputField from './InputField';
-import Button from './UI/button/Button';
-import Select from './Select';
+import SearchForm from '../SearchForm/SearchForm';
+import Select from '../Select/Select';
+import Button from '../UI/button/Button';
+import { DETAILS_URL_PARAMETER_KEY } from '../../constants/constants';
+
+import classes from './Header.module.css';
 
 const Header = () => {
   const [, setSearchParams] = useSearchParams();
-
   const [hasError, setHasError] = useState<boolean>(false);
-
-  const getErrorOnPage = () => setHasError(true);
 
   if (hasError) {
     throw new Error('Oops! Something went wrong!');
   }
 
+  const getErrorOnPage = () => setHasError(true);
+
   return (
     <header
-      className="header"
+      className={classes.header}
       onClick={() => {
         setSearchParams((searchParams) => {
-          searchParams.delete('details');
+          searchParams.delete(DETAILS_URL_PARAMETER_KEY);
           return searchParams;
         });
       }}
     >
-      <InputField />
-      <Select setSearchParams={setSearchParams} />
+      <SearchForm />
+      <Select />
       <Button type="button" onClick={getErrorOnPage}>
         Error
       </Button>

@@ -1,24 +1,26 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import CharacterCard from './CharacterCard';
-import NothingFound from './NothingFound';
-import Preloader from './UI/preloader/Preloader';
-import Button from './UI/button/Button';
-import fetchItemData from '../services/fetchItemData';
-import { IDataResult } from '../types/types';
+import fetchItemData from '../../services/fetchItemData';
+import Preloader from '../UI/preloader/Preloader';
+import Card from '../Card/Card';
+import Button from '../UI/button/Button';
+import { IDataResult } from '../../types/types';
+import { DETAILS_URL_PARAMETER_KEY } from '../../constants/constants';
 
-const CharacterDetailsWrapper = () => {
+import classes from './CardDetails.module.css';
+
+const CardDetails = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const details = searchParams.get('details');
-
   const [data, setData] = useState<IDataResult | null>(null);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
+  const detailsParams = searchParams.get(DETAILS_URL_PARAMETER_KEY);
+
   const getDate = useCallback(() => {
-    if (details) {
+    if (detailsParams) {
       setIsLoaded(true);
-      fetchItemData(details).then(
+      fetchItemData(detailsParams).then(
         (result) => {
           const { error } = result;
           if (!error) setData(result);
@@ -30,23 +32,24 @@ const CharacterDetailsWrapper = () => {
         }
       );
     }
-  }, [details]);
+  }, [detailsParams]);
 
   useEffect(() => {
     getDate();
-  }, [details, getDate]);
+  }, [getDate]);
 
   return (
-    <div className="main__details details">
+    <div className={classes.details}>
       {isLoaded && <Preloader />}
-      {!isLoaded && data ? (
+
+      {!isLoaded && data && (
         <>
-          <CharacterCard card={data} />
+          <Card card={data} />
           <Button
             type="button"
             onClick={() => {
               setSearchParams((searchParams) => {
-                searchParams.delete('details');
+                searchParams.delete(DETAILS_URL_PARAMETER_KEY);
                 return searchParams;
               });
             }}
@@ -54,11 +57,9 @@ const CharacterDetailsWrapper = () => {
             Close
           </Button>
         </>
-      ) : (
-        <NothingFound />
       )}
     </div>
   );
 };
 
-export default CharacterDetailsWrapper;
+export default CardDetails;

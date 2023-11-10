@@ -1,5 +1,5 @@
-import { BASE_URL } from '../constants/constants';
 import { IData } from '../types/types';
+import { BASE_URL } from '../constants/constants';
 
 const fetchData = async (query: string, page: number) => {
   const url = `${BASE_URL}?page=${page}&name=${query}`;

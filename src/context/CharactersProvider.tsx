@@ -1,15 +1,19 @@
 import { PropsWithChildren, useState, useMemo } from 'react';
 
-import { IData } from '../types/types';
 import { CharactersContext } from './context';
+import {
+  DEFAULT_VALUE_PER_PAGE,
+  LOCAL_STORAGE_KEY,
+} from '../constants/constants';
+import { IData } from '../types/types';
 
 export const CharactersProvider = ({ children }: PropsWithChildren) => {
   const { Provider } = CharactersContext;
 
   const [searchQuery, setSearchQuery] = useState<string>(
-    localStorage.getItem('Veronika2811-react-2023__searchRequest') || ''
+    localStorage.getItem(LOCAL_STORAGE_KEY) || ''
   );
-  const [perPage, setPerPage] = useState<number>(20);
+  const [perPage, setPerPage] = useState<number>(DEFAULT_VALUE_PER_PAGE);
   const [data, setData] = useState<IData | null>(null);
 
   const value = useMemo(

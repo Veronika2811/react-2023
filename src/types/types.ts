@@ -1,12 +1,12 @@
+export interface IDataError {
+  error: string;
+}
+
 export interface IDataInfo {
   count: number;
   next: string | null;
   pages: number;
   prev: string | null;
-}
-
-export interface IDataError {
-  error: string;
 }
 
 export interface IDataResult extends IDataError {
@@ -30,7 +30,7 @@ export interface IDataResult extends IDataError {
   url: string;
 }
 
-export interface IData {
+export interface IData extends IDataError {
   info: IDataInfo;
   results: IDataResult[];
 }
