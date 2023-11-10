@@ -24,6 +24,7 @@ const Card = ({ card }: ICharacterCardProps) => {
           return searchParams;
         });
       }}
+      data-testid="card"
     >
       <p
         className={`${classes.card__label} ${

@@ -14,7 +14,7 @@ const NothingFound = ({ error }: INothingFound) => {
   const goToTheMainPage = () => navigate('/');
 
   return (
-    <div className={classes.error__wrapper}>
+    <div className={classes.error__wrapper} data-testid="nothing-found">
       <h2>Sorry, but we couldn&apos;t find anything matching your request.</h2>
       {error && (
         <Button type="button" onClick={goToTheMainPage}>

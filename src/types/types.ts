@@ -1,5 +1,5 @@
 export interface IDataError {
-  error: string;
+  error?: string;
 }
 
 export interface IDataInfo {

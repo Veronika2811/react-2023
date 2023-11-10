@@ -14,7 +14,7 @@ import {
 import classes from './CardsWrapper.module.css';
 
 interface ICardsWrapperProps {
-  cards: IDataResult[];
+  cards: IDataResult[] | undefined;
   currentPage: number;
 }
 
