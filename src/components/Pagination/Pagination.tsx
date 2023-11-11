@@ -11,11 +11,11 @@ import {
 import classes from './Pagination.module.css';
 
 interface IPaginationProps {
-  info: IDataInfo;
+  count: number;
   currentPage: number;
 }
 
-const Pagination = ({ currentPage, info }: IPaginationProps) => {
+const Pagination = ({ currentPage, count }: IPaginationProps) => {
   const [, setSearchParams] = useSearchParams();
   const { perPage, setDetailedCard } = useContext(CharactersContext);
 
@@ -50,11 +50,12 @@ const Pagination = ({ currentPage, info }: IPaginationProps) => {
         &lt;
       </button>
       <span className={classes.pagination__page}>
-        {currentPage} / {Math.ceil(info.count / perPage)}
+        {currentPage} / {Math.ceil(count / perPage)}
       </span>
       <button
+        data-testid="next-page"
         type="button"
-        disabled={currentPage >= info.count / perPage}
+        disabled={currentPage >= count / perPage}
         className={classes.pagination__controls}
         onClick={() => onChangePage(++currentPage)}
       >

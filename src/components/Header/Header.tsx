@@ -33,7 +33,7 @@ const Header = () => {
     >
       <SearchForm />
       <Select />
-      <Button type="button" onClick={getErrorOnPage}>
+      <Button type="button" onClick={getErrorOnPage} data-testid="error-button">
         Error
       </Button>
     </header>

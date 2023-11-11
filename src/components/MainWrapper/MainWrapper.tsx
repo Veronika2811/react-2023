@@ -68,7 +68,7 @@ const MainWrapper = () => {
       {detailedCard && <Outlet />}
 
       {!isLoaded && data && data.info && (
-        <Pagination info={data.info} currentPage={currentPage} />
+        <Pagination count={data.info.count} currentPage={currentPage} />
       )}
     </main>
   );
