@@ -34,6 +34,7 @@ const SearchForm = () => {
   return (
     <form className={classes.input} onSubmit={handleSubmit}>
       <input
+        data-testid="search-input"
         ref={inputRef}
         type="text"
         name="search"
@@ -42,7 +43,9 @@ const SearchForm = () => {
         className={classes.input__box}
         defaultValue={searchQuery}
       />
-      <Button type="submit">Search</Button>
+      <Button type="submit" data-testid="search-button">
+        Search
+      </Button>
     </form>
   );
 };

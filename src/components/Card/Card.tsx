@@ -14,7 +14,7 @@ interface ICharacterCardProps {
 
 const Card = ({ card }: ICharacterCardProps) => {
   const [, setSearchParams] = useSearchParams();
-  const {setDetailedCard} = useContext(CharactersContext)
+  const { setDetailedCard } = useContext(CharactersContext);
 
   const { id, status, image, name, gender, species, location } = card;
 
@@ -38,7 +38,12 @@ const Card = ({ card }: ICharacterCardProps) => {
       >
         {status}
       </p>
-      <img data-testid="card-image" className={classes.card__image} src={image} alt={name} />
+      <img
+        data-testid="card-image"
+        className={classes.card__image}
+        src={image}
+        alt={name}
+      />
       <div className={classes.card__content}>
         <h2>{name}</h2>
         <p>{`Gender: ${gender}`}</p>

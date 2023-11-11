@@ -9,7 +9,6 @@ import { CharactersContext } from '../../context/context';
 import {
   ADDITIONAL_VALUE_PER_PAGE,
   DEFAULT_PAGE,
-  DETAILS_URL_PARAMETER_KEY,
   PAGE_URL_PARAMETER_KEY,
 } from '../../constants/constants';
 
@@ -17,7 +16,8 @@ import classes from './MainWrapper.module.css';
 
 const MainWrapper = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { searchQuery, perPage, data, setData, detailedCard } = useContext(CharactersContext);
+  const { searchQuery, perPage, data, setData, detailedCard } =
+    useContext(CharactersContext);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   const pageParams = searchParams.get(PAGE_URL_PARAMETER_KEY);

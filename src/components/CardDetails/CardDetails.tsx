@@ -45,10 +45,7 @@ const CardDetails = () => {
 
       {!isLoaded && data && (
         <>
-          <li
-            className={classesCard.card}
-            data-testid="card-details"
-          >
+          <li className={classesCard.card} data-testid="card-details">
             <p
               className={`${classesCard.card__label} ${
                 classesCard[getStatusCharacterColor(data.status)]
