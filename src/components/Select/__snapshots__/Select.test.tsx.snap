@@ -1,84 +1,10 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Header component > renders correctly Header component 1`] = `
+exports[`Pagination component > renders correctly Pagination component 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <header
-        class="_header_63c2ea"
-      >
-        <form
-          class="_input_49e12d"
-        >
-          <input
-            class="_input__box_49e12d"
-            data-testid="search-input"
-            name="search"
-            placeholder="Enter request"
-            type="text"
-            value=""
-          />
-          <button
-            class="_button_634e7c"
-            data-testid="search-button"
-            type="submit"
-          >
-            Search
-          </button>
-        </form>
-        <select
-          class="_select_e285b3"
-          data-testid="select"
-          name="count-elements"
-        >
-          <option
-            data-testid="option"
-            selected=""
-            value="20"
-          >
-            20 cards
-          </option>
-          <option
-            data-testid="option"
-            value="10"
-          >
-            10 cards
-          </option>
-        </select>
-        <button
-          class="_button_634e7c"
-          data-testid="error-button"
-          type="button"
-        >
-          Error
-        </button>
-      </header>
-    </div>
-  </body>,
-  "container": <div>
-    <header
-      class="_header_63c2ea"
-    >
-      <form
-        class="_input_49e12d"
-      >
-        <input
-          class="_input__box_49e12d"
-          data-testid="search-input"
-          name="search"
-          placeholder="Enter request"
-          type="text"
-          value=""
-        />
-        <button
-          class="_button_634e7c"
-          data-testid="search-button"
-          type="submit"
-        >
-          Search
-        </button>
-      </form>
       <select
         class="_select_e285b3"
         data-testid="select"
@@ -98,14 +24,28 @@ exports[`Header component > renders correctly Header component 1`] = `
           10 cards
         </option>
       </select>
-      <button
-        class="_button_634e7c"
-        data-testid="error-button"
-        type="button"
+    </div>
+  </body>,
+  "container": <div>
+    <select
+      class="_select_e285b3"
+      data-testid="select"
+      name="count-elements"
+    >
+      <option
+        data-testid="option"
+        selected=""
+        value="20"
       >
-        Error
-      </button>
-    </header>
+        20 cards
+      </option>
+      <option
+        data-testid="option"
+        value="10"
+      >
+        10 cards
+      </option>
+    </select>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

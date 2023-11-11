@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { CharactersContext } from '../../context/context';
-import { IDataInfo } from '../../types/types';
 import {
   DETAILS_URL_PARAMETER_KEY,
   PAGE_URL_PARAMETER_KEY,

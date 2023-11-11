@@ -47,10 +47,13 @@ describe('Pagination component', () => {
   });
 
   it('should update the URL query parameter when the page changes', async () => {
-    const container = render(
+    render(
       <HashRouter>
         <CharactersProvider>
-          <Pagination count={DEFAULT_VALUE_PER_PAGE * 2} currentPage={currentPage} />
+          <Pagination
+            count={DEFAULT_VALUE_PER_PAGE * 2}
+            currentPage={currentPage}
+          />
         </CharactersProvider>
       </HashRouter>
     );

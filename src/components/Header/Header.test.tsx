@@ -19,7 +19,7 @@ describe('Header component', () => {
   });
 
   it('should show an error', () => {
-    const container = render(
+    render(
       <HashRouter>
         <CharactersProvider>
           <Header />

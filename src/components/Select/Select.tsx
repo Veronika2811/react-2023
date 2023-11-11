@@ -16,6 +16,7 @@ const Select = () => {
 
   return (
     <select
+      data-testid="select"
       className={classes.select}
       name="count-elements"
       defaultValue={DEFAULT_VALUE_PER_PAGE}
@@ -29,8 +30,12 @@ const Select = () => {
         });
       }}
     >
-      <option value="20">20 cards</option>
-      <option value="10">10 cards</option>
+      <option value="20" data-testid="option">
+        20 cards
+      </option>
+      <option value="10" data-testid="option">
+        10 cards
+      </option>
     </select>
   );
 };
