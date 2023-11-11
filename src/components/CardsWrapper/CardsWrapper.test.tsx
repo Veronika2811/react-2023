@@ -5,14 +5,14 @@ import '@testing-library/jest-dom';
 
 import { CharactersProvider } from '../../context/CharactersProvider';
 import CardsWrapper from './CardsWrapper';
-import { Albert_Mock, Morty_Mock } from '../../mock/cardsMock';
+import { AlbertMock, MortyMock } from '../../mock/cardsMock';
 
 describe('CardsWrapper component', () => {
-  it('renders correctly', () => {
+  it('renders correctly CardsWrapper component', () => {
     const container = render(
       <HashRouter>
         <CharactersProvider>
-          <CardsWrapper cards={[Morty_Mock, Albert_Mock]} currentPage={1} />
+          <CardsWrapper cards={[MortyMock, AlbertMock]} currentPage={1} />
         </CharactersProvider>
       </HashRouter>
     );
@@ -23,11 +23,11 @@ describe('CardsWrapper component', () => {
     render(
       <HashRouter>
         <CharactersProvider>
-          <CardsWrapper cards={[Morty_Mock, Albert_Mock]} currentPage={1} />
+          <CardsWrapper cards={[MortyMock, AlbertMock]} currentPage={1} />
         </CharactersProvider>
       </HashRouter>
     );
-    const element = screen.queryAllByTestId('card');
+    const element = screen.getAllByTestId('card');
     expect(element).toHaveLength(2);
   });
 
@@ -40,7 +40,7 @@ describe('CardsWrapper component', () => {
       </HashRouter>
     );
 
-    const element = screen.queryByTestId('nothing-found');
+    const element = screen.getByTestId('nothing-found');
     expect(element).toBeInTheDocument();
   });
 });

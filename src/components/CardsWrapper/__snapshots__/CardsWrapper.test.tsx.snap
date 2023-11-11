@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`CardsWrapper component > renders correctly 1`] = `
+exports[`CardsWrapper component > renders correctly CardsWrapper component 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -20,6 +20,7 @@ exports[`CardsWrapper component > renders correctly 1`] = `
           <img
             alt="Morty Smith"
             class="_card__image_1f2933"
+            data-testid="card-image"
             src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
           />
           <div
@@ -51,6 +52,7 @@ exports[`CardsWrapper component > renders correctly 1`] = `
           <img
             alt="Albert Einstein"
             class="_card__image_1f2933"
+            data-testid="card-image"
             src="https://rickandmortyapi.com/api/character/avatar/11.jpeg"
           />
           <div
@@ -89,6 +91,7 @@ exports[`CardsWrapper component > renders correctly 1`] = `
         <img
           alt="Morty Smith"
           class="_card__image_1f2933"
+          data-testid="card-image"
           src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
         />
         <div
@@ -120,6 +123,7 @@ exports[`CardsWrapper component > renders correctly 1`] = `
         <img
           alt="Albert Einstein"
           class="_card__image_1f2933"
+          data-testid="card-image"
           src="https://rickandmortyapi.com/api/character/avatar/11.jpeg"
         />
         <div

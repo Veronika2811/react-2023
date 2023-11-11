@@ -1,4 +1,4 @@
-export const Morty_Mock = {
+export const MortyMock = {
   created: '2017-11-04T18:50:21.651Z',
   episode: ['https://rickandmortyapi.com/api/episode/1'],
   gender: 'Male',
@@ -19,7 +19,7 @@ export const Morty_Mock = {
   url: 'https://rickandmortyapi.com/api/character/2',
 };
 
-export const Albert_Mock = {
+export const AlbertMock = {
   created: '2017-11-04T20:20:20.965Z',
   episode: ['https://rickandmortyapi.com/api/episode/12'],
   gender: 'Male',
