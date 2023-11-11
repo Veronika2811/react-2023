@@ -1,15 +1,17 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import SearchForm from '../SearchForm/SearchForm';
 import Select from '../Select/Select';
 import Button from '../UI/button/Button';
+import { CharactersContext } from '../../context/context';
 import { DETAILS_URL_PARAMETER_KEY } from '../../constants/constants';
 
 import classes from './Header.module.css';
 
 const Header = () => {
   const [, setSearchParams] = useSearchParams();
+  const { setDetailedCard } = useContext(CharactersContext);
   const [hasError, setHasError] = useState<boolean>(false);
 
   if (hasError) {
@@ -22,6 +24,7 @@ const Header = () => {
     <header
       className={classes.header}
       onClick={() => {
+        setDetailedCard('');
         setSearchParams((searchParams) => {
           searchParams.delete(DETAILS_URL_PARAMETER_KEY);
           return searchParams;

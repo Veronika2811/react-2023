@@ -17,9 +17,10 @@ interface IPaginationProps {
 
 const Pagination = ({ currentPage, info }: IPaginationProps) => {
   const [, setSearchParams] = useSearchParams();
-  const { perPage } = useContext(CharactersContext);
+  const { perPage, setDetailedCard } = useContext(CharactersContext);
 
   const onChangePage = (page: number) => {
+    setDetailedCard('');
     setSearchParams((searchParams) => {
       searchParams.set(PAGE_URL_PARAMETER_KEY, page.toString());
       searchParams.delete(DETAILS_URL_PARAMETER_KEY);
@@ -32,6 +33,7 @@ const Pagination = ({ currentPage, info }: IPaginationProps) => {
       className={classes.pagination}
       onClick={(e) => {
         if (e.target === e.currentTarget) {
+          setDetailedCard('');
           setSearchParams((searchParams) => {
             searchParams.delete(DETAILS_URL_PARAMETER_KEY);
             return searchParams;

@@ -17,11 +17,10 @@ import classes from './MainWrapper.module.css';
 
 const MainWrapper = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { searchQuery, perPage, data, setData } = useContext(CharactersContext);
+  const { searchQuery, perPage, data, setData, detailedCard } = useContext(CharactersContext);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   const pageParams = searchParams.get(PAGE_URL_PARAMETER_KEY);
-  const detailsParams = searchParams.get(DETAILS_URL_PARAMETER_KEY);
 
   const currentPage = +(pageParams ? pageParams : DEFAULT_PAGE);
 
@@ -59,14 +58,14 @@ const MainWrapper = () => {
   }, [pageParams, setSearchParams]);
 
   return (
-    <main className={detailsParams ? classes.main : ''}>
+    <main className={detailedCard ? classes.main : ''}>
       {isLoaded && <Preloader />}
 
       {!isLoaded && data && (
         <CardsWrapper cards={data.results} currentPage={currentPage} />
       )}
 
-      <Outlet />
+      {detailedCard && <Outlet />}
 
       {!isLoaded && data && data.info && (
         <Pagination info={data.info} currentPage={currentPage} />

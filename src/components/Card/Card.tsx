@@ -1,6 +1,8 @@
+import { useContext } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import getStatusCharacterColor from '../../utils/getStatusCharacterColor';
+import { CharactersContext } from '../../context/context';
 import { IDataResult } from '../../types/types';
 import { DETAILS_URL_PARAMETER_KEY } from '../../constants/constants';
 
@@ -12,6 +14,7 @@ interface ICharacterCardProps {
 
 const Card = ({ card }: ICharacterCardProps) => {
   const [, setSearchParams] = useSearchParams();
+  const {setDetailedCard} = useContext(CharactersContext)
 
   const { id, status, image, name, gender, species, location } = card;
 
@@ -19,10 +22,12 @@ const Card = ({ card }: ICharacterCardProps) => {
     <li
       className={classes.card}
       onClick={() => {
+        const cardId = id.toString();
         setSearchParams((searchParams) => {
-          searchParams.set(DETAILS_URL_PARAMETER_KEY, id.toString());
+          searchParams.set(DETAILS_URL_PARAMETER_KEY, cardId);
           return searchParams;
         });
+        setDetailedCard(cardId);
       }}
       data-testid="card"
     >

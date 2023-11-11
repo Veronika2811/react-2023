@@ -9,6 +9,8 @@ export type TCharactersContext = {
   setPerPage: React.Dispatch<React.SetStateAction<number>>;
   data: IData | null;
   setData: React.Dispatch<React.SetStateAction<IData | null>>;
+  detailedCard: string;
+  setDetailedCard: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export const CharactersContext = createContext<TCharactersContext>(null!);

@@ -20,7 +20,7 @@ describe('Card component', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('should display relevant character data', () => {
+  it('should display relevant character data Card component', () => {
     render(
       <HashRouter>
         <CharactersProvider>
@@ -64,7 +64,6 @@ describe('Card component', () => {
 
     await waitFor(() => {
       const cardDetails = screen.getByTestId('card-details');
-
       expect(cardDetails).toBeInTheDocument();
     });
   });
