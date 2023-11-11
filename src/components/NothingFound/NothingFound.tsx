@@ -17,7 +17,11 @@ const NothingFound = ({ error }: INothingFound) => {
     <div className={classes.error__wrapper} data-testid="nothing-found">
       <h2>Sorry, but we couldn&apos;t find anything matching your request.</h2>
       {error && (
-        <Button type="button" onClick={goToTheMainPage}>
+        <Button
+          type="button"
+          data-testid="nothing-found-button"
+          onClick={goToTheMainPage}
+        >
           Main Page
         </Button>
       )}
