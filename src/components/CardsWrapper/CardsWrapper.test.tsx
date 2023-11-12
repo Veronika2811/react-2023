@@ -5,7 +5,12 @@ import '@testing-library/jest-dom';
 
 import { CharactersProvider } from '../../context/CharactersProvider';
 import CardsWrapper from './CardsWrapper';
-import { AlbertMock, MortyMock } from '../../mock/cardsMock';
+import {
+  AlbertMock,
+  MortyMock,
+  initialCharacterArrayMock,
+} from '../../mock/cardsMock';
+import { CharactersContext } from '../../context/context';
 
 describe('CardsWrapper component', () => {
   it('renders correctly CardsWrapper component', () => {
@@ -42,5 +47,29 @@ describe('CardsWrapper component', () => {
 
     const element = screen.getByTestId('nothing-found');
     expect(element).toBeInTheDocument();
+  });
+
+  it('should render 10 cards', () => {
+    render(
+      <HashRouter>
+        <CharactersContext.Provider
+          value={{
+            searchQuery: '',
+            setSearchQuery: vi.fn(),
+            perPage: 10,
+            setPerPage: vi.fn(),
+            data: null,
+            setData: vi.fn(),
+            detailedCard: '',
+            setDetailedCard: vi.fn(),
+          }}
+        >
+          <CardsWrapper cards={initialCharacterArrayMock} currentPage={1} />
+        </CharactersContext.Provider>
+      </HashRouter>
+    );
+
+    const element = screen.getAllByTestId('card');
+    expect(element).toHaveLength(10);
   });
 });

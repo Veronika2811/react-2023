@@ -20,7 +20,7 @@ interface ICardsWrapperProps {
 
 const CardsWrapper = ({ cards, currentPage }: ICardsWrapperProps) => {
   const [, setSearchParams] = useSearchParams();
-  const { perPage } = useContext(CharactersContext);
+  const { perPage, setDetailedCard } = useContext(CharactersContext);
 
   if (cards) {
     const characters =
@@ -33,6 +33,7 @@ const CardsWrapper = ({ cards, currentPage }: ICardsWrapperProps) => {
         className={`${classes.main__characters} ${classes.characters}`}
         onClick={(e) => {
           if (e.target === e.currentTarget) {
+            setDetailedCard('');
             setSearchParams((searchParams) => {
               searchParams.delete(DETAILS_URL_PARAMETER_KEY);
               return searchParams;
