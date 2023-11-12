@@ -1,0 +1,45 @@
+.card {
+  position: relative;
+  width: 250px;
+  text-align: center;
+  list-style: none;
+  border: 1px solid #4d4b4b;
+  border-radius: 10px;
+  transition: border-color 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  border-color: #918e8e;
+}
+
+.card__image {
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card__label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0px 10px;
+  border-radius: 5px;
+}
+
+.card__label_red {
+  background-color: #ec2d01;
+}
+
+.card__label_green {
+  background-color: #76c076;
+}
+
+.card__label_grey {
+  background-color: #808080;
+}
+
+.card__content {
+  padding: 10px;
+}

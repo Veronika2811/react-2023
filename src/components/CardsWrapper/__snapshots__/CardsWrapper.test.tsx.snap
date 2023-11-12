@@ -1,0 +1,200 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CardsWrapper component > renders correctly CardsWrapper component 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <ul
+        class="_main__characters_4618fc _characters_4618fc"
+      >
+        <li
+          class="_card_1f2933"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_1f2933 _card__label_green_1f2933"
+          >
+            Alive
+          </p>
+          <img
+            alt="Morty Smith"
+            class="_card__image_1f2933"
+            data-testid="card-image"
+            src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
+          />
+          <div
+            class="_card__content_1f2933"
+          >
+            <h2>
+              Morty Smith
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Citadel of Ricks
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_1f2933"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_1f2933 _card__label_red_1f2933"
+          >
+            Dead
+          </p>
+          <img
+            alt="Albert Einstein"
+            class="_card__image_1f2933"
+            data-testid="card-image"
+            src="https://rickandmortyapi.com/api/character/avatar/11.jpeg"
+          />
+          <div
+            class="_card__content_1f2933"
+          >
+            <h2>
+              Albert Einstein
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Earth (Replacement Dimension)
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </body>,
+  "container": <div>
+    <ul
+      class="_main__characters_4618fc _characters_4618fc"
+    >
+      <li
+        class="_card_1f2933"
+        data-testid="card"
+      >
+        <p
+          class="_card__label_1f2933 _card__label_green_1f2933"
+        >
+          Alive
+        </p>
+        <img
+          alt="Morty Smith"
+          class="_card__image_1f2933"
+          data-testid="card-image"
+          src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
+        />
+        <div
+          class="_card__content_1f2933"
+        >
+          <h2>
+            Morty Smith
+          </h2>
+          <p>
+            Gender: Male
+          </p>
+          <p>
+            Species: Human
+          </p>
+          <p>
+            Location: Citadel of Ricks
+          </p>
+        </div>
+      </li>
+      <li
+        class="_card_1f2933"
+        data-testid="card"
+      >
+        <p
+          class="_card__label_1f2933 _card__label_red_1f2933"
+        >
+          Dead
+        </p>
+        <img
+          alt="Albert Einstein"
+          class="_card__image_1f2933"
+          data-testid="card-image"
+          src="https://rickandmortyapi.com/api/character/avatar/11.jpeg"
+        />
+        <div
+          class="_card__content_1f2933"
+        >
+          <h2>
+            Albert Einstein
+          </h2>
+          <p>
+            Gender: Male
+          </p>
+          <p>
+            Species: Human
+          </p>
+          <p>
+            Location: Earth (Replacement Dimension)
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
