@@ -51,7 +51,7 @@ describe('Card component', () => {
     expect(LOCATION_NAME).toBeInTheDocument();
   });
 
-  it('should open detailed map component when clicking on map', async () => {
+  it('should open detailed map component when clicking on card', async () => {
     render(<RouterProvider router={Routes} />);
 
     const cardDetails = screen.queryByTestId('card-details');

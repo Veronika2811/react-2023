@@ -3,11 +3,11 @@ import { useSearchParams } from 'react-router-dom';
 
 import Card from '../Card/Card';
 import NothingFound from '../NothingFound/NothingFound';
+import changePerPage from '../../utils/changePerPage';
 import { CharactersContext } from '../../context/context';
 import { IDataResult } from '../../types/types';
 import {
   ADDITIONAL_VALUE_PER_PAGE,
-  DEFAULT_VALUE_PER_PAGE,
   DETAILS_URL_PARAMETER_KEY,
 } from '../../constants/constants';
 
@@ -22,16 +22,10 @@ const CardsWrapper = ({ cards, currentPage }: ICardsWrapperProps) => {
   const [, setSearchParams] = useSearchParams();
   const { perPage } = useContext(CharactersContext);
 
-  const changePerPage = (items: IDataResult[]) => {
-    return (currentPage * perPage) % DEFAULT_VALUE_PER_PAGE !== 0
-      ? items.slice(0, ADDITIONAL_VALUE_PER_PAGE)
-      : items.slice(-ADDITIONAL_VALUE_PER_PAGE);
-  };
-
   if (cards) {
     const characters =
       cards && perPage === ADDITIONAL_VALUE_PER_PAGE
-        ? changePerPage(cards)
+        ? changePerPage(cards, currentPage, perPage)
         : cards;
 
     return (
