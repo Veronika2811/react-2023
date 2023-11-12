@@ -8,6 +8,12 @@ import Card from './Card';
 import Routes from '../../routes/Routes';
 import { MortyMock } from '../../mock/cardsMock';
 
+let fetchMock: unknown;
+
+beforeEach(() => {
+  fetchMock = vi.spyOn(global, 'fetch');
+});
+
 describe('Card component', () => {
   it('renders correctly Card component', () => {
     const container = render(
@@ -66,5 +72,15 @@ describe('Card component', () => {
       const cardDetails = screen.getByTestId('card-details');
       expect(cardDetails).toBeInTheDocument();
     });
+  });
+
+  it('should make an additional API call when clicking on the card', async () => {
+    render(<RouterProvider router={Routes} />);
+
+    await waitFor(async () =>
+      fireEvent.click(screen.getAllByTestId('card')[1])
+    );
+
+    expect(fetchMock).toHaveBeenCalled();
   });
 });
