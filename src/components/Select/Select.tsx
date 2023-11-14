@@ -1,7 +1,7 @@
-import { useContext } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { CharactersContext } from '../../context/context';
+import { useAppDispatch } from '../../redux/hooks';
+import { charactersChangePerPage } from '../../redux/store/charactersSlice';
 import {
   DEFAULT_PAGE,
   DEFAULT_VALUE_PER_PAGE,
@@ -12,7 +12,8 @@ import classes from './Select.module.css';
 
 const Select = () => {
   const [, setSearchParams] = useSearchParams();
-  const { setPerPage } = useContext(CharactersContext);
+
+  const dispatch = useAppDispatch();
 
   return (
     <select
@@ -22,7 +23,8 @@ const Select = () => {
       defaultValue={DEFAULT_VALUE_PER_PAGE}
       onChange={(e) => {
         const target = e.target.value;
-        setPerPage(+target);
+
+        dispatch(charactersChangePerPage(+target));
 
         setSearchParams((searchParams) => {
           searchParams.set(PAGE_URL_PARAMETER_KEY, DEFAULT_PAGE);

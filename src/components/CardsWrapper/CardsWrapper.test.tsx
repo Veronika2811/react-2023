@@ -2,23 +2,25 @@ import { expect, it } from 'vitest';
 import { HashRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { Provider } from 'react-redux';
 
-import { CharactersProvider } from '../../context/CharactersProvider';
 import CardsWrapper from './CardsWrapper';
+import { setupStore, store } from '../../redux/store/store';
+import { charactersChangePerPage } from '../../redux/store/charactersSlice';
+import RenderWithProviders from '../../redux/renderWithProviders';
 import {
   AlbertMock,
   MortyMock,
   initialCharacterArrayMock,
 } from '../../mock/cardsMock';
-import { CharactersContext } from '../../context/context';
 
 describe('CardsWrapper component', () => {
   it('renders correctly CardsWrapper component', () => {
     const container = render(
       <HashRouter>
-        <CharactersProvider>
+        <Provider store={store}>
           <CardsWrapper cards={[MortyMock, AlbertMock]} currentPage={1} />
-        </CharactersProvider>
+        </Provider>
       </HashRouter>
     );
     expect(container).toMatchSnapshot();
@@ -27,9 +29,9 @@ describe('CardsWrapper component', () => {
   it('should display the specified number of cards', () => {
     render(
       <HashRouter>
-        <CharactersProvider>
+        <Provider store={store}>
           <CardsWrapper cards={[MortyMock, AlbertMock]} currentPage={1} />
-        </CharactersProvider>
+        </Provider>
       </HashRouter>
     );
     const element = screen.getAllByTestId('card');
@@ -39,9 +41,9 @@ describe('CardsWrapper component', () => {
   it('should be displayed component, when there are no cards', () => {
     render(
       <HashRouter>
-        <CharactersProvider>
+        <Provider store={store}>
           <CardsWrapper cards={undefined} currentPage={1} />
-        </CharactersProvider>
+        </Provider>
       </HashRouter>
     );
 
@@ -50,23 +52,12 @@ describe('CardsWrapper component', () => {
   });
 
   it('should render 10 cards', () => {
-    render(
-      <HashRouter>
-        <CharactersContext.Provider
-          value={{
-            searchQuery: '',
-            setSearchQuery: vi.fn(),
-            perPage: 10,
-            setPerPage: vi.fn(),
-            data: null,
-            setData: vi.fn(),
-            detailedCard: '',
-            setDetailedCard: vi.fn(),
-          }}
-        >
-          <CardsWrapper cards={initialCharacterArrayMock} currentPage={1} />
-        </CharactersContext.Provider>
-      </HashRouter>
+    const store = setupStore();
+    store.dispatch(charactersChangePerPage(10));
+
+    RenderWithProviders(
+      <CardsWrapper cards={initialCharacterArrayMock} currentPage={1} />,
+      { store }
     );
 
     const element = screen.getAllByTestId('card');

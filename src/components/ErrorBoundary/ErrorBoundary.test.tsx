@@ -3,8 +3,9 @@ import { HashRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import { CharactersProvider } from '../../context/CharactersProvider';
 import ErrorBoundary from './ErrorBoundary';
+import { Provider } from 'react-redux';
+import { store } from '../../redux/store/store';
 
 const Child = () => {
   throw new Error();
@@ -14,9 +15,9 @@ describe('ErrorBoundary component', () => {
   it('renders correctly ErrorBoundary component', () => {
     const container = render(
       <HashRouter>
-        <CharactersProvider>
+        <Provider store={store}>
           <ErrorBoundary />
-        </CharactersProvider>
+        </Provider>
       </HashRouter>
     );
     expect(container).toMatchSnapshot();

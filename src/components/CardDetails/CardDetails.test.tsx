@@ -2,44 +2,33 @@ import { expect, it } from 'vitest';
 import { HashRouter, RouterProvider } from 'react-router-dom';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { Provider } from 'react-redux';
 
-import { CharactersProvider } from '../../context/CharactersProvider';
 import CardDetails from './CardDetails';
-import { CharactersContext } from '../../context/context';
-import { MortyMock } from '../../mock/cardsMock';
 import Routes from '../../routes/Routes';
+import { setupStore, store } from '../../redux/store/store';
+import { charactersChangeViewMode } from '../../redux/store/charactersSlice';
+import renderWithProviders from '../../redux/renderWithProviders';
+
+import { MortyMock } from '../../mock/cardsMock';
 
 describe('CardDetails component', () => {
   it('renders correctly CardDetails component', () => {
     const container = render(
       <HashRouter>
-        <CharactersProvider>
+        <Provider store={store}>
           <CardDetails />
-        </CharactersProvider>
+        </Provider>
       </HashRouter>
     );
     expect(container).toMatchSnapshot();
   });
 
   it('should display relevant character data CardDetails component', async () => {
-    render(
-      <HashRouter>
-        <CharactersContext.Provider
-          value={{
-            searchQuery: '',
-            setSearchQuery: vi.fn(),
-            perPage: 20,
-            setPerPage: vi.fn(),
-            data: null,
-            setData: vi.fn(),
-            detailedCard: '2',
-            setDetailedCard: vi.fn(),
-          }}
-        >
-          <CardDetails />
-        </CharactersContext.Provider>
-      </HashRouter>
-    );
+    const store = setupStore();
+    store.dispatch(charactersChangeViewMode('2'));
+
+    renderWithProviders(<CardDetails />, { store });
 
     await waitFor(async () => {
       const cardDetails = screen.getByTestId('card-details');

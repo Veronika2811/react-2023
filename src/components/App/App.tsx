@@ -1,15 +1,17 @@
+import { Provider } from 'react-redux';
+
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import Header from '../Header/Header';
 import MainWrapper from '../MainWrapper/MainWrapper';
-import { CharactersProvider } from '../../context/CharactersProvider';
+import { store } from '../../redux/store/store';
 
 const App = () => {
   return (
     <ErrorBoundary>
-      <CharactersProvider>
+      <Provider store={store}>
         <Header />
         <MainWrapper />
-      </CharactersProvider>
+      </Provider>
     </ErrorBoundary>
   );
 };

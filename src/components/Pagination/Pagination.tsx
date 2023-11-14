@@ -1,7 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { CharactersContext } from '../../context/context';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { charactersChangeViewMode } from '../../redux/store/charactersSlice';
+import { RootState } from '../../redux/store/store';
 import {
   DETAILS_URL_PARAMETER_KEY,
   PAGE_URL_PARAMETER_KEY,
@@ -16,10 +18,18 @@ interface IPaginationProps {
 
 const Pagination = ({ currentPage, count }: IPaginationProps) => {
   const [, setSearchParams] = useSearchParams();
-  const { perPage, setDetailedCard } = useContext(CharactersContext);
+
+  const { perPage, viewMode } = useAppSelector(
+    (state: RootState) => state.CHARACTERS_SLICE
+  );
+  const dispatch = useAppDispatch();
 
   const onChangePage = (page: number) => {
-    setDetailedCard('');
+    console.log(page);
+    if (viewMode) {
+      dispatch(charactersChangeViewMode(''));
+    }
+
     setSearchParams((searchParams) => {
       searchParams.set(PAGE_URL_PARAMETER_KEY, page.toString());
       searchParams.delete(DETAILS_URL_PARAMETER_KEY);
@@ -32,7 +42,9 @@ const Pagination = ({ currentPage, count }: IPaginationProps) => {
       className={classes.pagination}
       onClick={(e) => {
         if (e.target === e.currentTarget) {
-          setDetailedCard('');
+          if (viewMode) {
+            dispatch(charactersChangeViewMode(''));
+          }
           setSearchParams((searchParams) => {
             searchParams.delete(DETAILS_URL_PARAMETER_KEY);
             return searchParams;

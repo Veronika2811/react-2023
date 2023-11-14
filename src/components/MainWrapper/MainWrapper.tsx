@@ -1,11 +1,13 @@
-import { useCallback, useContext, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Outlet, useSearchParams } from 'react-router-dom';
 
 import Preloader from '../UI/preloader/Preloader';
 import CardsWrapper from '../CardsWrapper/CardsWrapper';
 import Pagination from '../Pagination/Pagination';
 import fetchData from '../../services/fetchData';
-import { CharactersContext } from '../../context/context';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { charactersChange } from '../../redux/store/charactersSlice';
+import { RootState } from '../../redux/store/store';
 import {
   ADDITIONAL_VALUE_PER_PAGE,
   DEFAULT_PAGE,
@@ -16,13 +18,15 @@ import classes from './MainWrapper.module.css';
 
 const MainWrapper = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { searchQuery, perPage, data, setData, detailedCard } =
-    useContext(CharactersContext);
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
-
   const pageParams = searchParams.get(PAGE_URL_PARAMETER_KEY);
-
   const currentPage = +(pageParams ? pageParams : DEFAULT_PAGE);
+
+  const { searchQuery, perPage, characters, viewMode } = useAppSelector(
+    (state: RootState) => state.CHARACTERS_SLICE
+  );
+  const dispatch = useAppDispatch();
+
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   const getDate = useCallback(() => {
     setIsLoaded(true);
@@ -34,7 +38,7 @@ const MainWrapper = () => {
 
     fetchData(searchQuery, page).then(
       (result) => {
-        setData(result);
+        dispatch(charactersChange(result));
         setIsLoaded(false);
       },
       (error) => {
@@ -42,7 +46,7 @@ const MainWrapper = () => {
         setIsLoaded(true);
       }
     );
-  }, [searchQuery, currentPage, perPage, setData]);
+  }, [searchQuery, currentPage, perPage, dispatch]);
 
   useEffect(() => {
     getDate();
@@ -58,17 +62,17 @@ const MainWrapper = () => {
   }, [pageParams, setSearchParams]);
 
   return (
-    <main className={detailedCard ? classes.main : ''}>
+    <main className={viewMode ? classes.main : ''}>
       {isLoaded && <Preloader />}
 
-      {!isLoaded && data && (
-        <CardsWrapper cards={data.results} currentPage={currentPage} />
+      {!isLoaded && characters && (
+        <CardsWrapper cards={characters.results} currentPage={currentPage} />
       )}
 
-      {detailedCard && <Outlet />}
+      {viewMode && <Outlet />}
 
-      {!isLoaded && data && data.info && (
-        <Pagination count={data.info.count} currentPage={currentPage} />
+      {!isLoaded && characters && characters.info && (
+        <Pagination count={characters.info.count} currentPage={currentPage} />
       )}
     </main>
   );

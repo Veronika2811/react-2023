@@ -2,17 +2,18 @@ import { expect, it } from 'vitest';
 import { HashRouter } from 'react-router-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { Provider } from 'react-redux';
 
-import { CharactersProvider } from '../../context/CharactersProvider';
 import Header from './Header';
+import { store } from '../../redux/store/store';
 
 describe('Header component', () => {
   it('renders correctly Header component', () => {
     const container = render(
       <HashRouter>
-        <CharactersProvider>
+        <Provider store={store}>
           <Header />
-        </CharactersProvider>
+        </Provider>
       </HashRouter>
     );
     expect(container).toMatchSnapshot();
@@ -21,9 +22,9 @@ describe('Header component', () => {
   it('should show an error', () => {
     render(
       <HashRouter>
-        <CharactersProvider>
+        <Provider store={store}>
           <Header />
-        </CharactersProvider>
+        </Provider>
       </HashRouter>
     );
 

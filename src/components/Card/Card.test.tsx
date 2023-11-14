@@ -2,10 +2,11 @@ import { expect, it } from 'vitest';
 import { HashRouter, RouterProvider } from 'react-router-dom';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { Provider } from 'react-redux';
 
-import { CharactersProvider } from '../../context/CharactersProvider';
 import Card from './Card';
 import Routes from '../../routes/Routes';
+import { store } from '../../redux/store/store';
 import { MortyMock } from '../../mock/cardsMock';
 
 let fetchMock: unknown;
@@ -18,9 +19,9 @@ describe('Card component', () => {
   it('renders correctly Card component', () => {
     const container = render(
       <HashRouter>
-        <CharactersProvider>
+        <Provider store={store}>
           <Card card={MortyMock} />
-        </CharactersProvider>
+        </Provider>
       </HashRouter>
     );
     expect(container).toMatchSnapshot();
@@ -29,9 +30,9 @@ describe('Card component', () => {
   it('should display relevant character data Card component', () => {
     render(
       <HashRouter>
-        <CharactersProvider>
+        <Provider store={store}>
           <Card card={MortyMock} />
-        </CharactersProvider>
+        </Provider>
       </HashRouter>
     );
 

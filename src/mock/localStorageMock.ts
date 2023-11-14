@@ -1,18 +1,26 @@
-const mockLocalStorage = () => {
-  const setItemMock = vi.fn();
-  const getItemMock = vi.fn();
+class LocalStorageMock {
+  store: { [key: string]: string };
 
-  beforeEach(() => {
-    Storage.prototype.setItem = setItemMock;
-    Storage.prototype.getItem = getItemMock;
-  });
+  constructor() {
+    this.store = {};
+  }
 
-  afterEach(() => {
-    setItemMock.mockRestore();
-    getItemMock.mockRestore();
-  });
+  get length() {
+    return Object.keys(this.store).length;
+  }
 
-  return { setItemMock, getItemMock };
-};
+  getItem = (key: string) => this.store[key] || null;
 
-export const { setItemMock, getItemMock } = mockLocalStorage();
+  setItem = (key: string, value: string) => (this.store[key] = value);
+
+  removeItem = (key: string) => delete this.store[key];
+
+  clear = () => (this.store = {});
+
+  key = (index: number) => {
+    const keys = Object.keys(this.store);
+    return keys[index] || null;
+  };
+}
+
+global.localStorage = new LocalStorageMock();

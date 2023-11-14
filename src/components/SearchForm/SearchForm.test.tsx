@@ -1,11 +1,12 @@
 import { expect, it } from 'vitest';
 import { HashRouter } from 'react-router-dom';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { Provider } from 'react-redux';
 
-import { CharactersProvider } from '../../context/CharactersProvider';
 import SearchForm from './SearchForm';
-import { setItemMock, getItemMock } from '../../mock/localStorageMock';
+import MainWrapper from '../MainWrapper/MainWrapper';
+import { store } from '../../redux/store/store';
 
 describe('SearchForm component', () => {
   const MOCK_KEY = 'Veronika2811-react-2023__searchRequest';
@@ -14,9 +15,9 @@ describe('SearchForm component', () => {
   it('renders correctly SearchForm component', () => {
     const container = render(
       <HashRouter>
-        <CharactersProvider>
+        <Provider store={store}>
           <SearchForm />
-        </CharactersProvider>
+        </Provider>
       </HashRouter>
     );
     expect(container).toMatchSnapshot();
@@ -25,9 +26,9 @@ describe('SearchForm component', () => {
   it('should save the entered value in local storage', () => {
     render(
       <HashRouter>
-        <CharactersProvider>
+        <Provider store={store}>
           <SearchForm />
-        </CharactersProvider>
+        </Provider>
       </HashRouter>
     );
 
@@ -37,20 +38,24 @@ describe('SearchForm component', () => {
     fireEvent.change(searchInput, { target: { value: MOCK_VALUE } });
     fireEvent.click(searchButton);
 
-    expect(setItemMock).toBeCalledWith(MOCK_KEY, MOCK_VALUE);
+    expect(localStorage.getItem(MOCK_KEY)).toBe(MOCK_VALUE);
   });
 
   it('should get the value from local storage', () => {
-    getItemMock.mockReturnValue(MOCK_KEY);
-
     render(
       <HashRouter>
-        <CharactersProvider>
+        <Provider store={store}>
           <SearchForm />
-        </CharactersProvider>
+          <MainWrapper />
+        </Provider>
       </HashRouter>
     );
+    const searchInputValue = (
+      screen.getByTestId('search-input') as HTMLInputElement
+    ).value;
 
-    expect(getItemMock).toHaveBeenCalledTimes(1);
+    waitFor(() => {
+      expect(searchInputValue).toBe(MOCK_VALUE);
+    });
   });
 });

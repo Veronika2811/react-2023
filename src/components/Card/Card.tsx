@@ -1,8 +1,8 @@
-import { useContext } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import getStatusCharacterColor from '../../utils/getStatusCharacterColor';
-import { CharactersContext } from '../../context/context';
+import { useAppDispatch } from '../../redux/hooks';
+import { charactersChangeViewMode } from '../../redux/store/charactersSlice';
 import { IDataResult } from '../../types/types';
 import { DETAILS_URL_PARAMETER_KEY } from '../../constants/constants';
 
@@ -14,7 +14,8 @@ interface ICharacterCardProps {
 
 const Card = ({ card }: ICharacterCardProps) => {
   const [, setSearchParams] = useSearchParams();
-  const { setDetailedCard } = useContext(CharactersContext);
+
+  const dispatch = useAppDispatch();
 
   const { id, status, image, name, gender, species, location } = card;
 
@@ -27,7 +28,7 @@ const Card = ({ card }: ICharacterCardProps) => {
           searchParams.set(DETAILS_URL_PARAMETER_KEY, cardId);
           return searchParams;
         });
-        setDetailedCard(cardId);
+        dispatch(charactersChangeViewMode(cardId));
       }}
       data-testid="card"
     >

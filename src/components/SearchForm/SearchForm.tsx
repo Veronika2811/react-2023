@@ -1,8 +1,10 @@
-import { FormEvent, useContext, useRef } from 'react';
+import { FormEvent, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import Button from '../UI/button/Button';
-import { CharactersContext } from '../../context/context';
+import { useAppSelector, useAppDispatch } from '../../redux/hooks';
+import { charactersSaveSearchQuery } from '../../redux/store/charactersSlice';
+import { RootState } from '../../redux/store/store';
 import {
   DEFAULT_PAGE,
   LOCAL_STORAGE_KEY,
@@ -13,7 +15,12 @@ import classes from './SearchForm.module.css';
 
 const SearchForm = () => {
   const [, setSearchParams] = useSearchParams();
-  const { searchQuery, setSearchQuery } = useContext(CharactersContext);
+
+  const searchQuery = useAppSelector(
+    (state: RootState) => state.CHARACTERS_SLICE.searchQuery
+  );
+  const dispatch = useAppDispatch();
+
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const handleSubmit = (e: FormEvent) => {
@@ -22,7 +29,7 @@ const SearchForm = () => {
       const value = inputRef.current.value.trim();
       localStorage.setItem(LOCAL_STORAGE_KEY, value);
 
-      setSearchQuery(value);
+      dispatch(charactersSaveSearchQuery(value));
 
       setSearchParams((searchParams) => {
         searchParams.set(PAGE_URL_PARAMETER_KEY, DEFAULT_PAGE);

@@ -2,11 +2,12 @@ import { expect, it } from 'vitest';
 import { HashRouter, MemoryRouter, Route, Routes } from 'react-router-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { Provider } from 'react-redux';
 
-import { CharactersProvider } from '../../context/CharactersProvider';
-import NothingFound from './NothingFound';
 import App from '../App/App';
 import CardDetails from '../CardDetails/CardDetails';
+import NothingFound from './NothingFound';
+import { store } from '../../redux/store/store';
 
 const useNavigateMock = vi.fn();
 
@@ -24,9 +25,9 @@ describe('NothingFound component', () => {
   it('renders correctly NothingFound component', () => {
     const container = render(
       <HashRouter>
-        <CharactersProvider>
+        <Provider store={store}>
           <NothingFound />
-        </CharactersProvider>
+        </Provider>
       </HashRouter>
     );
     expect(container).toMatchSnapshot();
