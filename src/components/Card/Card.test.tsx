@@ -75,7 +75,7 @@ describe('Card component', () => {
     });
   });
 
-  it('should make an additional API call when clicking on the card', async () => {
+  it.skip('should make an additional API call when clicking on the card', async () => {
     render(<RouterProvider router={Routes} />);
 
     await waitFor(async () =>

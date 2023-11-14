@@ -4,6 +4,7 @@ import {
   configureStore,
 } from '@reduxjs/toolkit';
 
+import { apiSlice } from '../api/apiSlice';
 import reducer from './charactersSlice';
 
 const rootReducer = combineReducers({
@@ -14,8 +15,11 @@ export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
   return configureStore({
     reducer: {
       CHARACTERS_SLICE: reducer,
+      [apiSlice.reducerPath]: apiSlice.reducer,
     },
     preloadedState,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(apiSlice.middleware),
   });
 };
 

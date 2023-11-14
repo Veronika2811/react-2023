@@ -1,14 +1,12 @@
-import { useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import fetchItemData from '../../services/fetchItemData';
 import Preloader from '../UI/preloader/Preloader';
 import Button from '../UI/button/Button';
 import getStatusCharacterColor from '../../utils/getStatusCharacterColor';
+import { useGetCharacterItemQuery } from '../../redux/api/apiSlice';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { charactersChangeViewMode } from '../../redux/store/charactersSlice';
 import { RootState } from '../../redux/store/store';
-import { IDataResult } from '../../types/types';
 import { DETAILS_URL_PARAMETER_KEY } from '../../constants/constants';
 
 import classes from './CardDetails.module.css';
@@ -20,37 +18,18 @@ const CardDetails = () => {
   const viewMode = useAppSelector(
     (state: RootState) => state.CHARACTERS_SLICE.viewMode
   );
+
   const dispatch = useAppDispatch();
 
-  const [data, setData] = useState<IDataResult | null>(null);
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
-
-  const getDate = useCallback(() => {
-    if (viewMode) {
-      setIsLoaded(true);
-      fetchItemData(viewMode).then(
-        (result) => {
-          const { error } = result;
-          if (!error) setData(result);
-          setIsLoaded(false);
-        },
-        (error) => {
-          console.error(error);
-          setIsLoaded(true);
-        }
-      );
-    }
-  }, [viewMode]);
-
-  useEffect(() => {
-    getDate();
-  }, [getDate]);
+  const { data, isLoading, isFetching } = useGetCharacterItemQuery({
+    id: viewMode,
+  });
 
   return (
     <div className={classes.details}>
-      {isLoaded && <Preloader />}
+      {isLoading && isFetching && <Preloader />}
 
-      {!isLoaded && data && (
+      {!isLoading && !isFetching && data && (
         <>
           <li className={classesCard.card} data-testid="card-details">
             <p

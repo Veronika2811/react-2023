@@ -7,13 +7,31 @@ exports[`CardDetails component > renders correctly CardDetails component 1`] = `
     <div>
       <div
         class="_details_889028"
-      />
+      >
+        <div
+          class="_preloader__wrapper_3426d0"
+          data-testid="preloader"
+        >
+          <div
+            class="_preloader__inner_3426d0"
+          />
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <div
       class="_details_889028"
-    />
+    >
+      <div
+        class="_preloader__wrapper_3426d0"
+        data-testid="preloader"
+      >
+        <div
+          class="_preloader__inner_3426d0"
+        />
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

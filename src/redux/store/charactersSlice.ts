@@ -9,7 +9,6 @@ import {
 const initialState: TInitialState = {
   searchQuery: localStorage.getItem(LOCAL_STORAGE_KEY) || '',
   perPage: DEFAULT_VALUE_PER_PAGE,
-  characters: null,
   viewMode: '',
 };
 
@@ -26,9 +25,6 @@ const charactersSlice = createSlice({
     charactersChangeViewMode: (state, action) => {
       state.viewMode = action.payload;
     },
-    charactersChange: (state, action) => {
-      state.characters = action.payload;
-    },
   },
 });
 
@@ -38,7 +34,6 @@ export const {
   charactersSaveSearchQuery,
   charactersChangePerPage,
   charactersChangeViewMode,
-  charactersChange,
 } = actions;
 
 export default reducer;

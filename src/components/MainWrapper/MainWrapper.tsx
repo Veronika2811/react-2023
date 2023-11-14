@@ -1,13 +1,12 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Outlet, useSearchParams } from 'react-router-dom';
 
 import Preloader from '../UI/preloader/Preloader';
 import CardsWrapper from '../CardsWrapper/CardsWrapper';
 import Pagination from '../Pagination/Pagination';
-import fetchData from '../../services/fetchData';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { charactersChange } from '../../redux/store/charactersSlice';
+import { useAppSelector } from '../../redux/hooks';
 import { RootState } from '../../redux/store/store';
+import { useGetCharactersQuery } from '../../redux/api/apiSlice';
 import {
   ADDITIONAL_VALUE_PER_PAGE,
   DEFAULT_PAGE,
@@ -21,36 +20,19 @@ const MainWrapper = () => {
   const pageParams = searchParams.get(PAGE_URL_PARAMETER_KEY);
   const currentPage = +(pageParams ? pageParams : DEFAULT_PAGE);
 
-  const { searchQuery, perPage, characters, viewMode } = useAppSelector(
+  const { searchQuery, perPage, viewMode } = useAppSelector(
     (state: RootState) => state.CHARACTERS_SLICE
   );
-  const dispatch = useAppDispatch();
 
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const page =
+    perPage === ADDITIONAL_VALUE_PER_PAGE && currentPage > +DEFAULT_PAGE
+      ? Math.ceil(currentPage / 2)
+      : currentPage;
 
-  const getDate = useCallback(() => {
-    setIsLoaded(true);
-
-    const page =
-      perPage === ADDITIONAL_VALUE_PER_PAGE && currentPage > +DEFAULT_PAGE
-        ? Math.ceil(currentPage / 2)
-        : currentPage;
-
-    fetchData(searchQuery, page).then(
-      (result) => {
-        dispatch(charactersChange(result));
-        setIsLoaded(false);
-      },
-      (error) => {
-        console.error(error);
-        setIsLoaded(true);
-      }
-    );
-  }, [searchQuery, currentPage, perPage, dispatch]);
-
-  useEffect(() => {
-    getDate();
-  }, [getDate]);
+  const { data, isLoading, isFetching } = useGetCharactersQuery({
+    query: searchQuery,
+    page: page,
+  });
 
   useEffect(() => {
     if (!pageParams) {
@@ -63,16 +45,16 @@ const MainWrapper = () => {
 
   return (
     <main className={viewMode ? classes.main : ''}>
-      {isLoaded && <Preloader />}
+      {isLoading && isFetching && <Preloader />}
 
-      {!isLoaded && characters && (
-        <CardsWrapper cards={characters.results} currentPage={currentPage} />
+      {!isLoading && !isFetching && data && (
+        <CardsWrapper cards={data.results} currentPage={currentPage} />
       )}
 
       {viewMode && <Outlet />}
 
-      {!isLoaded && characters && characters.info && (
-        <Pagination count={characters.info.count} currentPage={currentPage} />
+      {!isLoading && !isFetching && data && data.info && (
+        <Pagination count={data.info.count} currentPage={currentPage} />
       )}
     </main>
   );

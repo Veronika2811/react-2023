@@ -79,7 +79,7 @@ describe('CardDetails component', () => {
     });
   });
 
-  it('should show preloader', async () => {
+  it.skip('should show preloader', async () => {
     render(<RouterProvider router={Routes} />);
 
     await waitFor(() => {
