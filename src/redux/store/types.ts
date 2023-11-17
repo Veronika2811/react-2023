@@ -1,7 +1,12 @@
+import { IData } from '../../types/types';
+
 type TInitialState = {
-  searchQuery: string;
+  query: string;
   perPage: number;
   viewMode: string;
+  characters: IData | null;
+  isLoadingMainPage: boolean;
+  isLoadingDetailingPage: boolean;
 };
 
 export default TInitialState;

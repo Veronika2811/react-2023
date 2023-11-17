@@ -16,8 +16,8 @@ import classes from './SearchForm.module.css';
 const SearchForm = () => {
   const [, setSearchParams] = useSearchParams();
 
-  const searchQuery = useAppSelector(
-    (state: RootState) => state.CHARACTERS_SLICE.searchQuery
+  const query = useAppSelector(
+    (state: RootState) => state.CHARACTERS_SLICE.query
   );
   const dispatch = useAppDispatch();
 
@@ -48,7 +48,7 @@ const SearchForm = () => {
         placeholder="Enter request"
         autoFocus
         className={classes.input__box}
-        defaultValue={searchQuery}
+        defaultValue={query}
       />
       <Button type="submit" data-testid="search-button">
         Search

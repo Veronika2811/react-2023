@@ -7,9 +7,12 @@ import {
 } from '../../constants/constants';
 
 const initialState: TInitialState = {
-  searchQuery: localStorage.getItem(LOCAL_STORAGE_KEY) || '',
+  query: localStorage.getItem(LOCAL_STORAGE_KEY) || '',
   perPage: DEFAULT_VALUE_PER_PAGE,
   viewMode: '',
+  characters: null,
+  isLoadingMainPage: true,
+  isLoadingDetailingPage: false,
 };
 
 const charactersSlice = createSlice({
@@ -17,13 +20,22 @@ const charactersSlice = createSlice({
   initialState,
   reducers: {
     charactersSaveSearchQuery: (state, action) => {
-      state.searchQuery = action.payload;
+      state.query = action.payload;
     },
     charactersChangePerPage: (state, action) => {
       state.perPage = action.payload;
     },
     charactersChangeViewMode: (state, action) => {
       state.viewMode = action.payload;
+    },
+    charactersChange: (state, action) => {
+      state.characters = action.payload;
+    },
+    charactersChangeIsLoadingMainPage: (state, action) => {
+      state.isLoadingMainPage = action.payload;
+    },
+    charactersChangeIsLoadingDetailingPage: (state, action) => {
+      state.isLoadingDetailingPage = action.payload;
     },
   },
 });
@@ -34,6 +46,9 @@ export const {
   charactersSaveSearchQuery,
   charactersChangePerPage,
   charactersChangeViewMode,
+  charactersChange,
+  charactersChangeIsLoadingMainPage,
+  charactersChangeIsLoadingDetailingPage,
 } = actions;
 
 export default reducer;

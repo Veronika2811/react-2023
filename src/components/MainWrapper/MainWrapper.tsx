@@ -4,6 +4,7 @@ import { Outlet, useSearchParams } from 'react-router-dom';
 import Preloader from '../UI/preloader/Preloader';
 import CardsWrapper from '../CardsWrapper/CardsWrapper';
 import Pagination from '../Pagination/Pagination';
+import NothingFound from '../NothingFound/NothingFound';
 import { useAppSelector } from '../../redux/hooks';
 import { RootState } from '../../redux/store/store';
 import { useGetCharactersQuery } from '../../redux/api/apiSlice';
@@ -20,7 +21,7 @@ const MainWrapper = () => {
   const pageParams = searchParams.get(PAGE_URL_PARAMETER_KEY);
   const currentPage = +(pageParams ? pageParams : DEFAULT_PAGE);
 
-  const { searchQuery, perPage, viewMode } = useAppSelector(
+  const { query, perPage, viewMode, isLoadingMainPage } = useAppSelector(
     (state: RootState) => state.CHARACTERS_SLICE
   );
 
@@ -29,9 +30,9 @@ const MainWrapper = () => {
       ? Math.ceil(currentPage / 2)
       : currentPage;
 
-  const { data, isLoading, isFetching } = useGetCharactersQuery({
-    query: searchQuery,
-    page: page,
+  const { data, isError } = useGetCharactersQuery({
+    query,
+    page,
   });
 
   useEffect(() => {
@@ -45,15 +46,17 @@ const MainWrapper = () => {
 
   return (
     <main className={viewMode ? classes.main : ''}>
-      {isLoading && isFetching && <Preloader />}
+      {isLoadingMainPage && <Preloader />}
 
-      {!isLoading && !isFetching && data && (
+      {!isLoadingMainPage && isError && <NothingFound />}
+
+      {!isLoadingMainPage && !isError && data && (
         <CardsWrapper cards={data.results} currentPage={currentPage} />
       )}
 
       {viewMode && <Outlet />}
 
-      {!isLoading && !isFetching && data && data.info && (
+      {!isLoadingMainPage && data && (
         <Pagination count={data.info.count} currentPage={currentPage} />
       )}
     </main>

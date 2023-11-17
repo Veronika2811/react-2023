@@ -15,21 +15,20 @@ import classesCard from '../Card/Card.module.css';
 const CardDetails = () => {
   const [, setSearchParams] = useSearchParams();
 
-  const viewMode = useAppSelector(
-    (state: RootState) => state.CHARACTERS_SLICE.viewMode
+  const { viewMode, isLoadingDetailingPage } = useAppSelector(
+    (state: RootState) => state.CHARACTERS_SLICE
   );
-
   const dispatch = useAppDispatch();
 
-  const { data, isLoading, isFetching } = useGetCharacterItemQuery({
+  const { data, isError } = useGetCharacterItemQuery({
     id: viewMode,
   });
 
   return (
     <div className={classes.details}>
-      {isLoading && isFetching && <Preloader />}
+      {isLoadingDetailingPage && <Preloader />}
 
-      {!isLoading && !isFetching && data && (
+      {!isLoadingDetailingPage && !isError && data && (
         <>
           <li className={classesCard.card} data-testid="card-details">
             <p
