@@ -1,0 +1,38 @@
+.preloader__wrapper {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.preloader__inner {
+  height: 50px;
+  width: 50px;
+  margin: auto;
+  animation: preloader-rotate 1.2s infinite;
+}
+
+.preloader__inner::before,
+.preloader__inner::after {
+  content: '';
+  display: block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+.preloader__inner::before {
+  margin-bottom: 5px;
+  background-color: rgb(160, 206, 206);
+  box-shadow: 25px 0 0 #d9bdea;
+}
+
+.preloader__inner::after {
+  background-color: #6760a3;
+  box-shadow: 25px 0 0 #a0bdc8;
+}
+
+@keyframes preloader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
