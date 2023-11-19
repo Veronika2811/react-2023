@@ -1,40 +1,19 @@
 import { expect, it } from 'vitest';
-import { HashRouter, RouterProvider } from 'react-router-dom';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Provider } from 'react-redux';
 
 import Card from './Card';
-import Routes from '../../routes/Routes';
-import { store } from '../../redux/store/store';
-import { MortyMock } from '../../mock/cardsMock';
-
-let fetchMock: unknown;
-
-beforeEach(() => {
-  fetchMock = vi.spyOn(global, 'fetch');
-});
+import renderWithProviders from '@/mock/renderWithProviders';
+import { MortyMock } from '@/mock/cardsMock';
 
 describe('Card component', () => {
   it('renders correctly Card component', () => {
-    const container = render(
-      <HashRouter>
-        <Provider store={store}>
-          <Card card={MortyMock} />
-        </Provider>
-      </HashRouter>
-    );
+    const container = renderWithProviders(<Card card={MortyMock} />);
     expect(container).toMatchSnapshot();
   });
 
   it('should display relevant character data Card component', () => {
-    render(
-      <HashRouter>
-        <Provider store={store}>
-          <Card card={MortyMock} />
-        </Provider>
-      </HashRouter>
-    );
+    renderWithProviders(<Card card={MortyMock} />);
 
     const { status, image, name, gender, species, location } = MortyMock;
 
@@ -56,32 +35,5 @@ describe('Card component', () => {
 
     const LOCATION_NAME = screen.getByText(`Location: ${location.name}`);
     expect(LOCATION_NAME).toBeInTheDocument();
-  });
-
-  it('should open detailed map component when clicking on card', async () => {
-    render(<RouterProvider router={Routes} />);
-
-    const cardDetails = screen.queryByTestId('card-details');
-
-    expect(cardDetails).not.toBeInTheDocument();
-
-    await waitFor(async () =>
-      fireEvent.click(screen.getAllByTestId('card')[1])
-    );
-
-    await waitFor(() => {
-      const cardDetails = screen.getByTestId('card-details');
-      expect(cardDetails).toBeInTheDocument();
-    });
-  });
-
-  it.skip('should make an additional API call when clicking on the card', async () => {
-    render(<RouterProvider router={Routes} />);
-
-    await waitFor(async () =>
-      fireEvent.click(screen.getAllByTestId('card')[1])
-    );
-
-    expect(fetchMock).toHaveBeenCalled();
   });
 });

@@ -1,10 +1,10 @@
 import { useSearchParams } from 'react-router-dom';
 
-import getStatusCharacterColor from '../../utils/getStatusCharacterColor';
-import { useAppDispatch } from '../../redux/hooks';
-import { charactersChangeViewMode } from '../../redux/store/charactersSlice';
-import { IDataResult } from '../../types/types';
-import { DETAILS_URL_PARAMETER_KEY } from '../../constants/constants';
+import getStatusCharacterColor from '@/utils/getStatusCharacterColor/getStatusCharacterColor';
+import { useAppDispatch } from '@/store/hooks';
+import { charactersChangeViewMode } from '@/store/slice/charactersSlice';
+import { IDataResult } from '@/types/types';
+import { DETAILS_URL_PARAMETER_KEY } from '@/constants/constants';
 
 import classes from './Card.module.css';
 
@@ -19,19 +19,17 @@ const Card = ({ card }: ICharacterCardProps) => {
 
   const { id, status, image, name, gender, species, location } = card;
 
+  const openDetailsPanel = () => {
+    const cardId = id.toString();
+    setSearchParams((searchParams) => {
+      searchParams.set(DETAILS_URL_PARAMETER_KEY, cardId);
+      return searchParams;
+    });
+    dispatch(charactersChangeViewMode(cardId));
+  };
+
   return (
-    <li
-      className={classes.card}
-      onClick={() => {
-        const cardId = id.toString();
-        setSearchParams((searchParams) => {
-          searchParams.set(DETAILS_URL_PARAMETER_KEY, cardId);
-          return searchParams;
-        });
-        dispatch(charactersChangeViewMode(cardId));
-      }}
-      data-testid="card"
-    >
+    <li className={classes.card} onClick={openDetailsPanel} data-testid="card">
       <p
         className={`${classes.card__label} ${
           classes[getStatusCharacterColor(status)]

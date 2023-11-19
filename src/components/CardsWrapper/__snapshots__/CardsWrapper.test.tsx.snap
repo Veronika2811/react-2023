@@ -195,6 +195,13 @@ exports[`CardsWrapper component > renders correctly CardsWrapper component 1`] =
   "queryByText": [Function],
   "queryByTitle": [Function],
   "rerender": [Function],
+  "store": {
+    "@@observable": [Function],
+    "dispatch": [Function],
+    "getState": [Function],
+    "replaceReducer": [Function],
+    "subscribe": [Function],
+  },
   "unmount": [Function],
 }
 `;

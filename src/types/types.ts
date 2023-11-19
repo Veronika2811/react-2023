@@ -4,9 +4,7 @@ export interface IDataError {
 
 export interface IDataInfo {
   count: number;
-  next: string | null;
   pages: number;
-  prev: string | null;
 }
 
 export interface IDataResult extends IDataError {

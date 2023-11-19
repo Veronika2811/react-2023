@@ -1,32 +1,24 @@
 import { expect, it } from 'vitest';
-import { HashRouter } from 'react-router-dom';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import ErrorBoundary from './ErrorBoundary';
-import { Provider } from 'react-redux';
-import { store } from '../../redux/store/store';
+import renderWithProviders from '@/mock/renderWithProviders';
 
-const Child = () => {
-  throw new Error();
+const ChildErrorBoundary = () => {
+  throw new Error('Testing ErrorBoundary component');
 };
 
 describe('ErrorBoundary component', () => {
   it('renders correctly ErrorBoundary component', () => {
-    const container = render(
-      <HashRouter>
-        <Provider store={store}>
-          <ErrorBoundary />
-        </Provider>
-      </HashRouter>
-    );
+    const container = renderWithProviders(<ErrorBoundary />);
     expect(container).toMatchSnapshot();
   });
 
   it('should be displayed ErrorBoundary component', () => {
-    render(
+    renderWithProviders(
       <ErrorBoundary>
-        <Child />
+        <ChildErrorBoundary />
       </ErrorBoundary>
     );
 

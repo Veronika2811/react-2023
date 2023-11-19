@@ -2,11 +2,11 @@ import { useSearchParams } from 'react-router-dom';
 
 import Preloader from '../UI/preloader/Preloader';
 import Button from '../UI/button/Button';
-import getStatusCharacterColor from '../../utils/getStatusCharacterColor';
-import { useGetCharacterItemQuery } from '../../redux/api/apiSlice';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { charactersChangeViewMode } from '../../redux/store/charactersSlice';
-import { RootState } from '../../redux/store/store';
+import getStatusCharacterColor from '../../utils/getStatusCharacterColor/getStatusCharacterColor';
+import { useGetCharacterItemQuery } from '@/api/apiSlice';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { charactersChangeViewMode } from '../../store/slice/charactersSlice';
+import { RootState } from '../../store/store';
 import { DETAILS_URL_PARAMETER_KEY } from '../../constants/constants';
 
 import classes from './CardDetails.module.css';

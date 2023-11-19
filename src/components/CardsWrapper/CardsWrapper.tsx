@@ -1,15 +1,16 @@
+import { MouseEvent } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import Card from '../Card/Card';
-import changePerPage from '../../utils/changePerPage';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { charactersChangeViewMode } from '../../redux/store/charactersSlice';
-import { RootState } from '../../redux/store/store';
-import { IDataResult } from '../../types/types';
+import changePerPage from '@/utils/changePerPage/changePerPage';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { charactersChangeViewMode } from '@/store/slice/charactersSlice';
+import { RootState } from '@/store/store';
+import { IDataResult } from '@/types/types';
 import {
   ADDITIONAL_VALUE_PER_PAGE,
   DETAILS_URL_PARAMETER_KEY,
-} from '../../constants/constants';
+} from '@/constants/constants';
 
 import classes from './CardsWrapper.module.css';
 
@@ -31,20 +32,24 @@ const CardsWrapper = ({ cards, currentPage }: ICardsWrapperProps) => {
       ? changePerPage(cards, currentPage, perPage)
       : cards;
 
+  const closeDetailsPanel = (
+    e: MouseEvent<HTMLUListElement, globalThis.MouseEvent>
+  ) => {
+    if (e.target === e.currentTarget) {
+      if (viewMode) {
+        dispatch(charactersChangeViewMode(''));
+        setSearchParams((searchParams) => {
+          searchParams.delete(DETAILS_URL_PARAMETER_KEY);
+          return searchParams;
+        });
+      }
+    }
+  };
+
   return (
     <ul
       className={`${classes.main__characters} ${classes.characters}`}
-      onClick={(e) => {
-        if (e.target === e.currentTarget) {
-          if (viewMode) {
-            dispatch(charactersChangeViewMode(''));
-          }
-          setSearchParams((searchParams) => {
-            searchParams.delete(DETAILS_URL_PARAMETER_KEY);
-            return searchParams;
-          });
-        }
-      }}
+      onClick={closeDetailsPanel}
     >
       {characters.map((card) => (
         <Card card={card} key={card.id} />

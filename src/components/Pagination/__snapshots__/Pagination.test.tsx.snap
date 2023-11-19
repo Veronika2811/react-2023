@@ -20,7 +20,7 @@ exports[`Pagination component > renders correctly Pagination component 1`] = `
         >
           1
            / 
-          2
+          25
         </span>
         <button
           class="_pagination__controls_4a2aa2"
@@ -48,7 +48,7 @@ exports[`Pagination component > renders correctly Pagination component 1`] = `
       >
         1
          / 
-        2
+        25
       </span>
       <button
         class="_pagination__controls_4a2aa2"
@@ -109,6 +109,13 @@ exports[`Pagination component > renders correctly Pagination component 1`] = `
   "queryByText": [Function],
   "queryByTitle": [Function],
   "rerender": [Function],
+  "store": {
+    "@@observable": [Function],
+    "dispatch": [Function],
+    "getState": [Function],
+    "replaceReducer": [Function],
+    "subscribe": [Function],
+  },
   "unmount": [Function],
 }
 `;

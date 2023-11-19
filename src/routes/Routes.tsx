@@ -1,13 +1,13 @@
 import { createHashRouter } from 'react-router-dom';
 
-import App from '../components/App/App';
-import NothingFound from '../components/NothingFound/NothingFound';
+import NothingFound from '@/views/NothingFound/NothingFound';
 import CardDetails from '../components/CardDetails/CardDetails';
+import MainPage from '@/views/MainPage/MainPage';
 
 const Routes = createHashRouter([
   {
     path: '/',
-    element: <App />,
+    element: <MainPage />,
     errorElement: <NothingFound error="error-router" />,
     children: [
       {

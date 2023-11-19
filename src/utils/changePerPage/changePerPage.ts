@@ -1,8 +1,8 @@
 import {
   ADDITIONAL_VALUE_PER_PAGE,
   DEFAULT_VALUE_PER_PAGE,
-} from '../constants/constants';
-import { IDataResult } from '../types/types';
+} from '../../constants/constants';
+import { IDataResult } from '../../types/types';
 
 const changePerPage = (
   items: IDataResult[],

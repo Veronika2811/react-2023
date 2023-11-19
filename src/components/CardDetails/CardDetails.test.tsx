@@ -1,38 +1,26 @@
 import { expect, it } from 'vitest';
-import { HashRouter, RouterProvider } from 'react-router-dom';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { screen, waitFor, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Provider } from 'react-redux';
 
 import CardDetails from './CardDetails';
-import Routes from '../../routes/Routes';
-import { setupStore, store } from '../../redux/store/store';
-import { charactersChangeViewMode } from '../../redux/store/charactersSlice';
-import renderWithProviders from '../../redux/renderWithProviders';
-
-import { MortyMock } from '../../mock/cardsMock';
+import renderWithProviders from '@/mock/renderWithProviders';
+import * as useGetCharacterItemQuery from '@/api/apiSlice';
+import { MortyMock } from '@/mock/cardsMock';
+import { store } from '@/store/store';
+import { charactersChangeViewMode } from '@/store/slice/charactersSlice';
 
 describe('CardDetails component', () => {
   it('renders correctly CardDetails component', () => {
-    const container = render(
-      <HashRouter>
-        <Provider store={store}>
-          <CardDetails />
-        </Provider>
-      </HashRouter>
-    );
+    const container = renderWithProviders(<CardDetails />);
     expect(container).toMatchSnapshot();
   });
 
   it('should display relevant character data CardDetails component', async () => {
-    const store = setupStore();
     store.dispatch(charactersChangeViewMode('2'));
-
     renderWithProviders(<CardDetails />, { store });
 
-    await waitFor(async () => {
+    await waitFor(() => {
       const cardDetails = screen.getByTestId('card-details');
-
       expect(cardDetails).toBeInTheDocument();
 
       const { status, image, name, gender, species, location } = MortyMock;
@@ -59,36 +47,26 @@ describe('CardDetails component', () => {
   });
 
   it('should close the component with character details', async () => {
-    render(<RouterProvider router={Routes} />);
+    renderWithProviders(<CardDetails />, { store });
 
-    await waitFor(() => {
-      fireEvent.click(screen.getAllByTestId('card')[1]);
-    });
+    const cardDetails = screen.queryByTestId('card-details');
 
-    await waitFor(() => {
-      const cardDetails = screen.queryByTestId('card-details');
-      expect(cardDetails).toBeInTheDocument();
+    await waitFor(() => expect(cardDetails).toBeInTheDocument());
 
-      const closeButton = screen.getByTestId('close-details');
-      fireEvent.click(closeButton);
-    });
+    const closeButton = screen.getByTestId('close-details');
+    fireEvent.click(closeButton);
 
-    await waitFor(() => {
-      const cardDetails = screen.queryByTestId('card-details');
-      expect(cardDetails).not.toBeInTheDocument();
-    });
+    await waitFor(() => expect(cardDetails).not.toBeInTheDocument());
   });
 
-  it.skip('should show preloader', async () => {
-    render(<RouterProvider router={Routes} />);
+  it('should make an additional API call when clicking on the card', async () => {
+    const spyAPIcall = vi.spyOn(
+      useGetCharacterItemQuery,
+      'useGetCharacterItemQuery'
+    );
 
-    await waitFor(() => {
-      fireEvent.click(screen.getAllByTestId('card')[1]);
-    });
+    renderWithProviders(<CardDetails />, { store });
 
-    await waitFor(() => {
-      const loader = screen.getByTestId('preloader');
-      expect(loader).toBeInTheDocument();
-    });
+    expect(spyAPIcall).toHaveBeenCalled();
   });
 });

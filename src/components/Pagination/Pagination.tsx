@@ -1,22 +1,25 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { charactersChangeViewMode } from '../../redux/store/charactersSlice';
-import { RootState } from '../../redux/store/store';
+import getTotalPages from '@/utils/getTotalPages/getTotalPages';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { charactersChangeViewMode } from '@/store/slice/charactersSlice';
+import { RootState } from '@/store/store';
+import { IDataInfo } from '@/types/types';
 import {
+  ADDITIONAL_VALUE_PER_PAGE,
   DETAILS_URL_PARAMETER_KEY,
   PAGE_URL_PARAMETER_KEY,
-} from '../../constants/constants';
+} from '@/constants/constants';
 
 import classes from './Pagination.module.css';
 
 interface IPaginationProps {
-  count: number;
+  info: IDataInfo;
   currentPage: number;
 }
 
-const Pagination = ({ currentPage, count }: IPaginationProps) => {
+const Pagination = ({ info, currentPage }: IPaginationProps) => {
   const [, setSearchParams] = useSearchParams();
 
   const { perPage, viewMode } = useAppSelector(
@@ -25,30 +28,35 @@ const Pagination = ({ currentPage, count }: IPaginationProps) => {
   const dispatch = useAppDispatch();
 
   const onChangePage = (page: number) => {
-    console.log(page);
-    if (viewMode) {
-      dispatch(charactersChangeViewMode(''));
-    }
+    onCloseDetailPanel();
 
     setSearchParams((searchParams) => {
       searchParams.set(PAGE_URL_PARAMETER_KEY, page.toString());
-      searchParams.delete(DETAILS_URL_PARAMETER_KEY);
       return searchParams;
     });
   };
+
+  const onCloseDetailPanel = () => {
+    if (viewMode) {
+      dispatch(charactersChangeViewMode(''));
+      setSearchParams((searchParams) => {
+        searchParams.delete(DETAILS_URL_PARAMETER_KEY);
+        return searchParams;
+      });
+    }
+  };
+
+  const totalPage =
+    perPage === ADDITIONAL_VALUE_PER_PAGE
+      ? getTotalPages(info.count, perPage)
+      : info.pages;
 
   return (
     <div
       className={classes.pagination}
       onClick={(e) => {
         if (e.target === e.currentTarget) {
-          if (viewMode) {
-            dispatch(charactersChangeViewMode(''));
-          }
-          setSearchParams((searchParams) => {
-            searchParams.delete(DETAILS_URL_PARAMETER_KEY);
-            return searchParams;
-          });
+          onCloseDetailPanel();
         }
       }}
     >
@@ -61,12 +69,12 @@ const Pagination = ({ currentPage, count }: IPaginationProps) => {
         &lt;
       </button>
       <span className={classes.pagination__page}>
-        {currentPage} / {Math.ceil(count / perPage)}
+        {currentPage} / {totalPage}
       </span>
       <button
         data-testid="next-page"
         type="button"
-        disabled={currentPage >= count / perPage}
+        disabled={currentPage >= totalPage}
         className={classes.pagination__controls}
         onClick={() => onChangePage(++currentPage)}
       >

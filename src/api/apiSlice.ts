@@ -4,17 +4,32 @@ import {
   charactersChange,
   charactersChangeIsLoadingDetailingPage,
   charactersChangeIsLoadingMainPage,
-} from '../store/charactersSlice';
-import { IData, IDataResult } from '../../types/types';
+} from '@/store/slice/charactersSlice';
+import { IData, IDataResult } from '@/types/types';
+import {
+  ADDITIONAL_VALUE_PER_PAGE,
+  BASE_URL,
+  DEFAULT_PAGE,
+} from '@/constants/constants';
 
 export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://rickandmortyapi.com/api/character',
+    baseUrl: `${BASE_URL}`,
   }),
   endpoints: (build) => ({
-    getCharacters: build.query<IData, { query: string; page: number }>({
-      query: ({ query, page }) => `/?page=${page}&name=${query}`,
+    getCharacters: build.query<
+      IData,
+      { query: string; currentPage: number; perPage: number }
+    >({
+      query: ({ query, currentPage, perPage }) => {
+        const page =
+          perPage === ADDITIONAL_VALUE_PER_PAGE && currentPage > +DEFAULT_PAGE
+            ? Math.ceil(currentPage / 2)
+            : currentPage;
+
+        return `/?page=${page}&name=${query}`;
+      },
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         dispatch(charactersChangeIsLoadingMainPage(true));
         try {

@@ -1,13 +1,12 @@
-import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import SearchForm from '../SearchForm/SearchForm';
 import Select from '../Select/Select';
-import Button from '../UI/button/Button';
-import { RootState } from '../../redux/store/store';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { charactersChangeViewMode } from '../../redux/store/charactersSlice';
-import { DETAILS_URL_PARAMETER_KEY } from '../../constants/constants';
+import ErrorButton from '../ErrorButton/ErrorButton';
+import { RootState } from '@/store/store';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { charactersChangeViewMode } from '@/store/slice/charactersSlice';
+import { DETAILS_URL_PARAMETER_KEY } from '@/constants/constants';
 
 import classes from './Header.module.css';
 
@@ -19,33 +18,21 @@ const Header = () => {
   );
   const dispatch = useAppDispatch();
 
-  const [hasError, setHasError] = useState<boolean>(false);
-
-  if (hasError) {
-    throw new Error('Oops! Something went wrong!');
-  }
-
-  const getErrorOnPage = () => setHasError(true);
+  const closeDetailsPanel = () => {
+    if (viewMode) {
+      dispatch(charactersChangeViewMode(null));
+      setSearchParams((searchParams) => {
+        searchParams.delete(DETAILS_URL_PARAMETER_KEY);
+        return searchParams;
+      });
+    }
+  };
 
   return (
-    <header
-      className={classes.header}
-      onClick={() => {
-        if (viewMode) {
-          dispatch(charactersChangeViewMode(''));
-        }
-
-        setSearchParams((searchParams) => {
-          searchParams.delete(DETAILS_URL_PARAMETER_KEY);
-          return searchParams;
-        });
-      }}
-    >
+    <header className={classes.header} onClick={closeDetailsPanel}>
       <SearchForm />
       <Select />
-      <Button type="button" onClick={getErrorOnPage} data-testid="error-button">
-        Error
-      </Button>
+      <ErrorButton />
     </header>
   );
 };

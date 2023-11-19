@@ -1,77 +1,37 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Card component > renders correctly Card component 1`] = `
+exports[`MainWrapper component > renders correctly MainWrapper component 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <li
-        class="_card_1f2933"
-        data-testid="card"
+      <main
+        class=""
       >
-        <p
-          class="_card__label_1f2933 _card__label_green_1f2933"
-        >
-          Alive
-        </p>
-        <img
-          alt="Morty Smith"
-          class="_card__image_1f2933"
-          data-testid="card-image"
-          src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
-        />
         <div
-          class="_card__content_1f2933"
+          class="_preloader__wrapper_3426d0"
+          data-testid="preloader"
         >
-          <h2>
-            Morty Smith
-          </h2>
-          <p>
-            Gender: Male
-          </p>
-          <p>
-            Species: Human
-          </p>
-          <p>
-            Location: Citadel of Ricks
-          </p>
+          <div
+            class="_preloader__inner_3426d0"
+          />
         </div>
-      </li>
+      </main>
     </div>
   </body>,
   "container": <div>
-    <li
-      class="_card_1f2933"
-      data-testid="card"
+    <main
+      class=""
     >
-      <p
-        class="_card__label_1f2933 _card__label_green_1f2933"
-      >
-        Alive
-      </p>
-      <img
-        alt="Morty Smith"
-        class="_card__image_1f2933"
-        data-testid="card-image"
-        src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
-      />
       <div
-        class="_card__content_1f2933"
+        class="_preloader__wrapper_3426d0"
+        data-testid="preloader"
       >
-        <h2>
-          Morty Smith
-        </h2>
-        <p>
-          Gender: Male
-        </p>
-        <p>
-          Species: Human
-        </p>
-        <p>
-          Location: Citadel of Ricks
-        </p>
+        <div
+          class="_preloader__inner_3426d0"
+        />
       </div>
-    </li>
+    </main>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

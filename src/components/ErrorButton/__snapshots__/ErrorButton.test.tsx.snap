@@ -1,29 +1,27 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`NothingFound component > renders correctly NothingFound component 1`] = `
+exports[`ErrorButton component > renders correctly ErrorButton component 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="_error__wrapper_370b96"
-        data-testid="nothing-found"
+      <button
+        class="_button_634e7c"
+        data-testid="error-button"
+        type="button"
       >
-        <h2>
-          Sorry, but we couldn't find anything matching your request.
-        </h2>
-      </div>
+        Error
+      </button>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="_error__wrapper_370b96"
-      data-testid="nothing-found"
+    <button
+      class="_button_634e7c"
+      data-testid="error-button"
+      type="button"
     >
-      <h2>
-        Sorry, but we couldn't find anything matching your request.
-      </h2>
-    </div>
+      Error
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -75,6 +73,13 @@ exports[`NothingFound component > renders correctly NothingFound component 1`] =
   "queryByText": [Function],
   "queryByTitle": [Function],
   "rerender": [Function],
+  "store": {
+    "@@observable": [Function],
+    "dispatch": [Function],
+    "getState": [Function],
+    "replaceReducer": [Function],
+    "subscribe": [Function],
+  },
   "unmount": [Function],
 }
 `;

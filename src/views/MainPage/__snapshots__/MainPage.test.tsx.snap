@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Header component > renders correctly Header component 1`] = `
+exports[`MainPage component > renders correctly MainPage component 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -54,6 +54,18 @@ exports[`Header component > renders correctly Header component 1`] = `
           Error
         </button>
       </header>
+      <main
+        class=""
+      >
+        <div
+          class="_preloader__wrapper_3426d0"
+          data-testid="preloader"
+        >
+          <div
+            class="_preloader__inner_3426d0"
+          />
+        </div>
+      </main>
     </div>
   </body>,
   "container": <div>
@@ -106,6 +118,18 @@ exports[`Header component > renders correctly Header component 1`] = `
         Error
       </button>
     </header>
+    <main
+      class=""
+    >
+      <div
+        class="_preloader__wrapper_3426d0"
+        data-testid="preloader"
+      >
+        <div
+          class="_preloader__inner_3426d0"
+        />
+      </div>
+    </main>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

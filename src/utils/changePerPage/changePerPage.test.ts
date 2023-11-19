@@ -3,7 +3,7 @@ import {
   initialCharacterArrayMock,
   first10СharactersMock,
   last10СharactersMock,
-} from '../mock/cardsMock';
+} from '../../mock/cardsMock';
 
 describe('Change per page function', () => {
   it('should return the first 10 cards', () => {

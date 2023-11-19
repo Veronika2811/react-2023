@@ -1,13 +1,13 @@
+import { Provider } from 'react-redux';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { expect, it } from 'vitest';
-import { HashRouter, MemoryRouter, Route, Routes } from 'react-router-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Provider } from 'react-redux';
 
-import App from '../App/App';
-import CardDetails from '../CardDetails/CardDetails';
 import NothingFound from './NothingFound';
-import { store } from '../../redux/store/store';
+import MainPage from '@/views/MainPage/MainPage';
+import CardDetails from '@/components/CardDetails/CardDetails';
+import { store } from '@/store/store';
 
 const useNavigateMock = vi.fn();
 
@@ -24,11 +24,11 @@ vi.mock(`react-router-dom`, async (): Promise<unknown> => {
 describe('NothingFound component', () => {
   it('renders correctly NothingFound component', () => {
     const container = render(
-      <HashRouter>
+      <MemoryRouter>
         <Provider store={store}>
           <NothingFound />
         </Provider>
-      </HashRouter>
+      </MemoryRouter>
     );
     expect(container).toMatchSnapshot();
   });
@@ -39,7 +39,7 @@ describe('NothingFound component', () => {
     render(
       <MemoryRouter initialEntries={[BAD_ROUTE]}>
         <Routes>
-          <Route path="/" element={<App />}>
+          <Route path="/" element={<MainPage />}>
             <Route path="" element={<CardDetails />} />
           </Route>
           <Route path="*" element={<NothingFound />} />
@@ -56,7 +56,7 @@ describe('NothingFound component', () => {
     render(
       <MemoryRouter initialEntries={[BAD_ROUTE]}>
         <Routes>
-          <Route path="/" element={<App />}>
+          <Route path="/" element={<MainPage />}>
             <Route path="" element={<CardDetails />} />
           </Route>
           <Route path="*" element={<NothingFound error="error-router" />} />
