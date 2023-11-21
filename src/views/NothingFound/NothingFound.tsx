@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 import Button from '@/components/UI/button/Button';
 
@@ -9,9 +9,9 @@ interface INothingFound {
 }
 
 const NothingFound = ({ error }: INothingFound) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const goToTheMainPage = () => navigate('/');
+  // const goToTheMainPage = () => navigate('/');
 
   return (
     <div className={classes.error__wrapper} data-testid="nothing-found">
@@ -20,7 +20,7 @@ const NothingFound = ({ error }: INothingFound) => {
         <Button
           type="button"
           data-testid="nothing-found-button"
-          onClick={goToTheMainPage}
+          // onClick={goToTheMainPage}
         >
           Main Page
         </Button>

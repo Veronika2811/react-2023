@@ -3,11 +3,12 @@ import { createSlice } from '@reduxjs/toolkit';
 import TInitialState from '../types/types';
 import {
   DEFAULT_VALUE_PER_PAGE,
-  LOCAL_STORAGE_KEY,
+  // LOCAL_STORAGE_KEY,
 } from '@/constants/constants';
 
 const initialState: TInitialState = {
-  query: localStorage.getItem(LOCAL_STORAGE_KEY) || '',
+  // query: localStorage.getItem(LOCAL_STORAGE_KEY) || '',
+  query: '',
   perPage: DEFAULT_VALUE_PER_PAGE,
   viewMode: '',
   characters: null,

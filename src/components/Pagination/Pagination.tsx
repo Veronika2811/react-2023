@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSearchParams } from 'react-router-dom';
+// import { useSearchParams } from 'react-router-dom';
 
 import getTotalPages from '@/utils/getTotalPages/getTotalPages';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
@@ -8,11 +8,12 @@ import { RootState } from '@/store/store';
 import { IDataInfo } from '@/types/types';
 import {
   ADDITIONAL_VALUE_PER_PAGE,
-  DETAILS_URL_PARAMETER_KEY,
-  PAGE_URL_PARAMETER_KEY,
+  // DETAILS_URL_PARAMETER_KEY,
+  // PAGE_URL_PARAMETER_KEY,
 } from '@/constants/constants';
 
 import classes from './Pagination.module.css';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 interface IPaginationProps {
   info: IDataInfo;
@@ -20,29 +21,43 @@ interface IPaginationProps {
 }
 
 const Pagination = ({ info, currentPage }: IPaginationProps) => {
-  const [, setSearchParams] = useSearchParams();
+  const router = useRouter()
+
+  // useEffect(() => {
+  //   router.push('/?page=1', undefined, { shallow: true })
+
+  // const pageParams = useSearchParams();
+
+  // const params = new URLSearchParams(pageParams)
+
+  // params.set('page', '1')
+  
+  // const [, setSearchParams] = useSearchParams();
 
   const { perPage, viewMode } = useAppSelector(
     (state: RootState) => state.CHARACTERS_SLICE
   );
   const dispatch = useAppDispatch();
 
+  // const onChangePage = (page: number) => {
   const onChangePage = (page: number) => {
     onCloseDetailPanel();
+    router.push(`/?page=${page}`);
+    // params.set('page', page.toString())
 
-    setSearchParams((searchParams) => {
-      searchParams.set(PAGE_URL_PARAMETER_KEY, page.toString());
-      return searchParams;
-    });
+    // setSearchParams((searchParams) => {
+    //   searchParams.set(PAGE_URL_PARAMETER_KEY, page.toString());
+    //   return searchParams;
+    // });
   };
 
   const onCloseDetailPanel = () => {
     if (viewMode) {
       dispatch(charactersChangeViewMode(''));
-      setSearchParams((searchParams) => {
-        searchParams.delete(DETAILS_URL_PARAMETER_KEY);
-        return searchParams;
-      });
+      // setSearchParams((searchParams) => {
+      //   searchParams.delete(DETAILS_URL_PARAMETER_KEY);
+      //   return searchParams;
+      // });
     }
   };
 

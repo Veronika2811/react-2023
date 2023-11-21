@@ -1,4 +1,4 @@
-import { useSearchParams } from 'react-router-dom';
+// import { useSearchParams } from 'react-router-dom';
 
 import Preloader from '../UI/preloader/Preloader';
 import Button from '../UI/button/Button';
@@ -7,13 +7,13 @@ import { useGetCharacterItemQuery } from '@/api/apiSlice';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { charactersChangeViewMode } from '../../store/slice/charactersSlice';
 import { RootState } from '../../store/store';
-import { DETAILS_URL_PARAMETER_KEY } from '../../constants/constants';
+// import { DETAILS_URL_PARAMETER_KEY } from '../../constants/constants';
 
 import classes from './CardDetails.module.css';
 import classesCard from '../Card/Card.module.css';
 
 const CardDetails = () => {
-  const [, setSearchParams] = useSearchParams();
+  // const [, setSearchParams] = useSearchParams();
 
   const { viewMode, isLoadingDetailingPage } = useAppSelector(
     (state: RootState) => state.CHARACTERS_SLICE
@@ -48,17 +48,17 @@ const CardDetails = () => {
               <h2>{data.name}</h2>
               <p>{`Gender: ${data.gender}`}</p>
               <p>{`Species: ${data.species}`}</p>
-              <p>{`Location: ${data.location.name}`}</p>
+              {/* <p>{`Location: ${data.location.name}`}</p> */}
             </div>
           </li>
           <Button
             type="button"
             onClick={() => {
               dispatch(charactersChangeViewMode(''));
-              setSearchParams((searchParams) => {
-                searchParams.delete(DETAILS_URL_PARAMETER_KEY);
-                return searchParams;
-              });
+              // setSearchParams((searchParams) => {
+              //   searchParams.delete(DETAILS_URL_PARAMETER_KEY);
+              //   return searchParams;
+              // });
             }}
             data-testid="close-details"
           >

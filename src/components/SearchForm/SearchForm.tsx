@@ -1,20 +1,20 @@
 import { FormEvent, useRef } from 'react';
-import { useSearchParams } from 'react-router-dom';
+// import { useSearchParams } from 'react-router-dom';
 
 import Button from '../UI/button/Button';
 import { useAppSelector, useAppDispatch } from '@/store/hooks';
 import { charactersSaveSearchQuery } from '@/store/slice/charactersSlice';
 import { RootState } from '@/store/store';
 import {
-  DEFAULT_PAGE,
+  // DEFAULT_PAGE,
   LOCAL_STORAGE_KEY,
-  PAGE_URL_PARAMETER_KEY,
+  // PAGE_URL_PARAMETER_KEY,
 } from '@/constants/constants';
 
 import classes from './SearchForm.module.css';
 
 const SearchForm = () => {
-  const [, setSearchParams] = useSearchParams();
+  // const [, setSearchParams] = useSearchParams();
 
   const query = useAppSelector(
     (state: RootState) => state.CHARACTERS_SLICE.query
@@ -31,10 +31,10 @@ const SearchForm = () => {
 
       dispatch(charactersSaveSearchQuery(currentValue));
 
-      setSearchParams((searchParams) => {
-        searchParams.set(PAGE_URL_PARAMETER_KEY, DEFAULT_PAGE);
-        return searchParams;
-      });
+      // setSearchParams((searchParams) => {
+      //   searchParams.set(PAGE_URL_PARAMETER_KEY, DEFAULT_PAGE);
+      //   return searchParams;
+      // });
     }
   };
 

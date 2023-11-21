@@ -1,18 +1,18 @@
 import { ChangeEvent } from 'react';
-import { useSearchParams } from 'react-router-dom';
+// import { useSearchParams } from 'react-router-dom';
 
 import { useAppDispatch } from '@/store/hooks';
 import { charactersChangePerPage } from '@/store/slice/charactersSlice';
 import {
-  DEFAULT_PAGE,
+  // DEFAULT_PAGE,
   DEFAULT_VALUE_PER_PAGE,
-  PAGE_URL_PARAMETER_KEY,
+  // PAGE_URL_PARAMETER_KEY,
 } from '@/constants/constants';
 
 import classes from './Select.module.css';
 
 const Select = () => {
-  const [, setSearchParams] = useSearchParams();
+  // const [, setSearchParams] = useSearchParams();
 
   const dispatch = useAppDispatch();
 
@@ -21,10 +21,10 @@ const Select = () => {
 
     dispatch(charactersChangePerPage(+target));
 
-    setSearchParams((searchParams) => {
-      searchParams.set(PAGE_URL_PARAMETER_KEY, DEFAULT_PAGE);
-      return searchParams;
-    });
+    // setSearchParams((searchParams) => {
+    //   searchParams.set(PAGE_URL_PARAMETER_KEY, DEFAULT_PAGE);
+    //   return searchParams;
+    // });
   };
 
   return (

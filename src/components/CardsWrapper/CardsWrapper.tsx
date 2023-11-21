@@ -1,5 +1,5 @@
 import { MouseEvent } from 'react';
-import { useSearchParams } from 'react-router-dom';
+// import { useSearchParams } from 'react-router-dom';
 
 import Card from '../Card/Card';
 import changePerPage from '@/utils/changePerPage/changePerPage';
@@ -9,7 +9,7 @@ import { RootState } from '@/store/store';
 import { IDataResult } from '@/types/types';
 import {
   ADDITIONAL_VALUE_PER_PAGE,
-  DETAILS_URL_PARAMETER_KEY,
+  // DETAILS_URL_PARAMETER_KEY,
 } from '@/constants/constants';
 
 import classes from './CardsWrapper.module.css';
@@ -20,7 +20,7 @@ interface ICardsWrapperProps {
 }
 
 const CardsWrapper = ({ cards, currentPage }: ICardsWrapperProps) => {
-  const [, setSearchParams] = useSearchParams();
+  // const [, setSearchParams] = useSearchParams();
 
   const { perPage, viewMode } = useAppSelector(
     (state: RootState) => state.CHARACTERS_SLICE
@@ -38,10 +38,10 @@ const CardsWrapper = ({ cards, currentPage }: ICardsWrapperProps) => {
     if (e.target === e.currentTarget) {
       if (viewMode) {
         dispatch(charactersChangeViewMode(''));
-        setSearchParams((searchParams) => {
-          searchParams.delete(DETAILS_URL_PARAMETER_KEY);
-          return searchParams;
-        });
+        // setSearchParams((searchParams) => {
+        //   searchParams.delete(DETAILS_URL_PARAMETER_KEY);
+        //   return searchParams;
+        // });
       }
     }
   };
