@@ -59,7 +59,7 @@ describe('CardDetails component', () => {
     await waitFor(() => expect(cardDetails).not.toBeInTheDocument());
   });
 
-  it('should make an additional API call when clicking on the card', async () => {
+  it('should make an additional API call when clicking on the card and check preloader', async () => {
     const spyAPIcall = vi.spyOn(
       useGetCharacterItemQuery,
       'useGetCharacterItemQuery'
@@ -68,5 +68,10 @@ describe('CardDetails component', () => {
     renderWithProviders(<CardDetails />, { store });
 
     expect(spyAPIcall).toHaveBeenCalled();
+
+    await waitFor(() => {
+      const loader = screen.getByTestId('preloader');
+      expect(loader).toBeInTheDocument();
+    });
   });
 });

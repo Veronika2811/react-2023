@@ -41,23 +41,4 @@ describe('MainWrapper component', () => {
 
     await waitFor(() => expect(window.location.href).toContain('details'));
   });
-
-  // it('should make an additional API call when clicking on the card', async () => {
-
-  //   renderWithProviders(<MainWrapper />);
-  //   server.use(handlers[1]);
-
-  //   await waitFor(async () =>
-  //   fireEvent.click(screen.getAllByTestId('card')[1])
-  //   );
-  //   const mockeduseGetCharacterItemQuery = vi.spyOn(
-  //     mockApiSlice,
-  //     'useGetCharactersQuery'
-  //   );
-  //     // store.dispatch(charactersChangeViewMode('2'));
-
-  //   await waitFor(() => {
-  //     expect(mockeduseGetCharacterItemQuery).toHaveBeenCalled();
-  //   })
-  // });
 });
