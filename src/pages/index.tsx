@@ -2,36 +2,95 @@
 // import Image from 'next/image'
 // import { Inter } from 'next/font/google'
 // import styles from '@/styles/Home.module.css'
+import { getCharacterItem, getCharacters, getRunningQueriesThunk } from '@/api/apiSlice';
+import { wrapper } from '@/api/store';
 import ErrorBoundary from '@/components/ErrorBoundary/ErrorBoundary';
 import Header from '@/components/Header/Header';
 import MainWrapper from '@/components/MainWrapper/MainWrapper';
-import { Provider } from 'react-redux';
+// import { Provider } from 'react-redux';
+// import { store } from '@/store/store';
+import {
+  ADDITIONAL_VALUE_PER_PAGE,
+  BASE_URL,
+  DEFAULT_PAGE,
+} from '@/constants/constants';
 import { store } from '@/store/store';
-// import { useSearchParams } from 'next/navigation';
+import { IData } from '@/types/types';
+import { useRouter } from 'next/router';
+import { Provider } from 'react-redux';
 
+// This gets called on every request
+// export async function getServerSideProps({
+//   query: { name = '', page = 1, perPage = 20 },
+// }: {
+//   query: { name: string; page: number; perPage: number };
+// }) {
+//   // const router = useRouter()
 
-// import { useEffect } from 'react'
-// import { useRouter } from 'next/router'
+//   // const currentPage =
+//   // perPage === ADDITIONAL_VALUE_PER_PAGE && page > +DEFAULT_PAGE
+//   //   ? Math.ceil(page / 2)
+//   //   : page;
+
+//   // const currentPage =
+//   //         perPage === ADDITIONAL_VALUE_PER_PAGE && page > +DEFAULT_PAGE
+//   //           ? Math.ceil(page / 2)
+//   //           : page;
+
+//   // console.log(name)
+//   // console.log(query)
+//   // console.log(context)page
+//   // Fetch data from external API
+//   const res = await fetch(`${BASE_URL}/?name=${name}&page=${page}`);
+//   const data: IData = await res.json();
+
+//   // Pass data to the page via props
+//   return { props: { data } };
+// }
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async (context) => {
+    // console.log(store)
+    // console.log(context)
+    const id = context.params?.id;
+    if (id) {
+      store.dispatch(getCharacterItem.initiate({ id }));
+    }
+      store.dispatch(getCharacters.initiate({ query: '', currentPage: '1', perPage: '20' }));
+
+    await Promise.all(store.dispatch(getRunningQueriesThunk()));
+
+    return {
+      props: {},
+    };
+  }
+);
+
+// if (typeof id === "string") {
+//   store.dispatch(getCharacterItem.initiate({ id }));
+// }
+
+// await Promise.all(store.dispatch(getRunningQueriesThunk()));
 
 export default function Page() {
+  // console.log(props);
   // const router = useRouter()
 
   // useEffect(() => {
   //   router.push('/?page=1', undefined, { shallow: true })
   // }, [])
- 
+
   // useEffect(() => {
 
   // }, [router.query.page])
 
-
   return (
-    <ErrorBoundary>
       <Provider store={store}>
-        <Header />
-        <MainWrapper />
-      </Provider>
+    <ErrorBoundary>
+      <Header />
+      <MainWrapper />
     </ErrorBoundary>
+      </Provider>
   );
 }
 

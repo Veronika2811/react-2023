@@ -13,19 +13,19 @@ import classes from './Header.module.css';
 const Header = () => {
   // const [, setSearchParams] = useSearchParams();
 
-  const viewMode = useAppSelector(
-    (state: RootState) => state.CHARACTERS_SLICE.viewMode
-  );
-  const dispatch = useAppDispatch();
+  // const viewMode = useAppSelector(
+  //   (state: RootState) => state.CHARACTERS_SLICE.viewMode
+  // );
+  // const dispatch = useAppDispatch();
 
   const closeDetailsPanel = () => {
-    if (viewMode) {
-      dispatch(charactersChangeViewMode(null));
-      // setSearchParams((searchParams) => {
-      //   searchParams.delete(DETAILS_URL_PARAMETER_KEY);
-      //   return searchParams;
-      // });
-    }
+    // if (viewMode) {
+    //   dispatch(charactersChangeViewMode(null));
+    //   // setSearchParams((searchParams) => {
+    //   //   searchParams.delete(DETAILS_URL_PARAMETER_KEY);
+    //   //   return searchParams;
+    //   // });
+    // }
   };
 
   return (

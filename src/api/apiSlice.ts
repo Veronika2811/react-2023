@@ -11,21 +11,27 @@ import {
   BASE_URL,
   DEFAULT_PAGE,
 } from '@/constants/constants';
+import { HYDRATE } from 'next-redux-wrapper'
 
 export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
     baseUrl: `${BASE_URL}`,
   }),
+  extractRehydrationInfo(action, { reducerPath }) {
+    if (action.type === HYDRATE) {
+      return action.payload[reducerPath]
+    }
+  },
   endpoints: (build) => ({
     getCharacters: build.query<
       IData,
-      { query: string; currentPage: number; perPage: number }
+      { query: string | string[] | undefined; currentPage: string | string[] | undefined; perPage: string | string[] | undefined }
     >({
-      query: ({ query, currentPage, perPage }) => {
+      query: ({ query = '', currentPage = 1, perPage = 20 }) => {
         const page =
-          perPage === ADDITIONAL_VALUE_PER_PAGE && currentPage > +DEFAULT_PAGE
-            ? Math.ceil(currentPage / 2)
+        perPage && currentPage && +perPage === ADDITIONAL_VALUE_PER_PAGE && +currentPage > +DEFAULT_PAGE
+            ? Math.ceil(+currentPage / 2)
             : currentPage;
 
         return `/?page=${page}&name=${query}`;
@@ -45,7 +51,7 @@ export const apiSlice = createApi({
         }
       },
     }),
-    getCharacterItem: build.query<IDataResult, { id: string }>({
+    getCharacterItem: build.query<IDataResult, { id: string | string[] | undefined }>({
       query: ({ id }) => `/${id}`,
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         dispatch(charactersChangeIsLoadingDetailingPage(true));
@@ -62,4 +68,10 @@ export const apiSlice = createApi({
   }),
 });
 
-export const { useGetCharactersQuery, useGetCharacterItemQuery } = apiSlice;
+export const {
+  useGetCharactersQuery,
+  useGetCharacterItemQuery,
+  util: { getRunningQueriesThunk },
+} = apiSlice;
+
+export const { getCharacters, getCharacterItem } = apiSlice.endpoints;
