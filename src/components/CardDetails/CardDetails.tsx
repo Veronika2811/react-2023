@@ -1,33 +1,22 @@
-// import { useSearchParams } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 import Preloader from '../UI/preloader/Preloader';
 import Button from '../UI/button/Button';
 import getStatusCharacterColor from '../../utils/getStatusCharacterColor/getStatusCharacterColor';
-// import { useGetCharacterItemQuery } from '@/api/apiSlice';
-// import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { charactersChangeViewMode } from '../../store/slice/charactersSlice';
-import { RootState } from '../../store/store';
-// import { DETAILS_URL_PARAMETER_KEY } from '../../constants/constants';
+import { useGetCharacterItemQuery } from '@/api/apiSlice';
 
 import classes from './CardDetails.module.css';
 import classesCard from '../Card/Card.module.css';
-import { IDataResult } from '@/types/types';
-import { useRouter } from 'next/router';
-import { useGetCharacterItemQuery } from '@/api/apiSlice';
-import { skipToken } from '@reduxjs/toolkit/query';
 
-// const CardDetails = ({ data }: {data: IDataResult} ) => {
-const CardDetails = () => {
-  const router = useRouter()
-  const { name, query, page, perPage} = router.query;
+const CardDetails = ({ id }: { id: string | string[] }) => {
+  const router = useRouter();
+  const { name, page, perPage } = router.query;
 
   const result = useGetCharacterItemQuery({
-    id: router.query.id || '',
+    id,
   });
 
   const { isLoading, error, data } = result;
-
-  // console.log(isLoading, error, data)
 
   return (
     <div className={classes.details}>
@@ -61,13 +50,12 @@ const CardDetails = () => {
             onClick={() => {
               router.push({
                 pathname: '/',
-                query: { name: name || '', page: page || 1, perPage: perPage || 20 },
-              })
-              // dispatch(charactersChangeViewMode(''));
-              // setSearchParams((searchParams) => {
-              //   searchParams.delete(DETAILS_URL_PARAMETER_KEY);
-              //   return searchParams;
-              // });
+                query: {
+                  ...(name ? { name } : {}),
+                  page: page || 1,
+                  perPage: perPage || 20,
+                },
+              });
             }}
             data-testid="close-details"
           >

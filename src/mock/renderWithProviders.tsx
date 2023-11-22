@@ -23,7 +23,7 @@ export const renderWithProviders = (
   const Wrapper = ({ children }: PropsWithChildren): JSX.Element => {
     return (
       // <HashRouter>
-        <Provider store={store}>{children}</Provider>
+      <Provider store={store}>{children}</Provider>
       // </HashRouter>
     );
   };
