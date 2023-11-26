@@ -51,7 +51,7 @@ describe('Pagination component', () => {
 
     fireEvent.click(nextPageButton);
 
-    expect(router.push).toBeCalledWith({
+    expect(router.push).toHaveBeenCalledWith({
       pathname: '/',
       query: {
         page: '2',
@@ -84,7 +84,7 @@ describe('Pagination component', () => {
     const prevPageButton = screen.getByTestId('prev-page');
     fireEvent.click(prevPageButton);
 
-    expect(router.push).toBeCalledWith({
+    expect(router.push).toHaveBeenCalledWith({
       pathname: '/',
       query: { page: '2', perPage: DEFAULT_QUERY_PARAMS.perPage },
     });
@@ -107,7 +107,7 @@ describe('Pagination component', () => {
     const nextPageButton = screen.getByTestId('next-page');
     fireEvent.click(nextPageButton);
 
-    expect(router.push).toBeCalledWith({
+    expect(router.push).toHaveBeenCalledWith({
       pathname: '/',
       query: { page: '2', perPage: DEFAULT_QUERY_PARAMS.perPage },
     });

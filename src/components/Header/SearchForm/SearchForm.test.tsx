@@ -33,7 +33,7 @@ describe('SearchForm component', () => {
     fireEvent.change(searchInput, { target: { value: AlbertMock.name } });
     fireEvent.click(searchButton);
 
-    expect(router.push).toBeCalledWith({
+    expect(router.push).toHaveBeenCalledWith({
       pathname: '/',
       query: {
         page: DEFAULT_QUERY_PARAMS.currentPage,
@@ -58,7 +58,7 @@ describe('SearchForm component', () => {
     fireEvent.change(searchInput, { target: { value: '' } });
     fireEvent.click(searchButton);
 
-    expect(router.push).toBeCalledWith({
+    expect(router.push).toHaveBeenCalledWith({
       pathname: '/',
       query: {
         page: DEFAULT_QUERY_PARAMS.currentPage,

@@ -14,8 +14,6 @@ const RenderWithNextRouter = ({
 }: IRenderWithNextRouter) => {
   const { Provider } = RouterContext;
 
-  console.log(children);
-
   return (
     <Provider value={createMockRouter({ query: queryParams })}>
       {children}

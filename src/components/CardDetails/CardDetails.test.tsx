@@ -66,7 +66,7 @@ describe('CardDetails component', () => {
     const closeButton = screen.getByTestId('close-details');
     fireEvent.click(closeButton);
 
-    expect(router.push).toBeCalledWith({
+    expect(router.push).toHaveBeenCalledWith({
       query: {
         name: MortyMock.name,
         page: DEFAULT_QUERY_PARAMS.currentPage,
@@ -87,7 +87,7 @@ describe('CardDetails component', () => {
     const closeButton = screen.getByTestId('close-details');
     fireEvent.click(closeButton);
 
-    expect(router.push).toBeCalledWith({
+    expect(router.push).toHaveBeenCalledWith({
       query: {
         page: DEFAULT_QUERY_PARAMS.currentPage,
         perPage: DEFAULT_QUERY_PARAMS.perPage,

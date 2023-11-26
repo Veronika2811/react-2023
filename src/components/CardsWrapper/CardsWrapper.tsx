@@ -18,8 +18,8 @@ const CardsWrapper = ({ cards }: { cards: IDataResult[] }) => {
 
   return (
     <ul className={`${classes.main__characters} ${classes.characters}`}>
-      {characters.map((card) => (
-        <Card card={card} key={card.id} />
+      {characters.map((card, index) => (
+        <Card card={card} key={index} />
       ))}
     </ul>
   );

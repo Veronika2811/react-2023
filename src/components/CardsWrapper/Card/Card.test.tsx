@@ -58,7 +58,7 @@ describe('Card component', () => {
     const card = screen.getByTestId('card');
     fireEvent.click(card);
 
-    expect(router.push).toBeCalledWith({
+    expect(router.push).toHaveBeenCalledWith({
       pathname: '/',
       query: {
         details: MortyMock.id,
@@ -81,7 +81,7 @@ describe('Card component', () => {
     const card = screen.getByTestId('card');
     fireEvent.click(card);
 
-    expect(router.push).toBeCalledWith({
+    expect(router.push).toHaveBeenCalledWith({
       pathname: '/',
       query: {
         details: MortyMock.id,

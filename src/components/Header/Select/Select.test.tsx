@@ -61,7 +61,7 @@ describe('Select component', () => {
       target: { value: ADDITIONAL_VALUE_PER_PAGE },
     });
 
-    expect(router.push).toBeCalledWith({
+    expect(router.push).toHaveBeenCalledWith({
       pathname: '/',
       query: {
         page: '1',
