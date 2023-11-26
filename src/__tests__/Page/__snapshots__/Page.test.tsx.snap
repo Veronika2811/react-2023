@@ -1,0 +1,1616 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Main Page > renders correctly Main Page 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <main
+        class=""
+      >
+        <ul
+          class="_main__characters_4618fc _characters_4618fc"
+        >
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_green_f767b2"
+            >
+              Alive
+            </p>
+            <img
+              alt="Morty Smith"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Morty Smith
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Citadel of Ricks
+              </p>
+            </div>
+          </li>
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_red_f767b2"
+            >
+              Dead
+            </p>
+            <img
+              alt="Abradolf Lincler"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Abradolf Lincler
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Earth (Replacement Dimension)
+              </p>
+            </div>
+          </li>
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_red_f767b2"
+            >
+              Dead
+            </p>
+            <img
+              alt="Adjudicator Rick"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Adjudicator Rick
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Earth (Replacement Dimension)
+              </p>
+            </div>
+          </li>
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_red_f767b2"
+            >
+              Dead
+            </p>
+            <img
+              alt="Agency Director"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Agency Director
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Earth (Replacement Dimension)
+              </p>
+            </div>
+          </li>
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_red_f767b2"
+            >
+              Dead
+            </p>
+            <img
+              alt="Abadango Cluster Princess"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Abadango Cluster Princess
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Earth (Replacement Dimension)
+              </p>
+            </div>
+          </li>
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_red_f767b2"
+            >
+              Dead
+            </p>
+            <img
+              alt="Beth Smith"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Beth Smith
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Earth (Replacement Dimension)
+              </p>
+            </div>
+          </li>
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_red_f767b2"
+            >
+              Dead
+            </p>
+            <img
+              alt="Beth Smith"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Beth Smith
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Earth (Replacement Dimension)
+              </p>
+            </div>
+          </li>
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_red_f767b2"
+            >
+              Dead
+            </p>
+            <img
+              alt="Summer Smith"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Summer Smith
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Earth (Replacement Dimension)
+              </p>
+            </div>
+          </li>
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_red_f767b2"
+            >
+              Dead
+            </p>
+            <img
+              alt="Rick Sanchez"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Rick Sanchez
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Earth (Replacement Dimension)
+              </p>
+            </div>
+          </li>
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_red_f767b2"
+            >
+              Dead
+            </p>
+            <img
+              alt="Albert Einstein"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Albert Einstein
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Earth (Replacement Dimension)
+              </p>
+            </div>
+          </li>
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_green_f767b2"
+            >
+              Alive
+            </p>
+            <img
+              alt="Morty Smith"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Morty Smith
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Citadel of Ricks
+              </p>
+            </div>
+          </li>
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_red_f767b2"
+            >
+              Dead
+            </p>
+            <img
+              alt="Abradolf Lincler"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Abradolf Lincler
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Earth (Replacement Dimension)
+              </p>
+            </div>
+          </li>
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_red_f767b2"
+            >
+              Dead
+            </p>
+            <img
+              alt="Adjudicator Rick"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Adjudicator Rick
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Earth (Replacement Dimension)
+              </p>
+            </div>
+          </li>
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_red_f767b2"
+            >
+              Dead
+            </p>
+            <img
+              alt="Agency Director"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Agency Director
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Earth (Replacement Dimension)
+              </p>
+            </div>
+          </li>
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_red_f767b2"
+            >
+              Dead
+            </p>
+            <img
+              alt="Abadango Cluster Princess"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Abadango Cluster Princess
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Earth (Replacement Dimension)
+              </p>
+            </div>
+          </li>
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_red_f767b2"
+            >
+              Dead
+            </p>
+            <img
+              alt="Beth Smith"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Beth Smith
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Earth (Replacement Dimension)
+              </p>
+            </div>
+          </li>
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_red_f767b2"
+            >
+              Dead
+            </p>
+            <img
+              alt="Beth Smith"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Beth Smith
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Earth (Replacement Dimension)
+              </p>
+            </div>
+          </li>
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_red_f767b2"
+            >
+              Dead
+            </p>
+            <img
+              alt="Summer Smith"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Summer Smith
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Earth (Replacement Dimension)
+              </p>
+            </div>
+          </li>
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_red_f767b2"
+            >
+              Dead
+            </p>
+            <img
+              alt="Rick Sanchez"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Rick Sanchez
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Earth (Replacement Dimension)
+              </p>
+            </div>
+          </li>
+          <li
+            class="_card_f767b2"
+            data-testid="card"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_red_f767b2"
+            >
+              Dead
+            </p>
+            <img
+              alt="Albert Einstein"
+              data-nimg="1"
+              decoding="async"
+              fetchpriority="high"
+              height="250"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Albert Einstein
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Earth (Replacement Dimension)
+              </p>
+            </div>
+          </li>
+        </ul>
+        <div
+          class="_pagination_4a2aa2"
+        >
+          <button
+            class="_pagination__controls_4a2aa2"
+            data-testid="prev-page"
+            disabled=""
+            type="button"
+          >
+            &lt;
+          </button>
+          <span
+            class="_pagination__page_4a2aa2"
+            data-testid="pagination-result"
+          >
+            1
+             / 
+            1
+          </span>
+          <button
+            class="_pagination__controls_4a2aa2"
+            data-testid="next-page"
+            disabled=""
+            type="button"
+          >
+            &gt;
+          </button>
+        </div>
+      </main>
+    </div>
+  </body>,
+  "container": <div>
+    <main
+      class=""
+    >
+      <ul
+        class="_main__characters_4618fc _characters_4618fc"
+      >
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_green_f767b2"
+          >
+            Alive
+          </p>
+          <img
+            alt="Morty Smith"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Morty Smith
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Citadel of Ricks
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_red_f767b2"
+          >
+            Dead
+          </p>
+          <img
+            alt="Abradolf Lincler"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Abradolf Lincler
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Earth (Replacement Dimension)
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_red_f767b2"
+          >
+            Dead
+          </p>
+          <img
+            alt="Adjudicator Rick"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Adjudicator Rick
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Earth (Replacement Dimension)
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_red_f767b2"
+          >
+            Dead
+          </p>
+          <img
+            alt="Agency Director"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Agency Director
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Earth (Replacement Dimension)
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_red_f767b2"
+          >
+            Dead
+          </p>
+          <img
+            alt="Abadango Cluster Princess"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Abadango Cluster Princess
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Earth (Replacement Dimension)
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_red_f767b2"
+          >
+            Dead
+          </p>
+          <img
+            alt="Beth Smith"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Beth Smith
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Earth (Replacement Dimension)
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_red_f767b2"
+          >
+            Dead
+          </p>
+          <img
+            alt="Beth Smith"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Beth Smith
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Earth (Replacement Dimension)
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_red_f767b2"
+          >
+            Dead
+          </p>
+          <img
+            alt="Summer Smith"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Summer Smith
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Earth (Replacement Dimension)
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_red_f767b2"
+          >
+            Dead
+          </p>
+          <img
+            alt="Rick Sanchez"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Rick Sanchez
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Earth (Replacement Dimension)
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_red_f767b2"
+          >
+            Dead
+          </p>
+          <img
+            alt="Albert Einstein"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Albert Einstein
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Earth (Replacement Dimension)
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_green_f767b2"
+          >
+            Alive
+          </p>
+          <img
+            alt="Morty Smith"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Morty Smith
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Citadel of Ricks
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_red_f767b2"
+          >
+            Dead
+          </p>
+          <img
+            alt="Abradolf Lincler"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Abradolf Lincler
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Earth (Replacement Dimension)
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_red_f767b2"
+          >
+            Dead
+          </p>
+          <img
+            alt="Adjudicator Rick"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Adjudicator Rick
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Earth (Replacement Dimension)
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_red_f767b2"
+          >
+            Dead
+          </p>
+          <img
+            alt="Agency Director"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Agency Director
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Earth (Replacement Dimension)
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_red_f767b2"
+          >
+            Dead
+          </p>
+          <img
+            alt="Abadango Cluster Princess"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Abadango Cluster Princess
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Earth (Replacement Dimension)
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_red_f767b2"
+          >
+            Dead
+          </p>
+          <img
+            alt="Beth Smith"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Beth Smith
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Earth (Replacement Dimension)
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_red_f767b2"
+          >
+            Dead
+          </p>
+          <img
+            alt="Beth Smith"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Beth Smith
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Earth (Replacement Dimension)
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_red_f767b2"
+          >
+            Dead
+          </p>
+          <img
+            alt="Summer Smith"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Summer Smith
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Earth (Replacement Dimension)
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_red_f767b2"
+          >
+            Dead
+          </p>
+          <img
+            alt="Rick Sanchez"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Rick Sanchez
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Earth (Replacement Dimension)
+            </p>
+          </div>
+        </li>
+        <li
+          class="_card_f767b2"
+          data-testid="card"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_red_f767b2"
+          >
+            Dead
+          </p>
+          <img
+            alt="Albert Einstein"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Albert Einstein
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Earth (Replacement Dimension)
+            </p>
+          </div>
+        </li>
+      </ul>
+      <div
+        class="_pagination_4a2aa2"
+      >
+        <button
+          class="_pagination__controls_4a2aa2"
+          data-testid="prev-page"
+          disabled=""
+          type="button"
+        >
+          &lt;
+        </button>
+        <span
+          class="_pagination__page_4a2aa2"
+          data-testid="pagination-result"
+        >
+          1
+           / 
+          1
+        </span>
+        <button
+          class="_pagination__controls_4a2aa2"
+          data-testid="next-page"
+          disabled=""
+          type="button"
+        >
+          &gt;
+        </button>
+      </div>
+    </main>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
