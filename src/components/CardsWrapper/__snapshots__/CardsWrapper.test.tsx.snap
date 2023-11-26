@@ -9,22 +9,27 @@ exports[`CardsWrapper component > renders correctly CardsWrapper component 1`] =
         class="_main__characters_4618fc _characters_4618fc"
       >
         <li
-          class="_card_1f2933"
+          class="_card_f767b2"
           data-testid="card"
         >
           <p
-            class="_card__label_1f2933 _card__label_green_1f2933"
+            class="_card__label_f767b2 _card__label_green_f767b2"
           >
             Alive
           </p>
           <img
             alt="Morty Smith"
-            class="_card__image_1f2933"
-            data-testid="card-image"
-            src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
           />
           <div
-            class="_card__content_1f2933"
+            class="_card__content_f767b2"
           >
             <h2>
               Morty Smith
@@ -41,22 +46,27 @@ exports[`CardsWrapper component > renders correctly CardsWrapper component 1`] =
           </div>
         </li>
         <li
-          class="_card_1f2933"
+          class="_card_f767b2"
           data-testid="card"
         >
           <p
-            class="_card__label_1f2933 _card__label_red_1f2933"
+            class="_card__label_f767b2 _card__label_red_f767b2"
           >
             Dead
           </p>
           <img
             alt="Albert Einstein"
-            class="_card__image_1f2933"
-            data-testid="card-image"
-            src="https://rickandmortyapi.com/api/character/avatar/11.jpeg"
+            data-nimg="1"
+            decoding="async"
+            fetchpriority="high"
+            height="250"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
           />
           <div
-            class="_card__content_1f2933"
+            class="_card__content_f767b2"
           >
             <h2>
               Albert Einstein
@@ -80,22 +90,27 @@ exports[`CardsWrapper component > renders correctly CardsWrapper component 1`] =
       class="_main__characters_4618fc _characters_4618fc"
     >
       <li
-        class="_card_1f2933"
+        class="_card_f767b2"
         data-testid="card"
       >
         <p
-          class="_card__label_1f2933 _card__label_green_1f2933"
+          class="_card__label_f767b2 _card__label_green_f767b2"
         >
           Alive
         </p>
         <img
           alt="Morty Smith"
-          class="_card__image_1f2933"
-          data-testid="card-image"
-          src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
+          data-nimg="1"
+          decoding="async"
+          fetchpriority="high"
+          height="250"
+          src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=640&q=75"
+          srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=640&q=75 2x"
+          style="color: transparent;"
+          width="250"
         />
         <div
-          class="_card__content_1f2933"
+          class="_card__content_f767b2"
         >
           <h2>
             Morty Smith
@@ -112,22 +127,27 @@ exports[`CardsWrapper component > renders correctly CardsWrapper component 1`] =
         </div>
       </li>
       <li
-        class="_card_1f2933"
+        class="_card_f767b2"
         data-testid="card"
       >
         <p
-          class="_card__label_1f2933 _card__label_red_1f2933"
+          class="_card__label_f767b2 _card__label_red_f767b2"
         >
           Dead
         </p>
         <img
           alt="Albert Einstein"
-          class="_card__image_1f2933"
-          data-testid="card-image"
-          src="https://rickandmortyapi.com/api/character/avatar/11.jpeg"
+          data-nimg="1"
+          decoding="async"
+          fetchpriority="high"
+          height="250"
+          src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75"
+          srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F11.jpeg&w=640&q=75 2x"
+          style="color: transparent;"
+          width="250"
         />
         <div
-          class="_card__content_1f2933"
+          class="_card__content_f767b2"
         >
           <h2>
             Albert Einstein
@@ -195,13 +215,6 @@ exports[`CardsWrapper component > renders correctly CardsWrapper component 1`] =
   "queryByText": [Function],
   "queryByTitle": [Function],
   "rerender": [Function],
-  "store": {
-    "@@observable": [Function],
-    "dispatch": [Function],
-    "getState": [Function],
-    "replaceReducer": [Function],
-    "subscribe": [Function],
-  },
   "unmount": [Function],
 }
 `;

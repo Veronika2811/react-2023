@@ -1,12 +1,52 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ErrorBoundary component > renders correctly ErrorBoundary component 1`] = `
+exports[`SearchForm component > renders correctly SearchForm component 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
-    <div />
+    <div>
+      <form
+        class="_input_642939"
+      >
+        <input
+          class="_input__box_642939"
+          data-testid="search-input"
+          name="search"
+          placeholder="Enter request"
+          type="text"
+          value=""
+        />
+        <button
+          class="_button_634e7c"
+          data-testid="search-button"
+          type="submit"
+        >
+          Search
+        </button>
+      </form>
+    </div>
   </body>,
-  "container": <div />,
+  "container": <div>
+    <form
+      class="_input_642939"
+    >
+      <input
+        class="_input__box_642939"
+        data-testid="search-input"
+        name="search"
+        placeholder="Enter request"
+        type="text"
+        value=""
+      />
+      <button
+        class="_button_634e7c"
+        data-testid="search-button"
+        type="submit"
+      >
+        Search
+      </button>
+    </form>
+  </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
   "findAllByDisplayValue": [Function],

@@ -10,6 +10,7 @@ exports[`Pagination component > renders correctly Pagination component 1`] = `
       >
         <button
           class="_pagination__controls_4a2aa2"
+          data-testid="prev-page"
           disabled=""
           type="button"
         >
@@ -17,10 +18,11 @@ exports[`Pagination component > renders correctly Pagination component 1`] = `
         </button>
         <span
           class="_pagination__page_4a2aa2"
+          data-testid="pagination-result"
         >
           1
            / 
-          25
+          2
         </span>
         <button
           class="_pagination__controls_4a2aa2"
@@ -38,6 +40,7 @@ exports[`Pagination component > renders correctly Pagination component 1`] = `
     >
       <button
         class="_pagination__controls_4a2aa2"
+        data-testid="prev-page"
         disabled=""
         type="button"
       >
@@ -45,10 +48,11 @@ exports[`Pagination component > renders correctly Pagination component 1`] = `
       </button>
       <span
         class="_pagination__page_4a2aa2"
+        data-testid="pagination-result"
       >
         1
          / 
-        25
+        2
       </span>
       <button
         class="_pagination__controls_4a2aa2"
@@ -109,13 +113,6 @@ exports[`Pagination component > renders correctly Pagination component 1`] = `
   "queryByText": [Function],
   "queryByTitle": [Function],
   "rerender": [Function],
-  "store": {
-    "@@observable": [Function],
-    "dispatch": [Function],
-    "getState": [Function],
-    "replaceReducer": [Function],
-    "subscribe": [Function],
-  },
   "unmount": [Function],
 }
 `;

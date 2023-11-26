@@ -1,9 +1,7 @@
 import { expect, it } from 'vitest';
-import { screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
 
 import ErrorBoundary from './ErrorBoundary';
-import renderWithProviders from '@/mock/renderWithProviders';
 
 const ChildErrorBoundary = () => {
   throw new Error('Testing ErrorBoundary component');
@@ -11,12 +9,12 @@ const ChildErrorBoundary = () => {
 
 describe('ErrorBoundary component', () => {
   it('renders correctly ErrorBoundary component', () => {
-    const container = renderWithProviders(<ErrorBoundary />);
+    const container = render(<ErrorBoundary />);
     expect(container).toMatchSnapshot();
   });
 
   it('should be displayed ErrorBoundary component', () => {
-    renderWithProviders(
+    render(
       <ErrorBoundary>
         <ChildErrorBoundary />
       </ErrorBoundary>

@@ -1,5 +1,5 @@
-import { configureStore } from '@reduxjs/toolkit';
 import { createWrapper } from 'next-redux-wrapper';
+import { configureStore } from '@reduxjs/toolkit';
 
 import { apiSlice } from './apiSlice';
 
@@ -8,7 +8,8 @@ export const makeStore = () =>
     reducer: {
       [apiSlice.reducerPath]: apiSlice.reducer,
     },
-    middleware: (gDM) => gDM().concat(apiSlice.middleware),
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(apiSlice.middleware),
   });
 
 export type AppStore = ReturnType<typeof makeStore>;

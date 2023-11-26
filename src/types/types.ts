@@ -1,13 +1,9 @@
-export interface IDataError {
-  error?: string;
-}
-
 export interface IDataInfo {
   count: number;
   pages: number;
 }
 
-export interface IDataResult extends IDataError {
+export interface IDataResult {
   created: string;
   episode: string[];
   gender: string;
@@ -28,7 +24,7 @@ export interface IDataResult extends IDataError {
   url: string;
 }
 
-export interface IData extends IDataError {
+export interface IData {
   info: IDataInfo;
   results: IDataResult[];
 }

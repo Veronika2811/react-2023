@@ -1,24 +1,19 @@
 import { useRouter } from 'next/router';
 
-import Card from '../Card/Card';
-import changePerPage from '@/utils/changePerPage/changePerPage';
+import Card from './Card/Card';
 import { IDataResult } from '@/types/types';
-import { ADDITIONAL_VALUE_PER_PAGE } from '@/constants/constants';
+import changePerPage from '@/utils/changePerPage/changePerPage';
+import { ADDITIONAL_VALUE_PER_PAGE } from '@/utils/constants/constants';
 
 import classes from './CardsWrapper.module.css';
 
-interface ICardsWrapperProps {
-  cards: IDataResult[];
-  currentPage: number;
-}
-
-const CardsWrapper = ({ cards, currentPage }: ICardsWrapperProps) => {
+const CardsWrapper = ({ cards }: { cards: IDataResult[] }) => {
   const router = useRouter();
-  const { perPage } = router.query;
+  const { page, perPage } = router.query;
 
   const characters =
-    perPage && +perPage === ADDITIONAL_VALUE_PER_PAGE
-      ? changePerPage(cards, currentPage, +perPage)
+    perPage === ADDITIONAL_VALUE_PER_PAGE
+      ? changePerPage(cards, page, perPage)
       : cards;
 
   return (

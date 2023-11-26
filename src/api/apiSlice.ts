@@ -1,13 +1,12 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { HYDRATE } from 'next-redux-wrapper';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { IData, IDataResult } from '@/types/types';
 import {
   ADDITIONAL_VALUE_PER_PAGE,
   BASE_URL,
   DEFAULT_PAGE,
-  DEFAULT_VALUE_PER_PAGE,
-} from '@/constants/constants';
+} from '@/utils/constants/constants';
 
 export const apiSlice = createApi({
   reducerPath: 'api',
@@ -23,31 +22,24 @@ export const apiSlice = createApi({
     getCharacters: build.query<
       IData,
       {
-        query: string | string[] | undefined;
-        currentPage: string | string[] | undefined;
-        perPage: string | string[] | undefined;
+        currentPage: string;
+        perPage: string;
+        query?: string;
       }
     >({
-      query: ({
-        query = '',
-        currentPage = DEFAULT_PAGE,
-        perPage = DEFAULT_VALUE_PER_PAGE,
-      }) => {
+      query: ({ query, currentPage, perPage }) => {
         const page =
           perPage &&
           currentPage &&
-          +perPage === ADDITIONAL_VALUE_PER_PAGE &&
+          perPage === ADDITIONAL_VALUE_PER_PAGE &&
           +currentPage > +DEFAULT_PAGE
             ? Math.ceil(+currentPage / 2)
             : currentPage;
 
-        return `/?page=${page}&name=${query}`;
+        return `/?page=${page}${query ? `&name=${query}` : ''}`;
       },
     }),
-    getCharacterItem: build.query<
-      IDataResult,
-      { id: string | string[] | undefined }
-    >({
+    getCharacterItem: build.query<IDataResult, { id: string }>({
       query: ({ id }) => `/${id}`,
     }),
   }),

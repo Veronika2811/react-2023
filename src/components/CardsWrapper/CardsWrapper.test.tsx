@@ -1,43 +1,49 @@
 import { expect, it } from 'vitest';
-import { screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
 
 import CardsWrapper from './CardsWrapper';
-import renderWithProviders from '@/mock/renderWithProviders';
+import { ADDITIONAL_VALUE_PER_PAGE } from '@/utils/constants/constants';
 import {
   AlbertMock,
   MortyMock,
   initialCharacterArrayMock,
 } from '@/mock/cardsMock';
-import { store } from '@/store/store';
-import { charactersChangePerPage } from '@/store/slice/charactersSlice';
+import RenderWithNextRouter from '@/mock/RenderWithNextRouter';
 
 describe('CardsWrapper component', () => {
   it('renders correctly CardsWrapper component', () => {
-    const container = renderWithProviders(
-      <CardsWrapper cards={[MortyMock, AlbertMock]} currentPage={1} />
+    const container = render(
+      <RenderWithNextRouter>
+        <CardsWrapper cards={[MortyMock, AlbertMock]} />
+      </RenderWithNextRouter>
     );
+
     expect(container).toMatchSnapshot();
   });
 
   it('should display the specified number of cards', () => {
-    renderWithProviders(
-      <CardsWrapper cards={[MortyMock, AlbertMock]} currentPage={1} />
+    const MOCK_CARDS = [MortyMock, AlbertMock];
+
+    render(
+      <RenderWithNextRouter>
+        <CardsWrapper cards={MOCK_CARDS} />
+      </RenderWithNextRouter>
     );
 
     const cards = screen.getAllByTestId('card');
-    expect(cards).toHaveLength(2);
+    expect(cards).toHaveLength(MOCK_CARDS.length);
   });
 
   it('should render 10 cards', () => {
-    store.dispatch(charactersChangePerPage(10));
-
-    renderWithProviders(
-      <CardsWrapper cards={initialCharacterArrayMock} currentPage={1} />,
-      { store }
+    render(
+      <RenderWithNextRouter
+        queryParams={{ perPage: ADDITIONAL_VALUE_PER_PAGE }}
+      >
+        <CardsWrapper cards={initialCharacterArrayMock} />
+      </RenderWithNextRouter>
     );
 
     const cards = screen.getAllByTestId('card');
-    expect(cards).toHaveLength(10);
+    expect(cards).toHaveLength(+ADDITIONAL_VALUE_PER_PAGE);
   });
 });

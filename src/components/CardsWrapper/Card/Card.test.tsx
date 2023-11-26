@@ -1,33 +1,30 @@
-import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtime';
 import { expect, it } from 'vitest';
-import { screen, fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtime';
 
-import CardDetails from './CardDetails';
-import { DEFAULT_QUERY_PARAMS } from '@/utils/constants/constants';
-import RenderWithNextRouter from '@/mock/RenderWithNextRouter';
+import Card from './Card';
 import { MortyMock } from '@/mock/cardsMock';
+import RenderWithNextRouter from '@/mock/RenderWithNextRouter';
 import { createMockRouter } from '@/mock/createMockRouter';
+import { DEFAULT_QUERY_PARAMS } from '@/utils/constants/constants';
 
-describe('CardDetails component', () => {
-  it('renders correctly CardDetails component', () => {
+describe('Card component', () => {
+  it('renders correctly Card component', () => {
     const container = render(
       <RenderWithNextRouter>
-        <CardDetails card={MortyMock} />
+        <Card card={MortyMock} />
       </RenderWithNextRouter>
     );
 
     expect(container).toMatchSnapshot();
   });
 
-  it('should display relevant character data CardDetails component', () => {
+  it('should display relevant character data Card component', () => {
     render(
       <RenderWithNextRouter>
-        <CardDetails card={MortyMock} />
+        <Card card={MortyMock} />
       </RenderWithNextRouter>
     );
-
-    const cardDetails = screen.getByTestId('card-details');
-    expect(cardDetails).toBeInTheDocument();
 
     const { status, name, gender, species, location } = MortyMock;
 
@@ -47,27 +44,24 @@ describe('CardDetails component', () => {
     expect(LOCATION_NAME).toBeInTheDocument();
   });
 
-  it('should close the component with character details and leave the existing ones query params', () => {
+  it('should preserve the existing name query params in the router and open the parts card when you click', () => {
     const router = createMockRouter({
-      query: {
-        details: MortyMock.id.toString(),
-        name: MortyMock.name,
-        page: DEFAULT_QUERY_PARAMS.currentPage,
-        perPage: DEFAULT_QUERY_PARAMS.perPage,
-      },
+      query: { name: MortyMock.name },
     });
 
     render(
       <RouterContext.Provider value={router}>
-        <CardDetails card={MortyMock} />
+        <Card card={MortyMock} />
       </RouterContext.Provider>
     );
 
-    const closeButton = screen.getByTestId('close-details');
-    fireEvent.click(closeButton);
+    const card = screen.getByTestId('card');
+    fireEvent.click(card);
 
     expect(router.push).toBeCalledWith({
+      pathname: '/',
       query: {
+        details: MortyMock.id,
         name: MortyMock.name,
         page: DEFAULT_QUERY_PARAMS.currentPage,
         perPage: DEFAULT_QUERY_PARAMS.perPage,
@@ -75,20 +69,22 @@ describe('CardDetails component', () => {
     });
   });
 
-  it('should close the character details component and set the query parameters to default', async () => {
+  it('should set the query parameters to default and open the parts card when you click', async () => {
     const router = createMockRouter({});
 
     render(
       <RouterContext.Provider value={router}>
-        <CardDetails card={MortyMock} />
+        <Card card={MortyMock} />
       </RouterContext.Provider>
     );
 
-    const closeButton = screen.getByTestId('close-details');
-    fireEvent.click(closeButton);
+    const card = screen.getByTestId('card');
+    fireEvent.click(card);
 
     expect(router.push).toBeCalledWith({
+      pathname: '/',
       query: {
+        details: MortyMock.id,
         page: DEFAULT_QUERY_PARAMS.currentPage,
         perPage: DEFAULT_QUERY_PARAMS.perPage,
       },

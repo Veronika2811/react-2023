@@ -6,30 +6,110 @@ exports[`CardDetails component > renders correctly CardDetails component 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="_details_889028"
+        class="_modal_889028"
       >
         <div
-          class="_preloader__wrapper_3426d0"
-          data-testid="preloader"
+          class="_details_889028"
         >
-          <div
-            class="_preloader__inner_3426d0"
-          />
+          <li
+            class="_card_f767b2 _card__details_889028"
+            data-testid="card-details"
+          >
+            <p
+              class="_card__label_f767b2 _card__label_green_f767b2"
+            >
+              Alive
+            </p>
+            <img
+              alt="Morty Smith"
+              data-nimg="1"
+              decoding="async"
+              height="250"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="250"
+            />
+            <div
+              class="_card__content_f767b2"
+            >
+              <h2>
+                Morty Smith
+              </h2>
+              <p>
+                Gender: Male
+              </p>
+              <p>
+                Species: Human
+              </p>
+              <p>
+                Location: Citadel of Ricks
+              </p>
+            </div>
+          </li>
+          <button
+            class="_button_634e7c"
+            data-testid="close-details"
+            type="button"
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="_details_889028"
+      class="_modal_889028"
     >
       <div
-        class="_preloader__wrapper_3426d0"
-        data-testid="preloader"
+        class="_details_889028"
       >
-        <div
-          class="_preloader__inner_3426d0"
-        />
+        <li
+          class="_card_f767b2 _card__details_889028"
+          data-testid="card-details"
+        >
+          <p
+            class="_card__label_f767b2 _card__label_green_f767b2"
+          >
+            Alive
+          </p>
+          <img
+            alt="Morty Smith"
+            data-nimg="1"
+            decoding="async"
+            height="250"
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Frickandmortyapi.com%2Fapi%2Fcharacter%2Favatar%2F2.jpeg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="250"
+          />
+          <div
+            class="_card__content_f767b2"
+          >
+            <h2>
+              Morty Smith
+            </h2>
+            <p>
+              Gender: Male
+            </p>
+            <p>
+              Species: Human
+            </p>
+            <p>
+              Location: Citadel of Ricks
+            </p>
+          </div>
+        </li>
+        <button
+          class="_button_634e7c"
+          data-testid="close-details"
+          type="button"
+        >
+          Close
+        </button>
       </div>
     </div>
   </div>,
@@ -83,13 +163,6 @@ exports[`CardDetails component > renders correctly CardDetails component 1`] = `
   "queryByText": [Function],
   "queryByTitle": [Function],
   "rerender": [Function],
-  "store": {
-    "@@observable": [Function],
-    "dispatch": [Function],
-    "getState": [Function],
-    "replaceReducer": [Function],
-    "subscribe": [Function],
-  },
   "unmount": [Function],
 }
 `;

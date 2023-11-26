@@ -1,12 +1,50 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ErrorBoundary component > renders correctly ErrorBoundary component 1`] = `
+exports[`Select component > renders correctly Select component 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
-    <div />
+    <div>
+      <select
+        class="_select_654fd1"
+        data-testid="select"
+        name="count-elements"
+      >
+        <option
+          data-testid="option"
+          value="20"
+        >
+          20 cards
+        </option>
+        <option
+          data-testid="option"
+          value="10"
+        >
+          10 cards
+        </option>
+      </select>
+    </div>
   </body>,
-  "container": <div />,
+  "container": <div>
+    <select
+      class="_select_654fd1"
+      data-testid="select"
+      name="count-elements"
+    >
+      <option
+        data-testid="option"
+        value="20"
+      >
+        20 cards
+      </option>
+      <option
+        data-testid="option"
+        value="10"
+      >
+        10 cards
+      </option>
+    </select>
+  </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
   "findAllByDisplayValue": [Function],

@@ -1,68 +1,66 @@
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+import { MouseEvent } from 'react';
 
-import Preloader from '../UI/preloader/Preloader';
 import Button from '../UI/button/Button';
-import getStatusCharacterColor from '../../utils/getStatusCharacterColor/getStatusCharacterColor';
-import { useGetCharacterItemQuery } from '@/api/apiSlice';
+import { IDataResult } from '@/types/types';
+import getStatusCharacterColor from '@/utils/getStatusCharacterColor/getStatusCharacterColor';
+import { DEFAULT_QUERY_PARAMS } from '@/utils/constants/constants';
 
 import classes from './CardDetails.module.css';
-import classesCard from '../Card/Card.module.css';
+import classesCard from '../CardsWrapper/Card/Card.module.css';
 
-const CardDetails = ({ id }: { id: string | string[] }) => {
+const CardDetails = ({ card }: { card: IDataResult }) => {
   const router = useRouter();
-  const { name, page, perPage } = router.query;
 
-  const result = useGetCharacterItemQuery({
-    id,
-  });
+  const { status, image, gender, species, location } = card;
 
-  const { isLoading, error, data } = result;
+  const closeDetails = (e: MouseEvent<HTMLElement, globalThis.MouseEvent>) => {
+    const { name, page, perPage } = router.query;
+
+    if (e.target === e.currentTarget) {
+      router.push({
+        query: {
+          ...(name ? { name } : {}),
+          page: page || DEFAULT_QUERY_PARAMS.currentPage,
+          perPage: perPage || DEFAULT_QUERY_PARAMS.perPage,
+        },
+      });
+    }
+  };
 
   return (
-    <div className={classes.details}>
-      {isLoading && <Preloader />}
-
-      {!isLoading && !error && data && (
+    <div className={classes.modal} onClick={(e) => closeDetails(e)}>
+      <div className={classes.details}>
         <>
-          <li className={classesCard.card} data-testid="card-details">
+          <li
+            className={`${classesCard.card} ${classes.card__details}`}
+            data-testid="card-details"
+          >
             <p
               className={`${classesCard.card__label} ${
-                classesCard[getStatusCharacterColor(data.status)]
+                classesCard[getStatusCharacterColor(status)]
               }`}
             >
-              {data.status}
+              {status}
             </p>
-            <img
-              data-testid="card-image"
-              className={classesCard.card__image}
-              src={data.image}
-              alt={data.name}
-            />
+            <Image src={image} alt={card.name} width={250} height={250} />
             <div className={classesCard.card__content}>
-              <h2>{data.name}</h2>
-              <p>{`Gender: ${data.gender}`}</p>
-              <p>{`Species: ${data.species}`}</p>
-              <p>{`Location: ${data.location.name}`}</p>
+              <h2>{card.name}</h2>
+              <p>{`Gender: ${gender}`}</p>
+              <p>{`Species: ${species}`}</p>
+              <p>{`Location: ${location.name}`}</p>
             </div>
           </li>
           <Button
             type="button"
-            onClick={() => {
-              router.push({
-                pathname: '/',
-                query: {
-                  ...(name ? { name } : {}),
-                  page: page || 1,
-                  perPage: perPage || 20,
-                },
-              });
-            }}
+            onClick={(e) => closeDetails(e)}
             data-testid="close-details"
           >
             Close
           </Button>
         </>
-      )}
+      </div>
     </div>
   );
 };

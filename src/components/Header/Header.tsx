@@ -1,6 +1,6 @@
-import SearchForm from '../SearchForm/SearchForm';
-import Select from '../Select/Select';
-import ErrorButton from '../ErrorButton/ErrorButton';
+import SearchForm from './SearchForm/SearchForm';
+import Select from './Select/Select';
+import ErrorButton from './ErrorButton/ErrorButton';
 
 import classes from './Header.module.css';
 

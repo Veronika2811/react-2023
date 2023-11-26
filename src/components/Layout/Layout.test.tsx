@@ -1,14 +1,14 @@
 import { expect, it } from 'vitest';
 import { render } from '@testing-library/react';
 
-import Header from './Header';
+import Layout from './Layout';
 import RenderWithNextRouter from '@/mock/RenderWithNextRouter';
 
-describe('Header component', () => {
-  it('renders correctly Header component', () => {
+describe('Layout component', () => {
+  it('renders correctly Layout component', () => {
     const container = render(
       <RenderWithNextRouter>
-        <Header />
+        <Layout />
       </RenderWithNextRouter>
     );
 

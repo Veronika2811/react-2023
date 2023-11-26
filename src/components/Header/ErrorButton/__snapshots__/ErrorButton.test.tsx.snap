@@ -1,12 +1,28 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ErrorBoundary component > renders correctly ErrorBoundary component 1`] = `
+exports[`ErrorButton component > renders correctly ErrorButton component 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
-    <div />
+    <div>
+      <button
+        class="_button_634e7c"
+        data-testid="error-button"
+        type="button"
+      >
+        Error
+      </button>
+    </div>
   </body>,
-  "container": <div />,
+  "container": <div>
+    <button
+      class="_button_634e7c"
+      data-testid="error-button"
+      type="button"
+    >
+      Error
+    </button>
+  </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
   "findAllByDisplayValue": [Function],
