@@ -1,8 +1,8 @@
 import { vi } from 'vitest';
 import '@testing-library/jest-dom';
-import { setupServer } from "msw/node";
-import type { RequestHandler } from "msw";
-import type { GetServerSidePropsContext } from "next";
+import { setupServer } from 'msw/node';
+import type { RequestHandler } from 'msw';
+import type { GetServerSidePropsContext } from 'next';
 import { createRequest, createResponse } from 'node-mocks-http';
 
 afterAll(() => {
@@ -24,6 +24,6 @@ export const gsspCtx = (
   res: createResponse(),
   params: undefined,
   query: {},
-  resolvedUrl: "",
+  resolvedUrl: '',
   ...ctx,
 });
