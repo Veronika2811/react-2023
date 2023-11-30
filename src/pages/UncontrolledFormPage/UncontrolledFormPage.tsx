@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const UncontrolledFormPage = () => {
-  return (
-    <div>
-      UncontrolledFormPage
-    </div>
-  )
-}
+  return <div>UncontrolledFormPage</div>;
+};
 
-export default UncontrolledFormPage
+export default UncontrolledFormPage;
