@@ -13,11 +13,11 @@ interface ICardUser {
 
 type TInitialState = {
   user: ICardUser[];
-}
+};
 
 const initialState: TInitialState = {
   user: [],
-}
+};
 
 const charactersSlice = createSlice({
   name: 'FORM_SLICE',
@@ -31,8 +31,6 @@ const charactersSlice = createSlice({
 
 const { actions, reducer } = charactersSlice;
 
-export const {
-  saveDataUser,
-} = actions;
+export const { saveDataUser } = actions;
 
 export default reducer;
