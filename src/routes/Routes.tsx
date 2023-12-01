@@ -9,7 +9,6 @@ const Routes = createBrowserRouter([
   {
     path: '/',
     element: <MainPage />,
-    errorElement: <ErrorPage />,
   },
   {
     path: '/react-hook-form',
@@ -18,6 +17,10 @@ const Routes = createBrowserRouter([
   {
     path: '/uncontrolled-form',
     element: <UncontrolledFormPage />,
+  },
+  {
+    path: '*',
+    element: <ErrorPage />,
   },
 ]);
 
