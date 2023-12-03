@@ -6,8 +6,10 @@ import createPasswordLabel from '../../utils/createPasswordLabel';
 
 const PasswordStrengthMeter = ({
   password,
+  passwordProgressRef,
 }: {
-  password: string | undefined;
+  password?: string;
+  passwordProgressRef?: React.RefObject<HTMLProgressElement>;
 }) => {
   const [passwordProgress, setPasswordProgress] = useState(0);
 
@@ -24,24 +26,35 @@ const PasswordStrengthMeter = ({
             progressValue--;
           }
         });
-        setPasswordProgress(progressValue);
+
+        if (!passwordProgressRef) {
+          setPasswordProgress(progressValue);
+        }
       }
     }
-  }, [password]);
+  }, [password, passwordProgressRef]);
 
   return (
     <div className="password-strength-meter">
       <progress
         className={`password-strength-meter-progress strength-${createPasswordLabel(
-          passwordProgress
+          !passwordProgressRef
+            ? passwordProgress
+            : passwordProgressRef?.current?.value
         )}`}
         value={passwordProgress}
         max="4"
+        defaultValue="0"
+        ref={passwordProgressRef}
       />
       <br />
       <label className="password-strength-meter-label">
         <strong>Password strength:</strong>{' '}
-        {createPasswordLabel(passwordProgress)}
+        {createPasswordLabel(
+          !passwordProgressRef
+            ? passwordProgress
+            : passwordProgressRef?.current?.value
+        )}
       </label>
     </div>
   );

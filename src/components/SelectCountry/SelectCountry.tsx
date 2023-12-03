@@ -14,7 +14,7 @@ const SelectCountry = ({
 }: {
   inputRef?: React.RefObject<HTMLInputElement>;
   register?: UseFormRegister<ICardUserCommonFile>;
-  errors?: FieldErrors<ICardUserCommonFile>;
+  errors?: FieldErrors<ICardUserCommonFile> | string;
 }) => {
   return (
     <FormElement title="Country:">
@@ -38,9 +38,12 @@ const SelectCountry = ({
           })}
         </datalist>
       </>
-      {errors?.country && (
+      {errors && typeof errors === 'string' && (
+        <span className={classesInput.input__error}>{errors}</span>
+      )}
+      {errors && typeof errors !== 'string' && errors.country && (
         <span className={classesInput.input__error}>
-          {errors?.country?.message}
+          {errors.country?.message}
         </span>
       )}
     </FormElement>

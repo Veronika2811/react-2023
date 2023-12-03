@@ -1,4 +1,4 @@
-const createPasswordLabel = (result: number) => {
+const createPasswordLabel = (result: number | undefined) => {
   switch (result) {
     case 0:
       return 'Weak';

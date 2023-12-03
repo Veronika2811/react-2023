@@ -13,12 +13,14 @@ const InputCustom = ({
   register,
   errors,
   watch,
+  passwordProgressRef,
 }: {
   inputProps: IINPUT_PROPS;
   inputRef?: React.RefObject<HTMLInputElement>;
   register?: UseFormRegister<ICardUserCommonFile>;
-  errors?: FieldErrors<ICardUserCommonFile>;
+  errors?: FieldErrors<ICardUserCommonFile> | string;
   watch?: UseFormWatch<ICardUserCommonFile>;
+  passwordProgressRef?: React.RefObject<HTMLProgressElement>;
 }) => {
   const { title, type, placeholder, field } = inputProps;
 
@@ -34,8 +36,16 @@ const InputCustom = ({
         ref={inputRef}
         {...(register && { ...register(field) })}
       />
-      {field === 'password' && <PasswordStrengthMeter password={password} />}
-      {errors && errors[field] && (
+      {field === 'password' && (
+        <PasswordStrengthMeter
+          password={password}
+          passwordProgressRef={passwordProgressRef}
+        />
+      )}
+      {errors && typeof errors === 'string' && (
+        <span className={classes.input__error}>{errors}</span>
+      )}
+      {errors && typeof errors !== 'string' && errors[field] && (
         <span className={classes.input__error}>{errors[field]?.message}</span>
       )}
     </FormElement>

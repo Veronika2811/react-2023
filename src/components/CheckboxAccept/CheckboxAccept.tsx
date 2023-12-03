@@ -13,7 +13,7 @@ const CheckboxAccept = ({
 }: {
   inputRef?: React.RefObject<HTMLInputElement>;
   register?: UseFormRegister<ICardUserCommonFile>;
-  errors?: FieldErrors<ICardUserCommonFile>;
+  errors?: FieldErrors<ICardUserCommonFile> | string;
 }) => {
   return (
     <div className={classes.confirm_wrapper}>
@@ -25,9 +25,12 @@ const CheckboxAccept = ({
         />
         <span className={classes.form_item_title}>Accept T&C</span>
       </div>
-      {errors?.country && (
+      {errors && typeof errors === 'string' && (
+        <span className={classesInput.input__error}>{errors}</span>
+      )}
+      {errors && typeof errors !== 'string' && errors.acceptCheckbox && (
         <span className={classesInput.input__error}>
-          {errors?.acceptCheckbox?.message}
+          {errors.acceptCheckbox?.message}
         </span>
       )}
     </div>

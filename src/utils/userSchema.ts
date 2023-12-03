@@ -73,7 +73,7 @@ const userSchema = yup.object().shape({
         return ['image/jpeg', 'image/png'].includes(file[0].type);
       }
     )
-    .test('imageSize', 'The file is too largeю', (file) => {
+    .test('imageSize', 'The file is too large.', (file) => {
       if (!file.length) return false;
 
       return file[0].size <= MAX_FILE_SIZE;

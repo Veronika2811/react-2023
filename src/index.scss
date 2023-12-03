@@ -14,16 +14,6 @@
   background-color: #242424;
 }
 
-// body {
-//   // display: flex;
-//   // align-items: center;
-//   // justify-content: center;
-//   // flex-direction: column;
-//   // gap: 15px;
-//   // height: 100vh;
-//   // background-color: #242424;
-// }
-
 .button {
   padding: 10px;
   font-weight: bold;
@@ -77,17 +67,4 @@
     35px 20px,
     100% 100%,
     100% 100%;
-}
-
-.strength-Weak::-webkit-progress-value {
-  background-color: #f25f5c;
-}
-.strength-Fair::-webkit-progress-value {
-  background-color: #ffe066;
-}
-.strength-Good::-webkit-progress-value {
-  background-color: #247ba0;
-}
-.strength-Strong::-webkit-progress-value {
-  background-color: #70c1b3;
 }
