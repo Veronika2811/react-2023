@@ -28,6 +28,10 @@
   }
 }
 
+a.active .button {
+  background: #ced9d9;
+}
+
 .form {
   display: flex;
   flex-direction: column;

@@ -1,32 +1,33 @@
 import { FormEvent, useRef, useState } from 'react';
-import { INPUT_PROPS } from '../../utils/constants/constants';
+import { ValidationError } from 'yup';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import InputCustom from '../../components/InputCustom/InputCustom';
 import SwitchGender from '../../components/SwitchGender/SwitchGender';
 import SelectCountry from '../../components/SelectCountry/SelectCountry';
 import CheckboxAccept from '../../components/CheckboxAccept/CheckboxAccept';
 import userSchema from '../../utils/userSchema';
-import { ValidationError } from 'yup';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { saveDataUser } from '../../store/slice/formSlice';
 import getBase64 from '../../utils/getBase64';
+import { INPUT_PROPS } from '../../utils/constants/constants';
+import { saveDataUser } from '../../store/slice/formSlice';
 
 const UncontrolledFormPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [errorsForm, setErrorsForm] = useState<Record<string, string>>({});
+
   const nameInputRef = useRef<HTMLInputElement>(null);
   const ageInputRef = useRef<HTMLInputElement>(null);
   const emailInputRef = useRef<HTMLInputElement>(null);
   const passwordInputRef = useRef<HTMLInputElement>(null);
+  const passwordProgressRef = useRef<HTMLProgressElement>(null);
   const passwordConfirmationInputRef = useRef<HTMLInputElement>(null);
   const genderInputRef = useRef<HTMLInputElement>(null);
   const acceptCheckboxInputRef = useRef<HTMLInputElement>(null);
   const countryInputRef = useRef<HTMLInputElement>(null);
   const imageInputRef = useRef<HTMLInputElement>(null);
-
-  const [errorsForm, setErrorsForm] = useState<Record<string, string>>({});
-  const passwordProgressRef = useRef<HTMLProgressElement>(null);
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();

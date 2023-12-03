@@ -9,9 +9,9 @@ import SelectCountry from '../../components/SelectCountry/SelectCountry';
 import CheckboxAccept from '../../components/CheckboxAccept/CheckboxAccept';
 import userSchema from '../../utils/userSchema';
 import getBase64 from '../../utils/getBase64';
+import { INPUT_PROPS } from '../../utils/constants/constants';
 import { saveDataUser } from '../../store/slice/formSlice';
 import { ICardUserCommonFile } from '../../types/types';
-import { INPUT_PROPS } from '../../utils/constants/constants';
 
 const ReactHookFormPage = () => {
   const dispatch = useDispatch();

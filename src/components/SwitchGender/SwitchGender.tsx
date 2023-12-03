@@ -1,7 +1,7 @@
 import React from 'react';
+import { UseFormRegister } from 'react-hook-form';
 
 import FormElement from '../FormElement/FormElement';
-import { UseFormRegister } from 'react-hook-form';
 import { ICardUserCommonFile } from '../../types/types';
 
 import classes from './SwitchGender.module.scss';

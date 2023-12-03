@@ -1,12 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
 
 import FormElement from '../FormElement/FormElement';
+import { RootState } from '../../store/store';
 import { ICardUserCommonFile } from '../../types/types';
 
 import classesInput from '../InputCustom/InputCustom.module.scss';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
 
 const SelectCountry = ({
   inputRef,
@@ -18,7 +18,7 @@ const SelectCountry = ({
   errors?: FieldErrors<ICardUserCommonFile> | string;
 }) => {
   const countries = useSelector((state: RootState) => state.COUNTRIES_SLICE);
-  
+
   return (
     <FormElement title="Country:">
       <>
