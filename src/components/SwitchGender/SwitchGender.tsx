@@ -2,8 +2,7 @@ import React from 'react';
 
 import FormElement from '../FormElement/FormElement';
 import { UseFormRegister } from 'react-hook-form';
-
-import { ICardUser } from '../../types/types';
+import { ICardUserCommonFile } from '../../types/types';
 
 import classes from './SwitchGender.module.scss';
 
@@ -12,7 +11,7 @@ const SwitchGender = ({
   register,
 }: {
   inputRef?: React.RefObject<HTMLInputElement>;
-  register?: UseFormRegister<ICardUser>;
+  register?: UseFormRegister<ICardUserCommonFile>;
 }) => {
   return (
     <FormElement title="Male / Female">

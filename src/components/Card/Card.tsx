@@ -1,44 +1,43 @@
-import React from 'react';
+import { IDataFormSlice } from '../../types/types';
 
 import classes from './Card.module.scss';
 
-interface ICardList {
-  name: string;
-  age: number;
-  email: string;
-  password: string;
-  passwordConfirmation: string;
-  gender: string;
-  acceptCheckbox: boolean;
-  image: string;
-  country: string;
-}
+const Card = ({ user }: { user: IDataFormSlice }) => {
+  const {
+    image,
+    name,
+    age,
+    email,
+    password,
+    passwordConfirmation,
+    gender,
+    country,
+  } = user;
 
-const Card = ({ card }: { card: ICardList }) => {
   return (
     <div className={classes.card}>
-      <img className={classes.card__image} src={card.image} />
+      <img className={classes.card__image} src={image} />
       <div className={classes.card__description}>
-        <p className={classes.card_field}>
-          Name: <span className={classes.card_value}>{card.name}</span>
+        <p className={classes.card__item}>
+          Name: <span className={classes.card__value}>{name}</span>
         </p>
-        <p className={classes.card_field}>
-          Age: <span className={classes.card_value}>{card.age}</span>
+        <p className={classes.card__item}>
+          Age: <span className={classes.card__value}>{age}</span>
         </p>
-        <p className={classes.card_field}>
-          Email: <span className={classes.card_value}>{card.email}</span>
+        <p className={classes.card__item}>
+          Email: <span className={classes.card__value}>{email}</span>
         </p>
-        <p className={classes.card_field}>
+        <p className={classes.card__item}>
           Password:{' '}
-          <span className={classes.card_value}>
-            {card.password} / {card.passwordConfirmation}
+          <span className={classes.card__value}>
+            {password} / {passwordConfirmation}
           </span>
         </p>
-        <p className={classes.card_field}>
-          Gender: <span className={classes.card_value}>{card.gender}</span>
+        <p className={classes.card__item}>
+          Gender: <span className={classes.card__value}>{gender}</span>
         </p>
-        <p className={classes.card_field}>
-          Country: <span className={classes.card_value}>{card.country}</span>
+        <p className={classes.card__item}>
+          Country: <span className={classes.card__value}>{country}</span>
         </p>
       </div>
     </div>

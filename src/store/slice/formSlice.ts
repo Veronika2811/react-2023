@@ -1,24 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// import { TInitialState } from '../../types/types';
-interface TInitialState {
-  name: string;
-  age: number;
-  email: string;
-  password: string;
-  passwordConfirmation: string;
-  gender: string;
-  acceptCheckbox: boolean;
-  image: string;
-  country: string;
-}
+import { IInitialStateFormSlice } from '../../types/types';
 
-interface Tfd {
-  user: TInitialState[];
-}
-
-const initialState: Tfd = {
-  user: [],
+const initialState: IInitialStateFormSlice = {
+  users: [],
 };
 
 const charactersSlice = createSlice({
@@ -26,7 +11,7 @@ const charactersSlice = createSlice({
   initialState,
   reducers: {
     saveDataUser: (state, action) => {
-      state.user = state.user && [...state.user, action.payload];
+      state.users = state.users && [...state.users, action.payload];
     },
   },
 });

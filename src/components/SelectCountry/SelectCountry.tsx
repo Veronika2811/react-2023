@@ -3,7 +3,7 @@ import { FieldErrors, UseFormRegister } from 'react-hook-form';
 
 import FormElement from '../FormElement/FormElement';
 import INITIAL_STATE_COUNTRIES from '../../utils/constants/listCountries';
-import { ICardUser } from '../../types/types';
+import { ICardUserCommonFile } from '../../types/types';
 
 import classesInput from '../InputCustom/InputCustom.module.scss';
 
@@ -13,8 +13,8 @@ const SelectCountry = ({
   errors,
 }: {
   inputRef?: React.RefObject<HTMLInputElement>;
-  register?: UseFormRegister<ICardUser>;
-  errors?: FieldErrors<ICardUser>;
+  register?: UseFormRegister<ICardUserCommonFile>;
+  errors?: FieldErrors<ICardUserCommonFile>;
 }) => {
   return (
     <FormElement title="Country:">

@@ -1,19 +1,19 @@
-import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import userSchema from '../../utils/userSchema';
 import InputCustom from '../../components/InputCustom/InputCustom';
 import SwitchGender from '../../components/SwitchGender/SwitchGender';
 import SelectCountry from '../../components/SelectCountry/SelectCountry';
 import CheckboxAccept from '../../components/CheckboxAccept/CheckboxAccept';
-import { ICardUser } from '../../types/types';
+import userSchema from '../../utils/userSchema';
+import getBase64 from '../../utils/getBase64';
+import { saveDataUser } from '../../store/slice/formSlice';
+import { ICardUserCommonFile } from '../../types/types';
 import { INPUT_PROPS } from '../../utils/constants/constants';
 
 import classes from './ReactHookFormPage.module.scss';
-import getBase64 from '../../utils/getBase64';
-import { saveDataUser } from '../../store/slice/formSlice';
-import { useNavigate } from 'react-router-dom';
 
 const ReactHookFormPage = () => {
   const dispatch = useDispatch();
@@ -24,16 +24,18 @@ const ReactHookFormPage = () => {
     handleSubmit,
     formState: { errors, isValid },
     reset,
-  } = useForm<ICardUser>({
+    watch,
+  } = useForm<ICardUserCommonFile>({
     mode: 'onChange',
     resolver: yupResolver(userSchema),
   });
 
-  const onSubmit = async (data: ICardUser) => {
-    const image1 = data.image && (await getBase64(data.image[0]));
+  const onSubmit = async (data: ICardUserCommonFile) => {
+    const imageBase64 = data.image && (await getBase64(data.image[0]));
+
     const newData = {
       ...data,
-      image: image1,
+      image: imageBase64,
     };
 
     dispatch(saveDataUser(newData));
@@ -42,33 +44,37 @@ const ReactHookFormPage = () => {
   };
 
   return (
-    <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-      <h2 className={classes.form__title}>Create Card User</h2>
+    <>
+      <h1 className="title">React Hook Form Page</h1>
+      <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
+        <h2 className={classes.form__title}>Create Card User</h2>
 
-      {INPUT_PROPS.map((el, index) => {
-        return (
-          <InputCustom
-            key={index}
-            inputProp={el}
-            register={register}
-            errors={errors}
-          />
-        );
-      })}
+        {INPUT_PROPS.map((input, index) => {
+          return (
+            <InputCustom
+              key={index}
+              inputProps={input}
+              register={register}
+              errors={errors}
+              watch={watch}
+            />
+          );
+        })}
 
-      <SwitchGender register={register} />
+        <SwitchGender register={register} />
 
-      <SelectCountry register={register} errors={errors} />
+        <SelectCountry register={register} errors={errors} />
 
-      <CheckboxAccept register={register} errors={errors} />
+        <CheckboxAccept register={register} errors={errors} />
 
-      <input
-        type="submit"
-        value="Create card"
-        className={classes.input_submit}
-        disabled={!isValid}
-      />
-    </form>
+        <input
+          type="submit"
+          value="Create card"
+          className="button"
+          disabled={!isValid}
+        />
+      </form>
+    </>
   );
 };
 

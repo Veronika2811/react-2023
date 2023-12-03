@@ -30,15 +30,25 @@ const userSchema = yup.object().shape({
   password: yup
     .string()
     .required('Required field.')
-    .min(4, 'Min length password is 5 letters.')
+    // .min(4, 'Min length password is 4 letters.')
     .max(15, 'Max length password is 15 letters.')
+    .matches(/[0-9]/, 'Password must contain at least 1 digit')
     .matches(
-      /(?=.*[0-9])(?=.*[!@#$%^?&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/g,
-      'Invalid password.'
-    ),
+      /[!@#$%^?&*]/,
+      'Password must contain at least 1 special character (!@#$%^?&*)'
+    )
+    .matches(/[a-zа-яё]/, 'Password must contain at least 1 lowercased letter')
+    .matches(/[A-ZА-ЯЁ]/, 'Password must contain at least 1 uppercase letter'),
   passwordConfirmation: yup
     .string()
     .required('Required field.')
+    .matches(/[0-9]/, 'Password must contain at least 1 digit')
+    .matches(
+      /[!@#$%^?&*]/,
+      'Password must contain at least 1 special character (!@#$%^?&*)'
+    )
+    .matches(/[a-zа-яё]/, 'Password must contain at least 1 lowercased letter')
+    .matches(/[A-ZА-ЯЁ]/, 'Password must contain at least 1 uppercase letter')
     .oneOf([yup.ref('password')], 'Password mismatch.'),
   gender: yup
     .string()

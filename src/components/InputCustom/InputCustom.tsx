@@ -1,23 +1,28 @@
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
+import { FieldErrors, UseFormRegister, UseFormWatch } from 'react-hook-form';
 
 import FormElement from '../FormElement/FormElement';
+import PasswordStrengthMeter from '../PasswordStrengthMeter/PasswordStrengthMeter';
+import { IINPUT_PROPS } from '../../utils/constants/constants';
+import { ICardUserCommonFile } from '../../types/types';
 
 import classes from './/InputCustom.module.scss';
-import { ICardUser } from '../../types/types';
-import { IINPUT_PROPS } from '../../utils/constants/constants';
 
 const InputCustom = ({
-  inputProp,
+  inputProps,
   inputRef,
   register,
   errors,
+  watch,
 }: {
-  inputProp: IINPUT_PROPS;
+  inputProps: IINPUT_PROPS;
   inputRef?: React.RefObject<HTMLInputElement>;
-  register?: UseFormRegister<ICardUser>;
-  errors?: FieldErrors<ICardUser>;
+  register?: UseFormRegister<ICardUserCommonFile>;
+  errors?: FieldErrors<ICardUserCommonFile>;
+  watch?: UseFormWatch<ICardUserCommonFile>;
 }) => {
-  const { title, type, placeholder, field } = inputProp;
+  const { title, type, placeholder, field } = inputProps;
+
+  const password = watch ? watch('password') : undefined;
 
   return (
     <FormElement title={title}>
@@ -29,6 +34,7 @@ const InputCustom = ({
         ref={inputRef}
         {...(register && { ...register(field) })}
       />
+      {field === 'password' && <PasswordStrengthMeter password={password} />}
       {errors && errors[field] && (
         <span className={classes.input__error}>{errors[field]?.message}</span>
       )}

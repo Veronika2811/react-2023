@@ -1,25 +1,13 @@
-import React from 'react';
+import Card from '../Card/Card';
+import { IInitialStateFormSlice } from '../../types/types';
 
 import classes from './CardList.module.scss';
-import Card from '../Card/Card';
 
-interface ICardList {
-  name: string;
-  age: number;
-  email: string;
-  password: string;
-  passwordConfirmation: string;
-  gender: string;
-  acceptCheckbox: boolean;
-  image: string;
-  country: string;
-}
-
-const CardList = ({ cardList }: { cardList: ICardList[] }) => {
+const CardList = ({ users }: IInitialStateFormSlice) => {
   return (
     <div className={classes.card_list}>
-      {cardList.map((card, index) => (
-        <Card card={card} key={index} />
+      {users.map((user, index) => (
+        <Card user={user} key={index} />
       ))}
     </div>
   );

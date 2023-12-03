@@ -1,4 +1,4 @@
-export interface ICardUser {
+interface ICardUserCommon {
   name: string;
   age: number;
   email: string;
@@ -6,10 +6,17 @@ export interface ICardUser {
   passwordConfirmation: string;
   gender: string;
   acceptCheckbox: boolean;
-  image: FileList;
   country: string;
 }
 
-export interface TInitialState {
-  user: ICardUser[];
+export interface ICardUserCommonFile extends ICardUserCommon {
+  image: FileList;
+}
+
+export interface IDataFormSlice extends ICardUserCommon {
+  image: string;
+}
+
+export interface IInitialStateFormSlice {
+  users: IDataFormSlice[];
 }

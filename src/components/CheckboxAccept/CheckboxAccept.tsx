@@ -1,7 +1,7 @@
 import React from 'react';
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
 
-import { ICardUser } from '../../types/types';
+import { ICardUserCommonFile } from '../../types/types';
 
 import classes from './CheckboxAccept.module.scss';
 import classesInput from '../InputCustom/InputCustom.module.scss';
@@ -12,8 +12,8 @@ const CheckboxAccept = ({
   errors,
 }: {
   inputRef?: React.RefObject<HTMLInputElement>;
-  register?: UseFormRegister<ICardUser>;
-  errors?: FieldErrors<ICardUser>;
+  register?: UseFormRegister<ICardUserCommonFile>;
+  errors?: FieldErrors<ICardUserCommonFile>;
 }) => {
   return (
     <div className={classes.confirm_wrapper}>
