@@ -1,0 +1,12 @@
+.form__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form__title {
+  font-weight: bold;
+  color: teal;
+  font-size: 15px;
+}

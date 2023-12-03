@@ -1,23 +1,14 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { setupListeners } from '@reduxjs/toolkit/query';
-import reducer from './formSlice';
+import { configureStore } from '@reduxjs/toolkit';
 
-const rootReducer = combineReducers({
-  CHARACTERS_SLICE: reducer,
+import reducer from './slice/formSlice';
+import counterReducer from './slice/countriesSlice';
+
+export const store = configureStore({
+  reducer: {
+    FORM_SLICE: reducer,
+    COUNTRIES_SLICE: counterReducer,
+  },
 });
 
-export const setupStore = () => {
-  return configureStore({
-    reducer: {
-      CHARACTERS_SLICE: reducer,
-    },
-  });
-};
-
-export const store = setupStore();
-
-setupListeners(store.dispatch);
-
-export type RootState = ReturnType<typeof rootReducer>;
-export type AppStore = ReturnType<typeof setupStore>;
-export type AppDispatch = AppStore['dispatch'];
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

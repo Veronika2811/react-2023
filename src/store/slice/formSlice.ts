@@ -1,21 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface ICardUser {
+// import { TInitialState } from '../../types/types';
+interface TInitialState {
   name: string;
   age: number;
   email: string;
   password: string;
+  passwordConfirmation: string;
   gender: string;
   acceptCheckbox: boolean;
   image: string;
   country: string;
 }
 
-type TInitialState = {
-  user: ICardUser[];
-};
+interface Tfd {
+  user: TInitialState[];
+}
 
-const initialState: TInitialState = {
+const initialState: Tfd = {
   user: [],
 };
 
@@ -24,7 +26,7 @@ const charactersSlice = createSlice({
   initialState,
   reducers: {
     saveDataUser: (state, action) => {
-      state.user = action.payload;
+      state.user = state.user && [...state.user, action.payload];
     },
   },
 });
