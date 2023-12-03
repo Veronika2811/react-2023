@@ -15,6 +15,9 @@ const CheckboxAccept = ({
   register?: UseFormRegister<ICardUserCommonFile>;
   errors?: FieldErrors<ICardUserCommonFile> | string;
 }) => {
+  const errorMessage =
+    typeof errors === 'string' ? errors : errors?.acceptCheckbox?.message;
+
   return (
     <div className={classes.confirm_wrapper}>
       <div className={classes.input_checkbox}>
@@ -25,13 +28,8 @@ const CheckboxAccept = ({
         />
         <span className={classes.form_item_title}>Accept T&C</span>
       </div>
-      {errors && typeof errors === 'string' && (
-        <span className={classesInput.input__error}>{errors}</span>
-      )}
-      {errors && typeof errors !== 'string' && errors.acceptCheckbox && (
-        <span className={classesInput.input__error}>
-          {errors.acceptCheckbox?.message}
-        </span>
+      {errorMessage && (
+        <span className={classesInput.input__error}>{errorMessage}</span>
       )}
     </div>
   );

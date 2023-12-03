@@ -26,6 +26,13 @@ const InputCustom = ({
 
   const password = watch ? watch('password') : undefined;
 
+  const errorMessage =
+    errors && typeof errors === 'string'
+      ? errors
+      : errors && typeof errors !== 'string' && errors[field]
+        ? errors[field]?.message
+        : undefined;
+
   return (
     <FormElement title={title}>
       <input
@@ -42,11 +49,8 @@ const InputCustom = ({
           passwordProgressRef={passwordProgressRef}
         />
       )}
-      {errors && typeof errors === 'string' && (
-        <span className={classes.input__error}>{errors}</span>
-      )}
-      {errors && typeof errors !== 'string' && errors[field] && (
-        <span className={classes.input__error}>{errors[field]?.message}</span>
+      {errorMessage && (
+        <span className={classes.input__error}>{errorMessage}</span>
       )}
     </FormElement>
   );

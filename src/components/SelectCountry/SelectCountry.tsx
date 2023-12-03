@@ -19,6 +19,9 @@ const SelectCountry = ({
 }) => {
   const countries = useSelector((state: RootState) => state.COUNTRIES_SLICE);
 
+  const errorMessage =
+    typeof errors === 'string' ? errors : errors?.country?.message;
+
   return (
     <FormElement title="Country:">
       <>
@@ -41,13 +44,8 @@ const SelectCountry = ({
           })}
         </datalist>
       </>
-      {errors && typeof errors === 'string' && (
-        <span className={classesInput.input__error}>{errors}</span>
-      )}
-      {errors && typeof errors !== 'string' && errors.country && (
-        <span className={classesInput.input__error}>
-          {errors.country?.message}
-        </span>
+      {errorMessage && (
+        <span className={classesInput.input__error}>{errorMessage}</span>
       )}
     </FormElement>
   );
