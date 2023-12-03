@@ -1,0 +1,39 @@
+.input {
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid teal;
+  outline: none;
+  width: 100%;
+
+  &__error {
+    position: absolute;
+    color: red;
+    font-size: 10px;
+    bottom: -10px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+progress[value]::-webkit-progress-value {
+  border-radius: 15px;
+}
+
+progress[value='1']::-webkit-progress-value {
+  background-color: rgb(220, 20, 20);
+}
+progress[value='2']::-webkit-progress-value {
+  background-color: rgb(231, 159, 14);
+}
+progress[value='3']::-webkit-progress-value {
+  background-color: rgb(159, 231, 26);
+}
+progress[value='4']::-webkit-progress-value {
+  background-color: rgb(7, 159, 33);
+}
+
+input:focus {
+  outline: none;
+}

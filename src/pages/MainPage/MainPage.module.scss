@@ -1,0 +1,44 @@
+.card {
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  width: 250px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &_field {
+    font-size: 15px;
+  }
+
+  &_value {
+    font-style: italic;
+  }
+
+  &__image {
+    height: 250px;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  &__label {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: white;
+    font-weight: 700;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+
+  &__description {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
