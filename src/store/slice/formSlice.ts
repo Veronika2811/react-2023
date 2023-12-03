@@ -11,7 +11,7 @@ const charactersSlice = createSlice({
   initialState,
   reducers: {
     saveDataUser: (state, action) => {
-      state.users = state.users && [...state.users, action.payload];
+      state.users = state.users && [action.payload, ...state.users];
     },
   },
 });

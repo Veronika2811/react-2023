@@ -50,6 +50,7 @@ const UncontrolledFormPage = () => {
 
       const newData = {
         ...data,
+        gender: data.gender ? 'Female' : 'Male',
         image: imageBase64,
       };
 

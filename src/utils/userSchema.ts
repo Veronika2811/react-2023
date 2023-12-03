@@ -30,7 +30,6 @@ const userSchema = yup.object().shape({
   password: yup
     .string()
     .required('Required field.')
-    // .min(4, 'Min length password is 4 letters.')
     .max(15, 'Max length password is 15 letters.')
     .matches(/[0-9]/, 'Password must contain at least 1 digit')
     .matches(

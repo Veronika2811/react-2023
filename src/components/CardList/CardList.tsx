@@ -7,7 +7,7 @@ const CardList = ({ users }: IInitialStateFormSlice) => {
   return (
     <div className={classes.card_list}>
       {users.map((user, index) => (
-        <Card user={user} key={index} />
+        <Card user={user} key={index} lastCard={index === 0} />
       ))}
     </div>
   );

@@ -1,8 +1,15 @@
+import { useEffect, useState } from 'react';
 import { IDataFormSlice } from '../../types/types';
 
 import classes from './Card.module.scss';
 
-const Card = ({ user }: { user: IDataFormSlice }) => {
+const Card = ({
+  user,
+  lastCard,
+}: {
+  user: IDataFormSlice;
+  lastCard: boolean;
+}) => {
   const {
     image,
     name,
@@ -14,8 +21,17 @@ const Card = ({ user }: { user: IDataFormSlice }) => {
     country,
   } = user;
 
+  const [lastImage, setLastImage] = useState('card');
+
+  useEffect(() => {
+    setLastImage('card_last');
+    setTimeout(function () {
+      setLastImage('card');
+    }, 1000);
+  }, []);
+
   return (
-    <div className={classes.card}>
+    <div className={lastCard ? classes[lastImage] : classes.card}>
       <img className={classes.card__image} src={image} />
       <div className={classes.card__description}>
         <p className={classes.card__item}>
@@ -28,10 +44,11 @@ const Card = ({ user }: { user: IDataFormSlice }) => {
           Email: <span className={classes.card__value}>{email}</span>
         </p>
         <p className={classes.card__item}>
-          Password:{' '}
-          <span className={classes.card__value}>
-            {password} / {passwordConfirmation}
-          </span>
+          Password: <span className={classes.card__value}>{password}</span>
+        </p>
+        <p className={classes.card__item}>
+          Password Confirmation:{' '}
+          <span className={classes.card__value}>{passwordConfirmation}</span>
         </p>
         <p className={classes.card__item}>
           Gender: <span className={classes.card__value}>{gender}</span>
