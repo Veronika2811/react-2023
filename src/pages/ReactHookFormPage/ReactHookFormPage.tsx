@@ -13,8 +13,6 @@ import { saveDataUser } from '../../store/slice/formSlice';
 import { ICardUserCommonFile } from '../../types/types';
 import { INPUT_PROPS } from '../../utils/constants/constants';
 
-import classes from './ReactHookFormPage.module.scss';
-
 const ReactHookFormPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -46,9 +44,7 @@ const ReactHookFormPage = () => {
   return (
     <>
       <h1 className="title">React Hook Form Page</h1>
-      <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-        <h2 className={classes.form__title}>Create Card User</h2>
-
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
         {INPUT_PROPS.map((input, index) => {
           return (
             <InputCustom
